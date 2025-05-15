@@ -1,0 +1,10 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+api_students_stats:
+    path: /etablissement/api/students_stats
+    controller: App\Controller\EtablissementController::studentsStats
+    methods: GET
