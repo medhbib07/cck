@@ -5,9 +5,6 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Universite;
 use App\Entity\Etablissement;
-use App\Form\RegistrationType;
-
-use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-
 
 #[Route('/user')]
 final class UserController extends AbstractController
@@ -35,7 +31,7 @@ final class UserController extends AbstractController
             $role = $request->request->get('role');
             $email = $request->request->get('email');
             $password = $request->request->get('password');
-    
+
             if ($role === 'ROLE_UNIVERSITE') {
                 $user = new Universite();
                 $user->setNom($request->request->get('nom_universite'));
@@ -43,9 +39,23 @@ final class UserController extends AbstractController
                 $user = new Etablissement();
                 $user->setNom($request->request->get('nom_etablissement'));
                 $user->setEtype($request->request->get('etype'));
-                $user->setLocalisation($request->request->get('localisation'));
+                $user->setAdresse($request->request->get('adresse'));
+                $user->setCodePostal($request->request->get('code_postal'));
+                $user->setVille($request->request->get('ville'));
+                $user->setLatitude($request->request->get('latitude') ? (float)$request->request->get('latitude') : null);
+                $user->setLongitude($request->request->get('longitude') ? (float)$request->request->get('longitude') : null);
+                $user->setTelephone($request->request->get('telephone'));
+                $user->setDescription($request->request->get('description'));
+                try {
+                    $dateCreation = $request->request->get('date_creation') ? new \DateTime($request->request->get('date_creation')) : null;
+                    $user->setDateCreation($dateCreation);
+                } catch (\Exception $e) {
+                    $this->addFlash('error', 'Date de création invalide.');
+                    return $this->redirectToRoute('app_register');
+                }
+                $user->setCapacite($request->request->get('capacite') ? (int)$request->request->get('capacite') : null);
                 $user->setSiteweb($request->request->get('siteweb'));
-                
+
                 $logoFile = $request->files->get('logo');
                 if ($logoFile) {
                     $newFilename = uniqid().'.'.$logoFile->guessExtension();
@@ -55,8 +65,7 @@ final class UserController extends AbstractController
                     );
                     $user->setLogo($newFilename);
                 }
-                
-                // Link to university if provided
+
                 if ($universiteId = $request->request->get('universite_id')) {
                     $universite = $entityManager->getRepository(Universite::class)->find($universiteId);
                     if ($universite) {
@@ -66,20 +75,19 @@ final class UserController extends AbstractController
             } else {
                 $user = new User();
             }
-    
+
             $user->setEmail($email);
             $user->setPassword($passwordHasher->hashPassword($user, $password));
             $user->setRoles([$role]);
-    
+
             $entityManager->persist($user);
             $entityManager->flush();
-    
+
             return $this->redirectToRoute('app_login');
         }
-    
-        // For GET request, show the form
+
         $universites = $entityManager->getRepository(Universite::class)->findAll();
-        
+
         return $this->render('user/register.html.twig', [
             'universites' => $universites,
         ]);
@@ -114,10 +122,8 @@ final class UserController extends AbstractController
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->getString('_token'))) {
-            $entityManager->remove($user);
-            $entityManager->flush();
-        }
+        $entityManager->remove($user);
+        $entityManager->flush();
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }

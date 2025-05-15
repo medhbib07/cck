@@ -17,28 +17,70 @@ class UniversiteRepository extends ServiceEntityRepository
         parent::__construct($registry, Universite::class);
     }
 
-    //    /**
-    //     * @return GroupeUniversitaire[] Returns an array of GroupeUniversitaire objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('g')
-    //            ->andWhere('g.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('g.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+ public function findWithFilters(string $search, string $city, string $etype): array
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->leftJoin('u.etablissements', 'e');
 
-    //    public function findOneBySomeField($value): ?GroupeUniversitaire
-    //    {
-    //        return $this->createQueryBuilder('g')
-    //            ->andWhere('g.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        if ($search) {
+            $qb->andWhere('u.nom LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
+        }
+        if ($city) {
+            $qb->andWhere('e.ville = :city')
+               ->setParameter('city', $city);
+        }
+        if ($etype) {
+            $qb->andWhere('e.etype = :etype')
+               ->setParameter('etype', $etype);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findWithFiltersAndPagination(string $search, string $city, string $etype, int $page, int $limit): array
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->leftJoin('u.etablissements', 'e');
+
+        if ($search) {
+            $qb->andWhere('u.nom LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
+        }
+        if ($city) {
+            $qb->andWhere('e.ville = :city')
+               ->setParameter('city', $city);
+        }
+        if ($etype) {
+            $qb->andWhere('e.etype = :etype')
+               ->setParameter('etype', $etype);
+        }
+
+        return $qb->setFirstResult(($page - 1) * $limit)
+                  ->setMaxResults($limit)
+                  ->getQuery()
+                  ->getResult();
+    }
+
+    public function countWithFilters(string $search, string $city, string $etype): int
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->select('COUNT(DISTINCT u.id)')
+            ->leftJoin('u.etablissements', 'e');
+
+        if ($search) {
+            $qb->andWhere('u.nom LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
+        }
+        if ($city) {
+            $qb->andWhere('e.ville = :city')
+               ->setParameter('city', $city);
+        }
+        if ($etype) {
+            $qb->andWhere('e.etype = :etype')
+               ->setParameter('etype', $etype);
+        }
+
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
 }

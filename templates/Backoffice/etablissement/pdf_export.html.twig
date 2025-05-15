@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student List - {{ etablissement.nom }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #1e40af;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3b82f6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student List - {{ etablissement.nom }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>Student #</th>
+                <th>CIN</th>
+                <th>Section</th>
+                <th>Score</th>
+                <th>Niveau</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.nom }} {{ student.prenom }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.dateNaissance|date('Y-m-d') }}</td>
+                    <td>{{ student.numeroEtudiant }}</td>
+                    <td>{{ student.numCin }}</td>
+                    <td>{{ student.section }}</td>
+                    <td>{{ student.score|default('N/A') }}</td>
+                    <td>{{ student.niveau }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8" style="text-align: center;">No students found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="footer">
+        Generated on {{ "now"|date('Y-m-d H:i:s') }} by {{ etablissement.nom }}
+    </div>
+</body>
+</html>

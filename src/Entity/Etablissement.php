@@ -15,19 +15,42 @@ class Etablissement extends User
         self::ETYPE_PRIVATE
     ];
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 191)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $etype = null;  // Changed from Etype to etype for consistency
+    #[ORM\Column(length: 50)]
+    private ?string $etype = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $localisation = null;
+    #[ORM\Column(length: 191)]
+    private ?string $adresse = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $logo = null;  // Made nullable as it might not be required immediately
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $code_postal = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 100)]
+    private ?string $ville = null;
+
+    #[ORM\Column(type: 'float', nullable: true)]
+    private ?float $latitude = null;
+
+    #[ORM\Column(type: 'float', nullable: true)]
+    private ?float $longitude = null;
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $telephone = null;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(type: 'date', nullable: true)]
+    private ?\DateTimeInterface $date_creation = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $capacite = null;
+
+    #[ORM\Column(length: 191, nullable: true)]
+    private ?string $logo = null;
+
+    #[ORM\Column(length: 191, nullable: true)]
     private ?string $siteweb = null;
 
     #[ORM\ManyToOne(targetEntity: Universite::class, inversedBy: 'etablissements')]
@@ -50,27 +73,115 @@ class Etablissement extends User
         return $this->etype;
     }
 
-public function setEtype(string $etype): static
-{
-    if (!in_array($etype, self::EaTYPES)) {
-        throw new \InvalidArgumentException(sprintf(
-            "Invalid etype. Expected one of: %s",
-            implode(', ', self::EaTYPES)
-        ));
-    }
-    
-    $this->etype = $etype;
-    return $this;
-}
-
-    public function getLocalisation(): ?string
+    public function setEtype(string $etype): static
     {
-        return $this->localisation;
+        if (!in_array($etype, self::EaTYPES)) {
+            throw new \InvalidArgumentException(sprintf(
+                "Invalid etype. Expected one of: %s",
+                implode(', ', self::EaTYPES)
+            ));
+        }
+        
+        $this->etype = $etype;
+        return $this;
     }
 
-    public function setLocalisation(string $localisation): static
+    public function getAdresse(): ?string
     {
-        $this->localisation = $localisation;
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): static
+    {
+        $this->adresse = $adresse;
+        return $this;
+    }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->code_postal;
+    }
+
+    public function setCodePostal(?string $code_postal): static
+    {
+        $this->code_postal = $code_postal;
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): static
+    {
+        $this->ville = $ville;
+        return $this;
+    }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?float $latitude): static
+    {
+        $this->latitude = $latitude;
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?float $longitude): static
+    {
+        $this->longitude = $longitude;
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?string $telephone): static
+    {
+        $this->telephone = $telephone;
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->date_creation;
+    }
+
+    public function setDateCreation(?\DateTimeInterface $date_creation): static
+    {
+        $this->date_creation = $date_creation;
+        return $this;
+    }
+
+    public function getCapacite(): ?int
+    {
+        return $this->capacite;
+    }
+
+    public function setCapacite(?int $capacite): static
+    {
+        $this->capacite = $capacite;
         return $this;
     }
 
@@ -106,4 +217,4 @@ public function setEtype(string $etype): static
         $this->groupe = $groupe;
         return $this;
     }
-}
+}   

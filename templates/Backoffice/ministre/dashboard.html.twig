@@ -1,0 +1,569 @@
+{% extends 'Backoffice/base.html.twig' %}
+
+{% block title %}Ministre Dashboard{% endblock %}
+
+{% block body %}
+<div class="flex h-screen bg-gray-100">
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-30">
+        <div class="p-6">
+            <h1 class="text-2xl font-bold text-gray-900">Ministre Dashboard</h1>
+        </div>
+        <nav class="mt-6">
+            <a href="{{ path('ministre_dashboard') }}" class="flex items-center px-6 py-3 text-gray-700 bg-gray-100">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1-1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                Dashboard
+            </a>
+            <!-- Add more navigation links as needed -->
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col lg:ml-64">
+        <!-- Top Bar -->
+        <header class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                <div class="flex items-center">
+                    <button id="sidebar-toggle" class="lg:hidden text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <h2 class="ml-4 text-xl font-semibold text-gray-900">Overview</h2>
+                </div>
+                <div class="relative">
+                    <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700">
+                        {{ app.user.nom|default('Ministre') }}
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                        <a href="{{ path('app_logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <div class="max-w-7xl mx-auto">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-blue-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Total Universites</p>
+                                <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalUniversites|default(0) }}</p>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-green-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Total Etablissements</p>
+                                <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalEtablissements|default(0) }}</p>
+                            </div>
+                            <div class="p-3 bg-green-50 rounded-lg">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-yellow-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Total Students</p>
+                                <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalStudents|default(0) }}</p>
+                            </div>
+                            <div class="p-3 bg-yellow-50 rounded-lg">
+                                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-red-500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Average Score</p>
+                                <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.averageScore|default(0)|round(2) }}</p>
+                            </div>
+                            <div class="p-3 bg-red-50 rounded-lg">
+                                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 012-2h2a2 2 0 012 2v12a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Students per Universite</h3>
+                        <div class="relative h-64">
+                            <canvas id="universiteChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Etablissement Types</h3>
+                        <div class="relative h-64">
+                            <canvas id="etypeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Score Distribution</h3>
+                        <div class="relative h-64">
+                            <canvas id="scoreChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Section Enrollment</h3>
+                        <div class="relative h-64">
+                            <canvas id="sectionChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Age Distribution</h3>
+                        <div class="relative h-64">
+                            <canvas id="ageChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters and Table -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Etablissements</h3>
+                    <form action="{{ path('ministre_dashboard') }}" method="get" class="mb-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div>
+                                <label for="search" class="block text-sm font-medium text-gray-700">Search</label>
+                                <input type="text" name="search" id="search" value="{{ search }}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Name or city...">
+                            </div>
+                            <div>
+                                <label for="universite" class="block text-sm font-medium text-gray-700">Universite</label>
+                                <select name="universite" id="universite" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">All</option>
+                                    {% for univ in universites %}
+                                        <option value="{{ univ.nom }}" {{ universite == univ.nom ? 'selected' }}>{{ univ.nom }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                                <select name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">All</option>
+                                    {% for city in cities %}
+                                        <option value="{{ city }}" {{ city == city ? 'selected' }}>{{ city }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label for="etype" class="block text-sm font-medium text-gray-700">Type</label>
+                                <select name="etype" id="etype" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">All</option>
+                                    <option value="Publique" {{ etype == 'Publique' ? 'selected' }}>Publique</option>
+                                    <option value="Privée" {{ etype == 'Privée' ? 'selected' }}>Privée</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex justify-end">
+                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Filter
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Export Buttons -->
+                    <div class="flex justify-end mb-4">
+                        <form action="{{ path('ministre_dashboard') }}" method="post" class="inline mr-2">
+                            <input type="hidden" name="export_type" value="pdf">
+                            <input type="hidden" name="_token" value="{{ csrf_token('export_pdf') }}">
+                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Export PDF
+                            </button>
+                        </form>
+                        <form action="{{ path('ministre_dashboard') }}" method="post" class="inline">
+                            <input type="hidden" name="export_type" value="csv">
+                            <input type="hidden" name="_token" value="{{ csrf_token('export_csv') }}">
+                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Export CSV
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Universite</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ville</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Capacite</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                {% for etablissement in etablissements %}
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ etablissement.nom }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ etablissement.etype }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ etablissement.groupe ? etablissement.groupe.nom : 'N/A' }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ etablissement.ville }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ etablissement.capacite ?? 'N/A' }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            {# <a href="{{ path('etablissement_show', {'id': etablissement.id}) }}" class="text-blue-600 hover:text-blue-800">View</a> #}
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">No Etablissements found.</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    {% if total > limit %}
+                        <div class="mt-6 flex justify-between items-center">
+                            <p class="text-sm text-gray-700">
+                                Showing <span class="font-medium">{{ (page - 1) * limit + 1 }}</span> to <span class="font-medium">{{ page * limit < total ? page * limit : total }}</span> of <span class="font-medium">{{ total }}</span> results
+                            </p>
+                            <div class="flex space-x-2">
+                                {% if page > 1 %}
+                                    <a href="{{ path('ministre_dashboard', {'page': page - 1, 'search': search, 'universite': universite, 'city': city, 'etype': etype}) }}" class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Previous</a>
+                                {% endif %}
+                                {% if page * limit < total %}
+                                    <a href="{{ path('ministre_dashboard', {'page': page + 1, 'search': search, 'universite': universite, 'city': city, 'etype': etype}) }}" class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Next</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <!-- Universities Table -->
+    <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Universites</h3>
+        <form action="{{ path('ministre_dashboard') }}" method="get" class="mb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700">Search</label>
+                    <input type="text" name="search" id="search" value="{{ search }}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Name...">
+                </div>
+                <div>
+                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                    <select name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All</option>
+                        {% for city in cities %}
+                            <option value="{{ city }}" {{ city == city ? 'selected' }}>{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="etype" class="block text-sm font-medium text-gray-700">Type</label>
+                    <select name="etype" id="etype" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All</option>
+                        <option value="Publique" {{ etype == 'Publique' ? 'selected' }}>Publique</option>
+                        <option value="Privée" {{ etype == 'Privée' ? 'selected' }}>Privée</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4 flex justify-end">
+                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Filter
+                </button>
+            </div>
+        </form>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Etablissements</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Students</th>
+                        <th class="px დ6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for universite in universities %}
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ universite.nom }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ universite.etablissements|length }}</td>
+
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="px-6 py-4 text-center text-sm text-gray-500">No Universites found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination for Universities -->
+        {% if totalUniversities > limit %}
+            <div class="mt-6 flex justify-between items-center">
+                <p class="text-sm text-gray-700">
+                    Showing <span class="font-medium">{{ (page - 1) * limit + 1 }}</span> to <span class="font-medium">{{ page * limit < totalUniversities ? page * limit : totalUniversities }}</span> of <span class="font-medium">{{ totalUniversities }}</span> results
+                </p>
+                <div class="flex space-x-2">
+                    {% if page > 1 %}
+                        <a href="{{ path('ministre_dashboard', {'page': page - 1, 'search': search, 'city': city, 'etype': etype}) }}" class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Previous</a>
+                    {% endif %}
+                    {% if page * limit < totalUniversities %}
+                        <a href="{{ path('ministre_dashboard', {'page': page + 1, 'search': search, 'city': city, 'etype': etype}) }}" class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Next</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script>
+    // Sidebar toggle for mobile
+    document.getElementById('sidebar-toggle').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('-translate-x-full');
+    });
+
+    // User dropdown toggle
+    document.getElementById('user-menu-button').addEventListener('click', function() {
+        document.getElementById('user-dropdown').classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const button = document.getElementById('user-menu-button');
+        const dropdown = document.getElementById('user-dropdown');
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+
+    // Charts
+    document.addEventListener('DOMContentLoaded', function() {
+        Chart.register(ChartDataLabels);
+
+        // Universite Chart
+        const universiteCtx = document.getElementById('universiteChart').getContext('2d');
+        new Chart(universiteCtx, {
+            type: 'bar',
+            data: {
+                labels: [{{ chartData.universite_data|map(d => '"' ~ d.nom|escape('js') ~ '"')|join(', ')|raw }}],
+                datasets: [{
+                    label: 'Students per Universite',
+                    data: [{{ chartData.universite_data|map(d => d.count)|join(', ') }}],
+                    backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { color: "rgba(229, 231, 235, 1)" } },
+                    x: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { backgroundColor: 'rgba(0, 0, 0, 0.8)', titleFont: { size: 14 }, bodyFont: { size: 12 }, padding: 12, usePointStyle: true },
+                    datalabels: { anchor: 'end', align: 'top', formatter: (value) => value, font: { weight: 'bold', size: 12 }, color: '#000' },
+                    annotation: {
+                        annotations: {
+                            total: {
+                                type: 'label',
+                                content: 'Total: {{ stats.totalStudents|default(0) }}',
+                                position: 'top',
+                                xAdjust: -100,
+                                font: { size: 12 },
+                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                borderColor: 'rgba(59, 130, 246, 1)',
+                                borderWidth: 1,
+                                padding: 6
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Etype Chart
+        const etypeCtx = document.getElementById('etypeChart').getContext('2d');
+        new Chart(etypeCtx, {
+            type: 'pie',
+            data: {
+                labels: [{{ chartData.etype_data|map(d => '"' ~ d.etype|escape('js') ~ '"')|join(', ')|raw }}],
+                datasets: [{
+                    data: [{{ chartData.etype_data|map(d => d.count)|join(', ') }}],
+                    backgroundColor: ['rgba(59, 130, 246, 0.7)', 'rgba(239, 68, 68, 0.7)'],
+                    borderColor: ['rgba(59, 130, 246, 1)', 'rgba(239, 68, 68, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } },
+                    tooltip: { backgroundColor: 'rgba(0, 0, 0, 0.8)', titleFont: { size: 14 }, bodyFont: { size: 12 }, padding: 12, usePointStyle: true },
+                    datalabels: {
+                        formatter: (value, context) => {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            return total ? ((value / total) * 100).toFixed(1) + '%' : '0%';
+                        },
+                        color: '#fff',
+                        font: { weight: 'bold', size: 12 },
+                        padding: 6,
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        borderRadius: 4
+                    }
+                }
+            }
+        });
+
+        // Score Chart
+        const scoreCtx = document.getElementById('scoreChart').getContext('2d');
+        new Chart(scoreCtx, {
+            type: 'bar',
+            data: {
+                labels: [{{ chartData.score_data|map(d => '"' ~ d.range|escape('js') ~ '"')|join(', ')|raw }}],
+                datasets: [{
+                    label: 'Students by Score Range',
+                    data: [{{ chartData.score_data|map(d => d.count)|join(', ') }}],
+                    backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                    borderColor: 'rgba(16, 185, 129, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { color: "rgba(229, 231, 235, 1)" } },
+                    x: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { backgroundColor: 'rgba(0, 0, 0, 0.8)', titleFont: { size: 14 }, bodyFont: { size: 12 }, padding: 12, usePointStyle: true },
+                    datalabels: { anchor: 'end', align: 'top', formatter: (value) => value, font: { weight: 'bold', size: 12 }, color: '#000' },
+                    annotation: {
+                        annotations: {
+                            average: {
+                                type: 'line',
+                                yMin: {{ stats.averageScore|default(0) }},
+                                yMax: {{ stats.averageScore|default(0) }},
+                                borderColor: 'rgba(239, 68, 68, 1)',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: 'Avg: {{ stats.averageScore|default(0)|round(2) }}',
+                                    position: 'end',
+                                    backgroundColor: 'rgba(239, 68, 68, 0.8)',
+                                    font: { size: 12 },
+                                    padding: 6
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Section Chart
+        const sectionCtx = document.getElementById('sectionChart').getContext('2d');
+        new Chart(sectionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [{{ chartData.section_data|map(d => '"' ~ d.section|escape('js') ~ '"')|join(', ')|raw }}],
+                datasets: [{
+                    data: [{{ chartData.section_data|map(d => d.count)|join(', ') }}],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(239, 68, 68, 0.7)',
+                        'rgba(245, 158, 11, 0.7)',
+                        'rgba(139, 92, 246, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(239, 68, 68, 1)',
+                        'rgba(245, 158, 11, 1)',
+                        'rgba(139, 92, 246, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } },
+                    tooltip: { backgroundColor: 'rgba(0, 0, 0, 0.8)', titleFont: { size: 14 }, bodyFont: { size: 12 }, padding: 12, usePointStyle: true },
+                    datalabels: {
+                        formatter: (value, context) => {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            return total ? ((value / total) * 100).toFixed(1) + '%' : '0%';
+                        },
+                        color: '#fff',
+                        font: { weight: 'bold', size: 12 },
+                        padding: 6,
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        borderRadius: 4
+                    }
+                }
+            }
+        });
+
+        // Age Chart
+        const ageCtx = document.getElementById('ageChart').getContext('2d');
+        new Chart(ageCtx, {
+            type: 'bar',
+            data: {
+                labels: [{{ chartData.age_data|map(d => '"' ~ d.range|escape('js') ~ '"')|join(', ')|raw }}],
+                datasets: [{
+                    label: 'Students by Age Range',
+                    data: [{{ chartData.age_data|map(d => d.count)|join(', ') }}],
+                    backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                    borderColor: 'rgba(245, 158, 11, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { color: "rgba(229, 231, 235, 1)" } },
+                    x: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { backgroundColor: 'rgba(0, 0, 0, 0.8)', titleFont: { size: 14 }, bodyFont: { size: 12 }, padding: 12, usePointStyle: true },
+                    datalabels: { anchor: 'end', align: 'top', formatter: (value) => value, font: { weight: 'bold', size: 12 }, color: '#000' }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

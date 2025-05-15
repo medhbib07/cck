@@ -1,153 +1,353 @@
 {% extends 'user/UserBase.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block section %}
-<section class="sign-in-section section-padding fix">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-8">
-                <div class="sign-in-items">
-                    <div class="title text-center">
-                        <h2 class="wow fadeInUp">Create a New Account</h2>
-                    </div>
-                    
-                    <form method="post" action="{{ path('app_register') }}" enctype="multipart/form-data" id="registration-form" class="row g-4">
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('register') }}">
-                        
-                        <!-- Common fields -->
-                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".2s">
-                            <div class="form-clt style-2">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".2s">
-                            <div class="form-clt style-2">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Choose a password" required>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".2s">
-                            <div class="form-clt style-2">
-                                <label for="role" class="form-label">Account Type</label>
-                                <select id="role" name="role" class="form-control" required>
-                                    <option value="">Select your role</option>
-                                    <option value="ROLE_UNIVERSITE">University</option>
-                                    <option value="ROLE_ETABLISSEMENT">Establishment</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <!-- University fields -->
-                        <div id="university-fields" class="col-lg-12" style="display: none;">
-                            <div class="wow fadeInUp" data-wow-delay=".2s">
-                                <div class="form-clt style-2">
-                                    <label for="nom_universite" class="form-label">University Name</label>
-                                    <input type="text" id="nom_universite" name="nom_universite" class="form-control" placeholder="Enter university name">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Establishment fields -->
-                        <div id="establishment-fields" class="col-lg-12" style="display: none;">
-                            <div class="wow fadeInUp" data-wow-delay=".2s">
-                                <div class="form-clt style-2">
-                                    <label for="nom_etablissement" class="form-label">Establishment Name</label>
-                                    <input type="text" id="nom_etablissement" name="nom_etablissement" class="form-control" placeholder="Enter establishment name">
-                                </div>
-                            </div>
-                            
-                            <div class="wow fadeInUp" data-wow-delay=".2s">
-                                <div class="form-clt style-2">
-                                    <label for="etype" class="form-label">Type</label>
-                                    <select id="etype" name="etype" class="form-control">
-                                        <option value="Publique">Public</option>
-                                        <option value="Privée">Private</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="wow fadeInUp" data-wow-delay=".2s">
-                                <div class="form-clt style-2">
-                                    <label for="localisation" class="form-label">Location</label>
-                                    <input type="text" id="localisation" name="localisation" class="form-control" placeholder="Enter location">
-                                </div>
-                            </div>
-                            
-                            <div class="wow fadeInUp" data-wow-delay=".2s">
-                                <div class="form-clt style-2">
-                                    <label for="logo" class="form-label">Logo</label>
-                                    <input type="file" id="logo" name="logo" class="form-control">
-                                </div>
-                            </div>
-                            
-                            <div class="wow fadeInUp" data-wow-delay=".2s">
-                                <div class="form-clt style-2">
-                                    <label for="siteweb" class="form-label">Website</label>
-                                    <input type="url" id="siteweb" name="siteweb" class="form-control" placeholder="https://example.com">
-                                </div>
-                            </div>
-                            
-                            <div class="wow fadeInUp" data-wow-delay=".2s">
-                                <div class="form-clt style-2">
-                                    <label for="universite_id" class="form-label">Associated University</label>
-                                    <select id="universite_id" name="universite_id" class="form-control">
-                                        <option value="">None</option>
-                                        {% for universite in universites %}
-                                            <option value="{{ universite.id }}">{{ universite.nom }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 wow fadeInUp" data-wow-delay=".4s">
-                            <button class="theme-btn" type="submit">
-                                Register
-                            </button>
-                        </div>
-                    </form>
-                </div>
+<section class="min-h-screen bg-gray-100 py-12">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Créer un nouveau compte</h2>
+
+            <!-- Stepper -->
+            <div class="mb-8">
+                <ul class="flex justify-between items-center">
+                    <li class="flex-1 text-center">
+                        <span class="stepper-circle stepper-active">1</span>
+                        <p class="mt-2 text-sm font-medium text-gray-600">Détails du compte</p>
+                    </li>
+                    <li class="flex-1 text-center">
+                        <span class="stepper-circle">2</span>
+                        <p class="mt-2 text-sm font-medium text-gray-600">Détails de l'établissement</p>
+                    </li>
+                    <li class="flex-1 text-center">
+                        <span class="stepper-circle">3</span>
+                        <p class="mt-2 text-sm font-medium text-gray-600">Vérification</p>
+                    </li>
+                </ul>
             </div>
+
+            <form method="post" action="{{ path('app_register') }}" enctype="multipart/form-data" id="registration-form">
+                <!-- Step 1: Account Details -->
+                <div class="step" id="step-1">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez votre email" required>
+                        </div>
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
+                            <input type="password" id="password" name="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Choisissez un mot de passe" required>
+                        </div>
+                        <div>
+                            <label for="role" class="block text-sm font-medium text-gray-700">Type de compte</label>
+                            <select id="role" name="role" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" required>
+                                <option value="">Sélectionnez votre rôle</option>
+                                <option value="ROLE_UNIVERSITE">Université</option>
+                                <option value="ROLE_ETABLISSEMENT">Établissement</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <button type="button" class="next-btn px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700" data-step="1">Suivant</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Establishment Details -->
+                <div class="step hidden" id="step-2">
+                    <div id="university-fields" class="space-y-6 hidden">
+                        <div>
+                            <label for="nom_universite" class="block text-sm font-medium text-gray-700">Nom de l'université</label>
+                            <input type="text" id="nom_universite" name="nom_universite" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez le nom de l'université">
+                        </div>
+                    </div>
+                    <div id="establishment-fields" class="space-y-6 hidden">
+                        <div>
+                            <label for="nom_etablissement" class="block text-sm font-medium text-gray-700">Nom de l'établissement</label>
+                            <input type="text" id="nom_etablissement" name="nom_etablissement" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez le nom de l'établissement">
+                        </div>
+                        <div>
+                            <label for="etype" class="block text-sm font-medium text-gray-700">Type</label>
+                            <select id="etype" name="etype" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="Publique">Publique</option>
+                                <option value="Privée">Privée</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="adresse" class="block text-sm font-medium text-gray-700">Adresse</label>
+                            <input type="text" id="adresse" name="adresse" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez l'adresse">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="code_postal" class="block text-sm font-medium text-gray-700">Code postal</label>
+                                <input type="text" id="code_postal" name="code_postal" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez le code postal">
+                            </div>
+                            <div>
+                                <label for="ville" class="block text-sm font-medium text-gray-700">Ville</label>
+                                <input type="text" id="ville" name="ville" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez la ville">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Localisation (Carte)</label>
+                            <div id="map" class="h-64 w-full rounded-md border border-gray-300 mt-1"></div>
+                            <input type="hidden" id="latitude" name="latitude">
+                            <input type="hidden" id="longitude" name="longitude">
+                        </div>
+                        <div>
+                            <label for="telephone" class="block text-sm font-medium text-gray-700">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez le numéro de téléphone">
+                        </div>
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                            <textarea id="description" name="description" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Décrivez l'établissement"></textarea>
+                        </div>
+                        <div>
+                            <label for="date_creation" class="block text-sm font-medium text-gray-700">Date de création</label>
+                            <input type="date" id="date_creation" name="date_creation" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="capacite" class="block text-sm font-medium text-gray-700">Capacité (nombre d'étudiants)</label>
+                            <input type="number" id="capacite" name="capacite" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Entrez la capacité">
+                        </div>
+                        <div>
+                            <label for="siteweb" class="block text-sm font-medium text-gray-700">Site web</label>
+                            <input type="url" id="siteweb" name="siteweb" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="https://exemple.com">
+                        </div>
+                        <div>
+                            <label for="logo" class="block text-sm font-medium text-gray-700">Logo</label>
+                            <input type="file" id="logo" name="logo" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="universite_id" class="block text-sm font-medium text-gray-700">Université associée</label>
+                            <select id="universite_id" name="universite_id" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="">Aucune</option>
+                                {% for universite in universites %}
+                                    <option value="{{ universite.id }}">{{ universite.nom }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-between">
+                        <button type="button" class="prev-btn px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400" data-step="2">Précédent</button>
+                        <button type="button" class="next-btn px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700" data-step="2">Suivant</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Review and Submit -->
+                <div class="step hidden" id="step-3">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Vérifiez vos informations</h3>
+                    <div class="space-y-4 bg-gray-50 p-6 rounded-md">
+                        <p><strong>Email:</strong> <span id="review-email"></span></p>
+                        <p><strong>Type de compte:</strong> <span id="review-role"></span></p>
+                        <div id="review-university" class="hidden">
+                            <p><strong>Nom de l'université:</strong> <span id="review-nom_universite"></span></p>
+                        </div>
+                        <div id="review-establishment" class="hidden">
+                            <p><strong>Nom de l'établissement:</strong> <span id="review-nom_etablissement"></span></p>
+                            <p><strong>Type:</strong> <span id="review-etype"></span></p>
+                            <p><strong>Adresse:</strong> <span id="review-adresse"></span></p>
+                            <p><strong>Code postal:</strong> <span id="review-code_postal"></span></p>
+                            <p><strong>Ville:</strong> <span id="review-ville"></span></p>
+                            <p><strong>Localisation:</strong> Latitude <span id="review-latitude"></span>, Longitude <span id="review-longitude"></span></p>
+                            <p><strong>Téléphone:</strong> <span id="review-telephone"></span></p>
+                            <p><strong>Description:</strong> <span id="review-description"></span></p>
+                            <p><strong>Date de création:</strong> <span id="review-date_creation"></span></p>
+                            <p><strong>Capacité:</strong> <span id="review-capacite"></span></p>
+                            <p><strong>Site web:</strong> <span id="review-siteweb"></span></p>
+                            <p><strong>Logo:</strong> <span id="review-logo"></span></p>
+                            <p><strong>Université associée:</strong> <span id="review-universite"></span></p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-between">
+                        <button type="button" class="prev-btn px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400" data-step="3">Précédent</button>
+                        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">S'inscrire</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </section>
 
+<style>
+.stepper-circle {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-300 text-white font-semibold;
+}
+.stepper-active {
+    @apply bg-blue-600;
+}
+.step {
+    @apply transition-opacity duration-300;
+}
+.hidden {
+    @apply opacity-0 hidden;
+}
+</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    const steps = document.querySelectorAll('.step');
+    const stepperCircles = document.querySelectorAll('.stepper-circle');
+    const nextButtons = document.querySelectorAll('.next-btn');
+    const prevButtons = document.querySelectorAll('.prev-btn');
+    const form = document.getElementById('registration-form');
     const roleSelect = document.getElementById('role');
     const universityFields = document.getElementById('university-fields');
     const establishmentFields = document.getElementById('establishment-fields');
+    let currentStep = 1;
 
-    if (!roleSelect || !universityFields || !establishmentFields) {
-        console.error('Required elements not found');
-        return;
-    }
-
+    // Toggle fields based on role
     function toggleFields() {
-        const selectedRole = roleSelect.value;
-        universityFields.style.display = 'none';
-        establishmentFields.style.display = 'none';
-        
-        if (selectedRole === 'ROLE_UNIVERSITE') {
-            universityFields.style.display = 'block';
-        } else if (selectedRole === 'ROLE_ETABLISSEMENT') {
-            establishmentFields.style.display = 'block';
+        const role = roleSelect.value;
+        universityFields.classList.add('hidden');
+        establishmentFields.classList.add('hidden');
+        if (role === 'ROLE_UNIVERSITE') {
+            universityFields.classList.remove('hidden');
+        } else if (role === 'ROLE_ETABLISSEMENT') {
+            establishmentFields.classList.remove('hidden');
         }
     }
 
-    toggleFields();
     roleSelect.addEventListener('change', toggleFields);
 
-    // Form validation
-    document.getElementById('registration-form').addEventListener('submit', function(e) {
+    // Stepper navigation
+    function showStep(stepNumber) {
+        steps.forEach(step => step.classList.add('hidden'));
+        document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+        stepperCircles.forEach(circle => circle.classList.remove('stepper-active'));
+        stepperCircles[stepNumber - 1].classList.add('stepper-active');
+        currentStep = stepNumber;
+
+        if (stepNumber === 3) {
+            updateReview();
+        }
+    }
+
+    nextButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const step = parseInt(button.dataset.step);
+            if (step === 1 && !validateStep1()) return;
+            if (step === 2 && !validateStep2()) return;
+            showStep(step + 1);
+        });
+    });
+
+    prevButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const step = parseInt(button.dataset.step);
+            showStep(step - 1);
+        });
+    });
+
+    // Validation
+    function validateStep1() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
         const role = roleSelect.value;
-        if (!role) {
+        if (!email || !password || !role) {
+            alert('Veuillez remplir tous les champs du premier étape.');
+            return false;
+        }
+        return true;
+    }
+
+    function validateStep2() {
+        const role = roleSelect.value;
+        if (role === 'ROLE_UNIVERSITE') {
+            const nomUniversite = document.getElementById('nom_universite').value;
+            if (!nomUniversite) {
+                alert('Veuillez entrer le nom de l\'université.');
+                return false;
+            }
+        } else if (role === 'ROLE_ETABLISSEMENT') {
+            const nomEtablissement = document.getElementById('nom_etablissement').value;
+            const adresse = document.getElementById('adresse').value;
+            const ville = document.getElementById('ville').value;
+            if (!nomEtablissement || !adresse || !ville) {
+                alert('Veuillez remplir les champs obligatoires de l\'établissement (nom, adresse, ville).');
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Update review step
+    function updateReview() {
+        document.getElementById('review-email').textContent = document.getElementById('email').value;
+        const role = roleSelect.value;
+        document.getElementById('review-role').textContent = role === 'ROLE_UNIVERSITE' ? 'Université' : role === 'ROLE_ETABLISSEMENT' ? 'Établissement' : '';
+        
+        document.getElementById('review-university').classList.add('hidden');
+        document.getElementById('review-establishment').classList.add('hidden');
+
+        if (role === 'ROLE_UNIVERSITE') {
+            document.getElementById('review-university').classList.remove('hidden');
+            document.getElementById('review-nom_universite').textContent = document.getElementById('nom_universite').value;
+        } else if (role === 'ROLE_ETABLISSEMENT') {
+            document.getElementById('review-establishment').classList.remove('hidden');
+            document.getElementById('review-nom_etablissement').textContent = document.getElementById('nom_etablissement').value;
+            document.getElementById('review-etype').textContent = document.getElementById('etype').value;
+            document.getElementById('review-adresse').textContent = document.getElementById('adresse').value;
+            document.getElementById('review-code_postal').textContent = document.getElementById('code_postal').value || 'N/A';
+            document.getElementById('review-ville').textContent = document.getElementById('ville').value;
+            document.getElementById('review-latitude').textContent = document.getElementById('latitude').value || 'N/A';
+            document.getElementById('review-longitude').textContent = document.getElementById('longitude').value || 'N/A';
+            document.getElementById('review-telephone').textContent = document.getElementById('telephone').value || 'N/A';
+            document.getElementById('review-description').textContent = document.getElementById('description').value || 'N/A';
+            document.getElementById('review-date_creation').textContent = document.getElementById('date_creation').value || 'N/A';
+            document.getElementById('review-capacite').textContent = document.getElementById('capacite').value || 'N/A';
+            document.getElementById('review-siteweb').textContent = document.getElementById('siteweb').value || 'N/A';
+            document.getElementById('review-logo').textContent = document.getElementById('logo').files[0]?.name || 'Aucun fichier';
+            const universiteSelect = document.getElementById('universite_id');
+            document.getElementById('review-universite').textContent = universiteSelect.options[universiteSelect.selectedIndex]?.text || 'Aucune';
+        }
+    }
+
+    // Initialize map
+    const map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    let marker;
+    function updateMarker(lat, lng) {
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        marker = L.marker([lat, lng]).addTo(map);
+        map.setView([lat, lng], 15);
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lng;
+    }
+
+    // Geocode address
+    document.getElementById('adresse').addEventListener('blur', function() {
+        const address = `${this.value}, ${document.getElementById('ville').value}, ${document.getElementById('code_postal').value}`;
+        if (address.trim()) {
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const { lat, lon } = data[0];
+                        updateMarker(lat, lon);
+                    }
+                })
+                .catch(error => console.error('Error geocoding address:', error));
+        }
+    });
+
+    // Map click event
+    map.on('click', function(e) {
+        updateMarker(e.latlng.lat, e.latlng.lng);
+    });
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!validateStep1() || !validateStep2()) {
             e.preventDefault();
-            alert('Please select an account type');
+            showStep(1);
         }
     });
 });

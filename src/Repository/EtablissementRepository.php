@@ -50,4 +50,82 @@ class EtablissementRepository extends ServiceEntityRepository
             'location_data' => $locationData,
         ];
     }
+    public function findWithFilters(string $search, string $universite, string $city, string $etype): array
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->leftJoin('e.groupe', 'u');
+
+        if ($search) {
+            $qb->andWhere('e.nom LIKE :search OR e.ville LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
+        }
+        if ($universite) {
+            $qb->andWhere('u.nom = :universite')
+               ->setParameter('universite', $universite);
+        }
+        if ($city) {
+            $qb->andWhere('e.ville = :city')
+               ->setParameter('city', $city);
+        }
+        if ($etype) {
+            $qb->andWhere('e.etype = :etype')
+               ->setParameter('etype', $etype);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findWithFiltersAndPagination(string $search, string $universite, string $city, string $etype, int $page, int $limit): array
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->leftJoin('e.groupe', 'u');
+
+        if ($search) {
+            $qb->andWhere('e.nom LIKE :search OR e.ville LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
+        }
+        if ($universite) {
+            $qb->andWhere('u.nom = :universite')
+               ->setParameter('universite', $universite);
+        }
+        if ($city) {
+            $qb->andWhere('e.ville = :city')
+               ->setParameter('city', $city);
+        }
+        if ($etype) {
+            $qb->andWhere('e.etype = :etype')
+               ->setParameter('etype', $etype);
+        }
+
+        return $qb->setFirstResult(($page - 1) * $limit)
+                  ->setMaxResults($limit)
+                  ->getQuery()
+                  ->getResult();
+    }
+
+    public function countWithFilters(string $search, string $universite, string $city, string $etype): int
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->select('COUNT(e.id)')
+            ->leftJoin('e.groupe', 'u');
+
+        if ($search) {
+            $qb->andWhere('e.nom LIKE :search OR e.ville LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
+        }
+        if ($universite) {
+            $qb->andWhere('u.nom = :universite')
+               ->setParameter('universite', $universite);
+        }
+        if ($city) {
+            $qb->andWhere('e.ville = :city')
+               ->setParameter('city', $city);
+        }
+        if ($etype) {
+            $qb->andWhere('e.etype = :etype')
+               ->setParameter('etype', $etype);
+        }
+
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
 }

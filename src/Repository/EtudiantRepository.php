@@ -14,37 +14,49 @@ class EtudiantRepository extends ServiceEntityRepository
         parent::__construct($registry, Etudiant::class);
     }
 
-    public function findByEtablissementWithSearchAndPagination(Etablissement $etablissement, string $search, int $page, int $limit): array
+    public function findByEtablissementWithSearch(Etablissement $etablissement, string $search): array
     {
-        $queryBuilder = $this->createQueryBuilder('e')
+        $qb = $this->createQueryBuilder('e')
             ->where('e.etablissement = :etablissement')
-            ->setParameter('etablissement', $etablissement)
-            ->orderBy('e.nom', 'ASC');
+            ->setParameter('etablissement', $etablissement);
 
         if ($search) {
-            $queryBuilder->andWhere('e.nom LIKE :search OR e.prenom LIKE :search OR e.email LIKE :search')
-                ->setParameter('search', '%' . $search . '%');
+            $qb->andWhere('e.nom LIKE :search OR e.prenom LIKE :search OR e.email LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
         }
 
-        return $queryBuilder
-            ->setFirstResult(($page - 1) * $limit)
-            ->setMaxResults($limit)
-            ->getQuery()
-            ->getResult();
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findByEtablissementWithSearchAndPagination(Etablissement $etablissement, string $search, int $page, int $limit): array
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->where('e.etablissement = :etablissement')
+            ->setParameter('etablissement', $etablissement);
+
+        if ($search) {
+            $qb->andWhere('e.nom LIKE :search OR e.prenom LIKE :search OR e.email LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
+        }
+
+        return $qb->setFirstResult(($page - 1) * $limit)
+                  ->setMaxResults($limit)
+                  ->getQuery()
+                  ->getResult();
     }
 
     public function countByEtablissementWithSearch(Etablissement $etablissement, string $search): int
     {
-        $queryBuilder = $this->createQueryBuilder('e')
+        $qb = $this->createQueryBuilder('e')
             ->select('COUNT(e.id)')
             ->where('e.etablissement = :etablissement')
             ->setParameter('etablissement', $etablissement);
 
         if ($search) {
-            $queryBuilder->andWhere('e.nom LIKE :search OR e.prenom LIKE :search OR e.email LIKE :search')
-                ->setParameter('search', '%' . $search . '%');
+            $qb->andWhere('e.nom LIKE :search OR e.prenom LIKE :search OR e.email LIKE :search')
+               ->setParameter('search', '%' . $search . '%');
         }
 
-        return (int) $queryBuilder->getQuery()->getSingleScalarResult();
+        return (int) $qb->getQuery()->getSingleScalarResult();
     }
 }
