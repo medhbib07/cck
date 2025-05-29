@@ -32,6 +32,26 @@ final class UserController extends AbstractController
             $email = $request->request->get('email');
             $password = $request->request->get('password');
 
+            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+            $existingUniversite = $entityManager->getRepository(Universite::class)->findOneBy(['email' => $email]);
+            $existingEtablissement = $entityManager->getRepository(Etablissement::class)->findOneBy(['email' => $email]);
+            
+            $errors = [];
+                if ($existingUser) {
+                    $errors[] = 'User email already exists';
+                }
+                if ($existingUniversite) {
+                    $errors[] = 'Universite email already exists';
+                }
+                if ($existingEtablissement) {
+                    $errors[] = 'Etablissement email already exists';
+                }
+
+                if (!empty($errors)) {
+                    $this->addFlash('error', 'Cet email est déjà utilisé.');
+                    return $this->redirectToRoute('app_register');
+                }
+
             if ($role === 'ROLE_UNIVERSITE') {
                 $user = new Universite();
                 $user->setNom($request->request->get('nom_universite'));

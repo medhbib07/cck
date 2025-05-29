@@ -110,33 +110,33 @@
                 <div class="scrolling-wrap">
                     <div class="comm">
                         <div></div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Education & University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Online Education</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 230+ Quality Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Experience Instructors</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Kindergarten Study</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 25% Coupon Bonus</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 25% Extra Coupon Bonus</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Accès au Réseau National Universitaire (RNU)</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Plateforme d’Enseignement en Ligne</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Ressources Scientifiques Internationales</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Formateurs et Experts Qualifiés</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Gestion Intelligente des Étudiants</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Services Cloud pour la Recherche</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Support Technique 24/7 via CCK</div>
                     </div>
                     <div class="comm">
                         <div></div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Education & University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Online Education</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 230+ Quality Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Experience Instructors</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Kindergarten Study</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 25% Coupon Bonus</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 25% Extra Coupon Bonus</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Accès au Réseau National Universitaire (RNU)</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Plateforme d’Enseignement en Ligne</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Ressources Scientifiques Internationales</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Formateurs et Experts Qualifiés</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Gestion Intelligente des Étudiants</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Services Cloud pour la Recherche</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Support Technique 24/7 via CCK</div>
                     </div>
                     <div class="comm">
                         <div></div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Education & University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Online Education</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 230+ Quality Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Experience Instructors</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> Kindergarten Study</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 25% Coupon Bonus</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard"></i> 25% Extra Coupon Bonus</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Accès au Réseau National Universitaire (RNU)</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Plateforme d’Enseignement en Ligne</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Ressources Scientifiques Internationales</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Formateurs et Experts Qualifiés</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Gestion Intelligente des Étudiants</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Services Cloud pour la Recherche</div>
+                        <div class="cmn-textslide "><i class="flaticon-mortarboard"></i> Support Technique 24/7 via CCK</div>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                         <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                             <div class="offcanvas__logo">
                                 <a href="index.html">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                                    <img src="{{ asset('assets/img/logo/black-logo.svg') }}" alt="img">
                                 </a>
                             </div>
                             <div class="offcanvas__close">
@@ -192,8 +192,8 @@
                                 </li>
                             </ul>
                             <div class="offcanvas-button">
-                                <a href="sign-in.html" class="theme-btn style-2"><i class="far fa-user"></i> Admin</a>
-                                <a href="register.html" class="theme-btn yellow-btn">Enroll Now</a>
+                                <a href="{{ path('app_login') }}" class="theme-btn style-2"><i class="far fa-user"></i> Admin</a>
+                                <a href="{{ path('app_register') }}" class="theme-btn yellow-btn">Enroll Now</a>
                             </div>
                         </div>
                     </div>
@@ -210,12 +210,12 @@
                         <div class="header-left">
                             <div class="logo">
                                 <a href="index.html" class="header-logo">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                                    <img src="{{ asset('assets/img/logo/black-logo.svg') }}" alt="img">
                                 </a>
                             </div>
                             <div class="category-oneadjust">
                                <div class="dot">
-                                    <img src="assets/img/logo/dot.png" alt="img">
+                                    <img src="{{ asset('assets/img/logo/dot.png') }}" alt="img">
                                </div>
                                 {# <select name="cate" class="category">
                                    
@@ -243,7 +243,7 @@
                                     <nav id="mobile-menu">
                                         <ul>
                                             <li class="has-dropdown menu-thumb">
-                                                <a href="index.html">
+                                                <a href="{{ path('app_home') }}">
                                                     <span class="head-icon"><i class="fas fa-home-lg"></i></span>
                                                     Home
                                                     <i class="fas fa-chevron-down"></i>
@@ -401,7 +401,7 @@
                                                     <i class="fas fa-chevron-down"></i>
                                                 </a>
                                                 <ul class="submenu">
-                                                    <li>
+                                                    {# <li>
                                                         <a href="about.html">About Us</a>
                                                     </li>
                                                     <li><a href="instructor.html">Instructors</a></li>
@@ -425,10 +425,10 @@
                                                     </li>
                                                     <li><a href="gallery.html">Gallery</a></li>
                                                     <li><a href="pricing.html">Pricing Plan</a></li>
-                                                    <li><a href="faq.html">Faqs</a></li>
-                                                    <li><a href="sign-in.html">Sign In</a></li>
-                                                    <li><a href="register.html">register</a></li>
-                                                    <li><a href="404.html">404 Error</a></li>
+                                                    <li><a href="faq.html">Faqs</a></li> #}
+                                                    <li><a href="{{ path('app_login') }}">Sign In</a></li>
+                                                    <li><a href="{{ path('app_register') }}">register</a></li>
+                                                    {# <li><a href="404.html">404 Error</a></li> #}
                                                 </ul>
                                             </li>
                                             <li>
@@ -532,34 +532,34 @@
             <div class="mycustom-marque theme-green-bg-1">
                 <div class="scrolling-wrap">
                     <div class="comm">
+                    <div></div>
+                    <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Accès au Réseau National Universitaire (RNU)</div>
+                    <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Plateforme d’Enseignement en Ligne</div>
+                    <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Ressources Scientifiques Internationales</div>
+                    <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Formateurs et Experts Qualifiés</div>
+                    <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Gestion Intelligente des Étudiants</div>
+                    <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Services Cloud pour la Recherche</div>
+                    <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Support Technique 24/7 via CCK</div>
+                </div>
+                    <div class="comm">
                         <div></div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Education & University</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Online Education</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 230+ Quality Courses</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Experience Instructors</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Kindergarten Study</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 25% Coupon Bonus</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 25% Extra Coupon Bonus</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Accès au Réseau National Universitaire (RNU)</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Plateforme d’Enseignement en Ligne</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Ressources Scientifiques Internationales</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Formateurs et Experts Qualifiés</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Gestion Intelligente des Étudiants</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Services Cloud pour la Recherche</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Support Technique 24/7 via CCK</div>
                     </div>
                     <div class="comm">
                         <div></div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Education & University</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Online Education</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 230+ Quality Courses</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Experience Instructors</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Kindergarten Study</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 25% Coupon Bonus</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 25% Extra Coupon Bonus</div>
-                    </div>
-                    <div class="comm">
-                        <div></div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Education & University</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Online Education</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 230+ Quality Courses</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Experience Instructors</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Kindergarten Study</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 25% Coupon Bonus</div>
-                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> 25% Extra Coupon Bonus</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Accès au Réseau National Universitaire (RNU)</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Plateforme d’Enseignement en Ligne</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Ressources Scientifiques Internationales</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Formateurs et Experts Qualifiés</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Gestion Intelligente des Étudiants</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Services Cloud pour la Recherche</div>
+                        <div class="cmn-textslide text-color-2"><i class="flaticon-mortarboard"></i> Support Technique 24/7 via CCK</div>
                     </div>
                 </div>
             </div>
@@ -574,7 +574,7 @@
                             <div class="single-footer-widget">
                                 <div class="widget-head">
                                     <a href="index.html">
-                                        <img src="assets/img/logo/white-logo.svg" alt="img">
+                                        <img src="{{ asset('assets/img/logo/white-logo.svg') }}" alt="img">
                                     </a>
                                 </div>
                                 <div class="footer-content">

@@ -62,7 +62,7 @@ class UniversiteController extends AbstractController
             $data = $searchForm->getData();
             
             if (!empty($data['search'])) {
-                $establishments->andWhere('e.nom LIKE :search OR e.localisation LIKE :search')
+                $establishments->andWhere('e.nom LIKE :search OR e.adresse LIKE :search')
                     ->setParameter('search', '%'.$data['search'].'%');
             }
             
@@ -153,9 +153,17 @@ class UniversiteController extends AbstractController
                 $etablissement
                     ->setNom($request->request->get('nom'))
                     ->setEtype($request->request->get('etype'))
-                    ->setLocalisation($request->request->get('localisation'))
                     ->setSiteweb($request->request->get('siteweb'))
-                    ->setGroupe($universite);
+                    ->setGroupe($universite)
+                    ->setAdresse($request->request->get('adresse'))
+                    ->setVille($request->request->get('ville'))
+                    ->setCodePostal($request->request->get('code_postal'))
+                    ->setLatitude($request->request->get('latitude'))
+                    ->setLongitude($request->request->get('longitude'))
+                    ->setCapacite((int) $request->request->get('capacite'))
+                    ->setDescription($request->request->get('description'))
+                    ->setDateCreation(new \DateTime($request->request->get('date_creation')));
+
     
                 // Handle file upload
                 $logoFile = $request->files->get('logo');
@@ -181,6 +189,7 @@ class UniversiteController extends AbstractController
         // Fetch establishments again after potential error
         $establishments = $em->getRepository(Etablissement::class)
             ->findBy(['groupe' => $universite]);
+            
     
         return $this->render('Backoffice/universite/dashboard.html.twig', [
             'establishments' => $establishments,

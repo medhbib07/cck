@@ -24,13 +24,13 @@ class EtablissementRepository extends ServiceEntityRepository
                 'COUNT(e.id) as total',
                 'SUM(CASE WHEN e.etype = :public THEN 1 ELSE 0 END) as public_count',
                 'SUM(CASE WHEN e.etype = :private THEN 1 ELSE 0 END) as private_count',
-                'e.localisation as location'
+                'e.ville as ville'
             ])
             ->where('e.groupe = :universite')
             ->setParameter('public', Etablissement::ETYPE_PUBLIC)
             ->setParameter('private', Etablissement::ETYPE_PRIVATE)
             ->setParameter('universite', $universite)
-            ->groupBy('e.localisation');
+            ->groupBy('e.ville');
     
         $results = $queryBuilder->getQuery()->getResult();
     
@@ -38,7 +38,7 @@ class EtablissementRepository extends ServiceEntityRepository
         $locationData = [];
         foreach ($results as $result) {
             $locationData[] = [
-                'location' => $result['location'],
+                'location' => $result['ville'],
                 'count' => $result['total']
             ];
         }

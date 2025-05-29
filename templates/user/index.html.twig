@@ -279,7 +279,7 @@
                                                         <li>
                                                             <a href="about.html">About Us</a>
                                                         </li>
-                                                        <li><a href="instructor.html">Instructors</a></li>
+                                                        {# <li><a href="instructor.html">Instructors</a></li>
                                                         <li><a href="instructor-details.html">Instructor Details</a></li>
                                                         <li><a href="program.html">program</a></li>
                                                         <li><a href="program-details.html">program Details</a></li>
@@ -300,10 +300,10 @@
                                                         <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
                                                         <li><a href="gallery.html">Gallery</a></li>
                                                         <li><a href="pricing.html">Pricing Plan</a></li>
-                                                        <li><a href="faq.html">Faqs</a></li>
-                                                        <li><a href="sign-in.html">Sign In</a></li>
-                                                        <li><a href="register.html">register</a></li>
-                                                        <li><a href="404.html">404 Error</a></li>
+                                                        <li><a href="faq.html">Faqs</a></li> #}
+                                                        <li><a href="{{ path('app_login') }}">Sign In</a></li>
+                                                        <li><a href="{{path ('app_register')}}">register</a></li>
+                                                        {# <li><a href="404.html">404 Error</a></li> #}
                                                     </ul>
                                                 <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
                                                 <li>
@@ -349,7 +349,7 @@
                                 </li>
                             </ul>
                             <div class="offcanvas-button">
-                                <a href="sign-in.html" class="theme-btn style-2"><i class="far fa-user"></i> Admin</a>
+                                <a href="{{ path('app_login') }}" class="theme-btn style-2"><i class="far fa-user"></i> Admin</a>
                                 <a href="register.html" class="theme-btn yellow-btn">Enroll Now</a>
                             </div>
                         </div>
@@ -395,7 +395,7 @@
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
                                                                                <a href="index.html">
-                                                                                    Education
+                                                                                    Université de la Manouba
                                                                                </a>
                                                                             </h4>
                                                                         </div>
@@ -409,7 +409,7 @@
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
                                                                                 <a href="index-2.html">
-                                                                                    Online Course
+                                                                                    Université de Tunis
                                                                                 </a>
                                                                             </h4>
                                                                         </div>
@@ -423,7 +423,7 @@
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
                                                                                 <a href="index-3.html">
-                                                                                    University
+                                                                                    Université de Carthage
                                                                                 </a>
                                                                             </h4>
                                                                         </div>
@@ -437,7 +437,7 @@
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
                                                                                 <a href="index-4.html">
-                                                                                    Kindergarten
+                                                                                    Université de Sfax
                                                                                 </a>
                                                                             </h4>
                                                                         </div>
@@ -451,7 +451,7 @@
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
                                                                                 <a href="index-5.html">
-                                                                                    Business Coach
+                                                                                    Université de Sousse 
                                                                                 </a>
                                                                             </h4>
                                                                         </div>
@@ -462,7 +462,7 @@
                                                                         </div>
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
-                                                                                Coming Soon
+                                                                                Université de Monastir
                                                                             </h4>
                                                                         </div>
                                                                     </div>
@@ -472,7 +472,7 @@
                                                                         </div>
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
-                                                                                Coming Soon
+                                                                                Université de Tunis El Manar
                                                                             </h4>
                                                                         </div>
                                                                     </div>
@@ -482,7 +482,27 @@
                                                                         </div>
                                                                         <div class="homemenu-content text-center">
                                                                             <h4 class="homemenu-title">
-                                                                                Coming Soon
+                                                                                Université de Gafsa
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 homemenu">
+                                                                        <div class="homemenu-thumb mb-15">
+                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
+                                                                        </div>
+                                                                        <div class="homemenu-content text-center">
+                                                                            <h4 class="homemenu-title">
+                                                                                Université de Jendouba
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 homemenu">
+                                                                        <div class="homemenu-thumb mb-15">
+                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
+                                                                        </div>
+                                                                        <div class="homemenu-content text-center">
+                                                                            <h4 class="homemenu-title">
+                                                                                Université de Kairouan
                                                                             </h4>
                                                                         </div>
                                                                     </div>
@@ -535,7 +555,7 @@
                                                         <i class="fas fa-chevron-down"></i>
                                                     </a>
                                                     <ul class="submenu">
-                                                        <li>
+                                                        {# <li>
                                                             <a href="about.html">About Us</a>
                                                         </li>
                                                         <li><a href="instructor.html">Instructors</a></li>
@@ -559,10 +579,10 @@
                                                         </li>
                                                         <li><a href="gallery.html">Gallery</a></li>
                                                         <li><a href="pricing.html">Pricing Plan</a></li>
-                                                        <li><a href="faq.html">Faqs</a></li>
-                                                        <li><a href="sign-in.html">Sign In</a></li>
-                                                        <li><a href="register.html">register</a></li>
-                                                        <li><a href="404.html">404 Error</a></li>
+                                                        <li><a href="faq.html">Faqs</a></li> #}
+                                                        <li><a href="{{ path('app_login') }}">Sign In</a></li>
+                                                        <li><a href="{{path('app_register')}}">register</a></li>
+                                                        {# <li><a href="404.html">404 Error</a></li> #}
                                                     </ul>
                                                 </li>
                                                 <li>
@@ -637,7 +657,7 @@
                             <div class="row g-4 align-items-center justify-content-center">
                                 <div class="col-lg-12">
                                     <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to Eduspace</h6>
+                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
                                         <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
                                             Unlock Your Potential
                                             with Eduspace
@@ -662,7 +682,7 @@
                             <div class="row g-4 align-items-center justify-content-center">
                                 <div class="col-lg-12">
                                     <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to Eduspace</h6>
+                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
                                         <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
                                             Unlock Your Potential
                                             with Eduspace
@@ -687,7 +707,7 @@
                             <div class="row g-4 align-items-center justify-content-center">
                                 <div class="col-lg-12">
                                     <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to Eduspace</h6>
+                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
                                         <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
                                             Unlock Your Potential
                                             with Eduspace
@@ -712,7 +732,7 @@
                             <div class="row g-4 align-items-center justify-content-center">
                                 <div class="col-lg-12">
                                     <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to Eduspace</h6>
+                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
                                         <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
                                             Unlock Your Potential
                                             with Eduspace
@@ -737,7 +757,7 @@
                             <div class="row g-4 align-items-center justify-content-center">
                                 <div class="col-lg-12">
                                     <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to Eduspace</h6>
+                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
                                         <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
                                             Unlock Your Potential
                                             with Eduspace
@@ -880,21 +900,21 @@
             <div class="mycustom-marque style-3">
                 <div class="scrolling-wrap">
                     <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
                         <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
                         <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
                         <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
                     </div>
                 </div>
@@ -1288,7 +1308,7 @@
            </div>
         </section>
 
-        <!-- Event Section Start -->
+        {# <!-- Event Section Start -->
         <section class="event-section pt-0 fix section-padding">
             <div class="container">
                 <div class="section-title color-red text-center">
@@ -1406,13 +1426,13 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> #}
 
         <!-- Testimonial Section Start -->
         <section class="testimonial-section-3 fix pt-0 section-padding bg-cover" style="background-image: url('assets/img/testimonial/bg.jpg');">
             <div class="counter-section-2 section-padding pt-0">
                 <div class="container custom-container">
-                    <div class="counter-wrapper-2 bg-cover" style="background-image: url('assets/img/counter-bg.jpg');">
+                    <div class="counter-wrapper-2 bg-cover" style="background-image: url('assets/img/counter-bg-2.jpg');">
                         <div class="counter-items wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">
                             <div class="icon">
                                 <i class="flaticon-success"></i>
@@ -1681,7 +1701,7 @@
             </div>
         </section>
 
-        <!-- News Section Start -->
+        {# <!-- News Section Start -->
         <section class="news-section fix section-padding pt-0">
             <div class="container">
                 <div class="section-title color-red text-center">
@@ -1799,7 +1819,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> #}
 
         <!-- Faq Section Start -->
         <section class="faq-section fix section-padding pt-0">
@@ -1895,7 +1915,7 @@
             </div>
         </section>
 
-        <!-- Instagram Section Start -->
+        {# <!-- Instagram Section Start -->
         <div class="instagram-section fix">
             <div class="swiper instagram-slider swiper-initialized swiper-horizontal swiper-pointer-events">
                 <div class="swiper-wrapper" id="swiper-wrapper-0c89b4596db8b7bd" aria-live="polite" style="transform: translate3d(-1073px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" role="group" aria-label="2 / 5" data-swiper-slide-index="1" style="width: 268.25px;">
@@ -1971,7 +1991,7 @@
                         </div>
                     </div></div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-        </div>
+        </div> #}
 
         <!-- Quality Courses Section Start -->
         <section class="quality-coureses-section section-padding fix theme-red-bg">
@@ -1985,7 +2005,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-7 col-lg-6">
+                    {# <div class="col-xl-7 col-lg-6">
                         <div class="quality-coureses-content text-center">
                             <div class="section-title">
                                 <h6 class="text-white wow fadeInUp" style="visibility: hidden; animation-name: none;">
@@ -2000,7 +2020,7 @@
                                 Get Started Now
                             </a>
                         </div>
-                    </div>
+                    </div> #}
                     <div class="col-xl-3 col-lg-6">
                         <div class="coureses-image style-2 float-bob-y">
                             <img src="assets/img/courses/boy.png" alt="img" class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s" style="visibility: hidden; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: none;">
@@ -2018,21 +2038,21 @@
             <div class="mycustom-marque style-3">
                 <div class="scrolling-wrap">
                     <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
                         <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
                         <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
+                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
                         <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 {% extends 'Backoffice/base.html.twig' %}
 
-{% block title %}Etablissement Dashboard{% endblock %}
+{% block title %}Tableau de bord de l'établissement{% endblock %}
 
 {% block body %}
 <div class="flex h-screen bg-gray-50">
@@ -18,20 +18,20 @@
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                         </svg>
-                        Dashboard
+                        Tableau de bord
                     </a>
                     <a href="{{ path('etablissement_student_new') }}" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                         </svg>
-                        Add Student
+                        Ajouter un étudiant
                     </a>
                     <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
-                        Settings
+                        Paramètres
                     </a>
                 </nav>
             </div>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="ml-3">
                         <p class="text-sm font-medium text-gray-900">{{ app.user.nom }}</p>
-                        <p class="text-xs text-gray-500">Administrator</p>
+                        <p class="text-xs text-gray-500">Administrateur</p>
                     </div>
                 </div>
             </div>
@@ -98,8 +98,8 @@
             <!-- Page Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-800">Dashboard Overview</h1>
-                    <p class="text-sm text-gray-500 mt-1">Welcome back, {{ app.user.nom }}. Here's what's happening with your institution.</p>
+                    <h1 class="text-2xl font-bold text-gray-800">Aperçu du tableau de bord</h1>
+                    <p class="text-sm text-gray-500 mt-1">Bienvenue, {{ app.user.nom }}. Voici ce qui se passe dans votre établissement.</p>
                 </div>
                 <div class="mt-4 md:mt-0 flex space-x-2">
                     <form id="export-pdf-form" action="{{ path('etablissement_dashboard') }}" method="post" class="inline">
@@ -124,7 +124,7 @@
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                         </svg>
-                        Add Student
+                        Ajouter un étudiant
                     </a>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                 <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-blue-500">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-gray-500">Total Students</p>
+                            <p class="text-sm font-medium text-gray-500">Total des étudiants</p>
                             <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalStudents|default(0) }}</p>
                         </div>
                         <div class="p-3 bg-blue-50 rounded-lg">
@@ -148,7 +148,7 @@
                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
                             </svg>
-                            12% from last month
+                            12% par rapport au mois dernier
                         </span>
                     </div>
                 </div>
@@ -162,18 +162,18 @@
         <form action="{{ path('etablissement_dashboard') }}" method="get">
             <div class="flex flex-col md:flex-row gap-4">
                 <div class="flex-grow">
-                    <label for="search" class="sr-only">Search students</label>
+                    <label for="search" class="sr-only">Chercher des étudiants</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <input type="text" name="search" id="search" value="{{ search }}" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out" placeholder="Search students...">
+                        <input type="text" name="search" id="search" value="{{ search }}" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out" placeholder="Chercher des étudiants...">
                     </div>
                 </div>
                 <button type="submit" class="w-full md:w-auto inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
-                    Search
+                    Chercher
                 </button>
             </div>
         </form>
@@ -197,7 +197,7 @@
             <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
                 <div class="px-6 py-4 border-b border-gray-200 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <h3 class="text-lg font-semibold text-gray-900">
-                        Registered Students
+                        Etudiants enregistrés
                         <span class="text-sm text-gray-500 ml-2">({{ total }} total)</span>
                     </h3>
                     <div class="mt-2 md:mt-0 flex space-x-2">
@@ -230,7 +230,7 @@
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DOB</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date de naissance</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student #</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CIN</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Section</th>
@@ -332,7 +332,7 @@
     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-blue-500">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm font-medium text-gray-500">Total Students</p>
+                <p class="text-sm font-medium text-gray-500">Total des étudiants</p>
                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalStudents|default(0) }}</p>
             </div>
             <div class="p-3 bg-blue-50 rounded-lg">
@@ -346,14 +346,14 @@
                 <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
                 </svg>
-                12% from last month
+                12% par rapport au mois dernier
             </span>
         </div>
     </div>
     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-green-500">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm font-medium text-gray-500">Average Score</p>
+                <p class="text-sm font-medium text-gray-500">Score moyenne</p>
                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.averageScore|default(0)|round(2) }}</p>
             </div>
             <div class="p-3 bg-green-50 rounded-lg">
@@ -374,7 +374,7 @@
     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-yellow-500">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm font-medium text-gray-500">Public Etablissements</p>
+                <p class="text-sm font-medium text-gray-500">Etablissements Publiques</p>
                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.publicEtablissements|default(0) }}</p>
             </div>
             <div class="p-3 bg-yellow-50 rounded-lg">
@@ -387,7 +387,7 @@
     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-red-500">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm font-medium text-gray kontrakt-500">Private Etablissements</p>
+                <p class="text-sm font-medium text-gray kontrakt-500">Etablissements Privés</p>
                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.privateEtablissements|default(0) }}</p>
             </div>
             <div class="p-3 bg-red-50 rounded-lg">
@@ -403,21 +403,21 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
     <!-- Etablissement Chart -->
     <div class="bg-white rounded-xl shadow-sm p-6">
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Students per Etablissement</h3>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Etudiants par établissement</h3>
         <div class="relative h-64">
             <canvas id="etablissementChart"></canvas>
         </div>
     </div>
     <!-- Age Chart -->
     <div class="bg-white rounded-xl shadow-sm p-6">
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Age Distribution</h3>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition par âge</h3>
         <div class="relative h-64">
             <canvas id="ageChart"></canvas>
         </div>
     </div>
     <!-- Score Distribution Chart -->
     <div class="bg-white rounded-xl shadow-sm p-6">
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Score Distribution</h3>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition des scores</h3>
         <div class="relative h-64">
             <canvas id="scoreChart"></canvas>
         </div>

@@ -25,7 +25,11 @@
                     </li>
                 </ul>
             </div>
-
+                {% for flashError in app.flashes('error') %}
+    <div class="alert alert-danger" role="alert">
+        {{ flashError }}
+    </div>
+{% endfor %}
             <form method="post" action="{{ path('app_register') }}" enctype="multipart/form-data" id="registration-form">
                 <!-- Step 1: Account Details -->
                 <div class="step" id="step-1">
