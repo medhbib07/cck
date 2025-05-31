@@ -42,14 +42,61 @@ class EtablissementRepository extends ServiceEntityRepository
                 'count' => $result['total']
             ];
         }
-    
-        return [
-            'total' => array_sum(array_column($results, 'total')),
-            'public_count' => array_sum(array_column($results, 'public_count')),
-            'private_count' => array_sum(array_column($results, 'private_count')),
-            'location_data' => $locationData,
+    // Chart 2: Students per establishment
+   $studentQuery = $this->getEntityManager()->createQueryBuilder()
+    ->select('e.nom as name, COUNT(s.id) as students')
+    ->from(Etablissement::class, 'e')
+    ->leftJoin('e.etudiants', 's') // assuming Etablissement has OneToMany 'etudiants'
+    ->where('e.groupe = :universite')
+    ->groupBy('e.id')
+    ->setParameter('universite', $universite)
+    ->getQuery()
+    ->getResult();
+
+
+    $studentsPerEtablissement = [];
+    foreach ($studentQuery as $row) {
+        $studentsPerEtablissement[] = [
+            'name' => $row['name'],
+            'students' => $row['students']
         ];
     }
+
+    // Chart 3: Total students by type
+   $studentTypeQuery = $this->getEntityManager()->createQueryBuilder()
+    ->select('e.etype, COUNT(s.id) as count')
+    ->from(Etablissement::class, 'e')
+    ->leftJoin('e.etudiants', 's')
+    ->where('e.groupe = :universite')
+    ->groupBy('e.etype')
+    ->setParameter('universite', $universite)
+    ->getQuery()
+    ->getResult();
+
+// Normalize results
+$studentTypeData = ['public' => 0, 'private' => 0];
+foreach ($studentTypeQuery as $row) {
+    if ((int)$row['etype'] === Etablissement::ETYPE_PUBLIC) {
+        $studentTypeData['public'] = $row['count'];
+    } elseif ((int)$row['etype'] === Etablissement::ETYPE_PRIVATE) {
+        $studentTypeData['private'] = $row['count'];
+    }
+}
+
+
+    return [
+        'total' => array_sum(array_column($results, 'total')),
+        'public_count' => array_sum(array_column($results, 'public_count')),
+        'private_count' => array_sum(array_column($results, 'private_count')),
+        'location_data' => $locationData,
+        'students_per_etablissement' => $studentsPerEtablissement,
+        'students_by_type' => [
+            'Publique' => (int) $studentTypeData['public'],
+            'Privé' => (int) $studentTypeData['private'],
+        ]
+    ];
+}
+
     public function findWithFilters(string $search, string $universite, string $city, string $etype): array
     {
         $qb = $this->createQueryBuilder('e')

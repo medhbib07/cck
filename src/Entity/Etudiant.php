@@ -61,6 +61,7 @@ class Etudiant
     #[ORM\JoinColumn(nullable: false)]
     #[Assert\NotNull(message: 'Etablissement cannot be null.')]
     private ?Etablissement $etablissement = null;
+    
 
     public function getId(): ?int
     {

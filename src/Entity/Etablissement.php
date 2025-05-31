@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use App\Entity\User;
 use App\Repository\EtablissementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Etablissement extends User
 {
     public const ETYPE_PUBLIC = 'Publique';
-    public const ETYPE_PRIVATE = 'Privée';
+    public const ETYPE_PRIVATE = 'Privé';
     public const EaTYPES = [
         self::ETYPE_PUBLIC,
         self::ETYPE_PRIVATE
@@ -56,6 +58,14 @@ class Etablissement extends User
     #[ORM\ManyToOne(targetEntity: Universite::class, inversedBy: 'etablissements')]
     #[ORM\JoinColumn(nullable: true)]
     private ?Universite $groupe = null;
+
+    #[ORM\OneToMany(mappedBy: 'etablissement', targetEntity: Etudiant::class)]
+    private ?Collection $etudiants = null;
+
+    public function __construct()
+{
+    $this->etudiants = new ArrayCollection();
+}
 
     public function getNom(): ?string
     {
@@ -217,4 +227,8 @@ class Etablissement extends User
         $this->groupe = $groupe;
         return $this;
     }
+    public function getEtudiants(): Collection
+{
+    return $this->etudiants;
+}
 }   

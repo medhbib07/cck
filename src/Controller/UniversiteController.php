@@ -124,20 +124,32 @@ class UniversiteController extends AbstractController
         $universite = $this->getUser();
         $errors = [];
         $etablissement = new Etablissement();
-    
         try {
             // Required fields validation
-            $requiredFields = ['nom', 'etype', 'localisation', 'email', 'password'];
-            foreach ($requiredFields as $field) {
-                if (!$request->request->get($field)) {
-                    $errors[] = "Field $field is required";
+           
+            
+
+            // Map the 'etype' string to the corresponding constant
+                $etypeMap = [
+                    'Publique' => Etablissement::ETYPE_PUBLIC,
+                    'Privé' => Etablissement::ETYPE_PRIVATE,
+                ];
+                $etype = $request->request->get('etype');
+                if (isset($etypeMap[$etype])) {
+                    $etablissement->setEtype($etypeMap[$etype]);
+                } else {
+                    $errors[] = "Invalid establishment type.";
                 }
-            }
     
             // Email validation
             if (!filter_var($request->request->get('email'), FILTER_VALIDATE_EMAIL)) {
                 $errors[] = "Invalid email format";
             }
+            $submittedToken = $request->request->get('_token');
+
+                if (!$this->isCsrfTokenValid('establishment', $submittedToken)) {
+                    $errors[] = 'Invalid CSRF token.';
+                }
     
             if (empty($errors)) {
                 // Set user properties
@@ -152,7 +164,6 @@ class UniversiteController extends AbstractController
                 // Set establishment properties
                 $etablissement
                     ->setNom($request->request->get('nom'))
-                    ->setEtype($request->request->get('etype'))
                     ->setSiteweb($request->request->get('siteweb'))
                     ->setGroupe($universite)
                     ->setAdresse($request->request->get('adresse'))
@@ -175,7 +186,6 @@ class UniversiteController extends AbstractController
                     );
                     $etablissement->setLogo($newFilename);
                 }
-    
                 $em->persist($etablissement);
                 $em->flush();
     
@@ -186,55 +196,194 @@ class UniversiteController extends AbstractController
             $errors[] = 'Error creating establishment: '.$e->getMessage();
         }
     
+         // Create search form
+        $searchForm = $this->createFormBuilder()
+            ->setMethod('GET')
+            ->add('search', TextType::class, [
+                'required' => false,
+                'attr' => ['placeholder' => 'Search by name or location']
+            ])
+            ->add('type', ChoiceType::class, [
+                'required' => false,
+                'choices' => [
+                    'All Types' => null,
+                    'Public' => Etablissement::ETYPE_PUBLIC,
+                    'Private' => Etablissement::ETYPE_PRIVATE
+                ]
+            ])
+            ->add('filter', SubmitType::class, [
+                'label' => 'Filter',
+                'attr' => ['class' => 'bg-blue-600 text-white px-4 py-2 rounded']
+            ])
+            ->getForm();
+    
+        $searchForm->handleRequest($request);
+
+        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
+            $data = $searchForm->getData();
+            
+            if (!empty($data['search'])) {
+                $establishments->andWhere('e.nom LIKE :search OR e.adresse LIKE :search')
+                    ->setParameter('search', '%'.$data['search'].'%');
+            }
+            
+            if (!empty($data['type'])) {
+                $establishments->andWhere('e.etype = :type')
+                    ->setParameter('type', $data['type']);
+            }
+           
+        }
+    
         // Fetch establishments again after potential error
         $establishments = $em->getRepository(Etablissement::class)
             ->findBy(['groupe' => $universite]);
             
-    
+        $stats = $em->getRepository(Etablissement::class)
+    ->getEstablishmentStats($universite);
         return $this->render('Backoffice/universite/dashboard.html.twig', [
             'establishments' => $establishments,
             'errors' => $errors,
             'form_data' => $request->request->all(),
-            'universite' => $universite
+            'universite' => $universite,
+            'stats' => $stats,
+            'searchForm' => $searchForm->createView()
         ]);
     }
+#[Route('/{id}/update', name: 'universite_update', methods: ['POST'])]
+    public function update(
+        Request $request,
+        int $id,
+        EntityManagerInterface $em,
+        UserPasswordHasherInterface $passwordHasher
+            ): Response {
+        // Get the current user (university)
+                $errors = [];
 
-    #[Route('/{id}/update', name: 'universite_update', methods: ['POST'])]
-    public function update(Request $request, Etablissement $etablissement, EntityManagerInterface $em): Response
-    {
         $universite = $this->getUser();
-        $errors = [];
+        if (!$universite) {
+            throw $this->createAccessDeniedException('Vous devez être connecté.');
+        }
+
+        // Find the establishment
+        $etablissement = $em->getRepository(Etablissement::class)->find($id);
+        if (!$etablissement) {
+            throw $this->createNotFoundException('Établissement non trouvé.');
+        }
 
         // Verify the establishment belongs to the current university
         if ($etablissement->getGroupe() !== $universite) {
-            throw new AccessDeniedException('You can only edit your own establishments');
+            throw $this->createAccessDeniedException('Vous ne pouvez modifier que vos propres établissements.');
         }
 
-        try {
-            $etablissement->setNom($request->request->get('nom'))
-                ->setEtype($request->request->get('etype'))
-                ->setLocalisation($request->request->get('localisation'))
-                ->setSiteweb($request->request->get('siteweb'));
-
-            $em->flush();
-            $this->addFlash('success', 'Establishment updated successfully');
+        // Verify CSRF token
+        $submittedToken = $request->request->get('_token');
+        if (!$this->isCsrfTokenValid('establishment', $submittedToken)) {
+            $this->addFlash('error', 'Token CSRF invalide.');
             return $this->redirectToRoute('universite_index');
-
-        } catch (\Exception $e) {
-            $errors[] = 'Error updating establishment: '.$e->getMessage();
         }
 
-        // Fetch establishments again after potential error
-        $establishments = $em->getRepository(Etablissement::class)
-            ->findBy(['groupe' => $universite]);
+        // Update fields from form
+        $etablissement->setNom($request->request->get('nom'));
+        $etablissement->setEtype($request->request->get('etype'));
+        $etablissement->setAdresse($request->request->get('adresse'));
+        $etablissement->setVille($request->request->get('ville') ?? null);
+        $etablissement->setCodePostal($request->request->get('code_postal') ?? null);
+        $etablissement->setLatitude((float) $request->request->get('latitude'));
+        $etablissement->setLongitude((float) $request->request->get('longitude'));
+        $etablissement->setCapacite((int) $request->request->get('capacite'));
+        $etablissement->setDescription($request->request->get('description') ?? null);
+        $etablissement->setSiteweb($request->request->get('siteweb') ?? null);
+        $etablissement->setEmail($request->request->get('email'));
 
-        return $this->render('Backoffice/universite/dashboard.html.twig', [
-            'establishments' => $establishments,
-            'errors' => $errors,
-            'form_data' => $request->request->all(),
-            'universite' => $universite
-        ]);
+        // Handle date creation
+        $dateCreation = $request->request->get('date_creation');
+        if ($dateCreation) {
+            try {
+                $etablissement->setDateCreation(new \DateTime($dateCreation));
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Date de création invalide.');
+                return $this->redirectToRoute('universite_index');
+            }
+        } else {
+            $this->addFlash('error', 'La date de création est requise.');
+            return $this->redirectToRoute('universite_index');
+        }
+
+        // Handle password (only update if provided)
+        $password = $request->request->get('password');
+        if ($password) {
+            try {
+                $hashedPassword = $passwordHasher->hashPassword($etablissement, $password);
+                $etablissement->setPassword($hashedPassword);
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Erreur lors de la mise à jour du mot de passe.');
+                return $this->redirectToRoute('universite_index');
+            }
+        }
+
+        // Handle logo file upload
+        if ($request->files->has('logo')) {
+            $logoFile = $request->files->get('logo');
+            if ($logoFile) {
+                try {
+                    $newFilename = uniqid() . '.' . $logoFile->guessExtension();
+                    $logoFile->move(
+                        $this->getParameter('logos_directory'),
+                        $newFilename
+                    );
+                    // Remove old logo if it exists
+                    if ($etablissement->getLogo()) {
+                        $oldFilePath = $this->getParameter('logos_directory') . '/' . $etablissement->getLogo();
+                        if (file_exists($oldFilePath)) {
+                            unlink($oldFilePath);
+                        }
+                    }
+                    $etablissement->setLogo($newFilename);
+                } catch (FileException $e) {
+                    $this->addFlash('error', 'Erreur lors du téléchargement du logo.');
+                    return $this->redirectToRoute('universite_index');
+                }
+            }
+        }
+
+        
+            // Re-render the dashboard with errors
+            $establishments = $em->getRepository(Etablissement::class)->findBy(['groupe' => $universite]);
+            $stats = $em->getRepository(Etablissement::class)->getEstablishmentStats($universite);
+
+            return $this->render('Backoffice/universite/dashboard.html.twig', [
+                'establishments' => $establishments,
+                'errors' => $errors,
+                'form_data' => $request->request->all(),
+                'universite' => $universite,
+                'stats' => $stats,
+                'searchForm' => $this->createFormBuilder()
+                    ->setMethod('GET')
+                    ->add('search', TextType::class, [
+                        'required' => false,
+                        'attr' => ['placeholder' => 'Search by name or location']
+                    ])
+                    ->add('type', ChoiceType::class, [
+                        'required' => false,
+                        'choices' => [
+                            'All Types' => null,
+                            'Public' => Etablissement::ETYPE_PUBLIC,
+                            'Private' => Etablissement::ETYPE_PRIVATE
+                        ]
+                    ])
+                    ->add('filter', SubmitType::class, [
+                        'label' => 'Filter',
+                        'attr' => ['class' => 'bg-blue-600 text-white px-4 py-2 rounded']
+                    ])
+                    ->getForm()->createView()
+            ]);
+        
+
+        $em->flush();
+        $this->addFlash('success', 'Établissement mis à jour avec succès.');
+        return $this->redirectToRoute('universite_index');
     }
+
 
     #[Route('/{id}/delete', name: 'universite_delete', methods: ['POST'])]
     public function delete(Etablissement $etablissement, EntityManagerInterface $em): Response
@@ -255,5 +404,127 @@ class UniversiteController extends AbstractController
         }
         
         return $this->redirectToRoute('universite_index');
+    }
+
+
+
+    #[Route('/universite/updateProfile', name: 'universite_update_profile', methods: ['GET', 'POST'])]
+   public function updateProfile(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+    {
+        $universite = $this->getUser();
+        if (!$universite instanceof Universite) {
+            throw $this->createAccessDeniedException('User is not a Universite.');
+        }
+
+        if ($request->isMethod('POST')) {
+            $data = $request->request->all();
+
+            // Manual validation
+            $errors = [];
+
+            // Validate nom
+            if (empty($data['nom'])) {
+                $errors[] = 'University name cannot be empty.';
+            } elseif (strlen($data['nom']) > 255) {
+                $errors[] = 'University name cannot exceed 255 characters.';
+            }
+
+            // Validate email
+            if (empty($data['email'])) {
+                $errors[] = 'Email cannot be empty.';
+            } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors[] = 'The email address is not valid.';
+            }
+
+            
+
+            // Validate password (optional, only if provided)
+            if (!empty($data['password']) && strlen($data['password']) < 6) {
+                $errors[] = 'Password must be at least 6 characters long.';
+            }
+
+            // Check email uniqueness
+            $existingUser = $entityManager->getRepository(Universite::class)->findOneBy(['email' => $data['email']]);
+            if ($existingUser && $existingUser->getId() !== $universite->getId()) {
+                $errors[] = 'This email is already in use.';
+            }
+
+            // If there are errors, display them
+            if (!empty($errors)) {
+                foreach ($errors as $error) {
+                    $this->addFlash('error', $error);
+                }
+                return $this->render('Backoffice/universite/dashboard.html.twig', [
+                    'universite' => $universite,
+                ]);
+            }
+
+
+            // Update fields
+            $universite->setNom($data['nom']);
+            $universite->setEmail($data['email']);
+
+            // Handle password update
+            if (!empty($data['password'])) {
+                $hashedPassword = $passwordHasher->hashPassword($universite, $data['password']);
+                $universite->setPassword($hashedPassword);
+            }
+            // Create search form
+         $searchForm = $this->createFormBuilder()
+            ->setMethod('GET')
+            ->add('search', TextType::class, [
+                'required' => false,
+                'attr' => ['placeholder' => 'Search by name or location']
+            ])
+            ->add('type', ChoiceType::class, [
+                'required' => false,
+                'choices' => [
+                    'All Types' => null,
+                    'Public' => Etablissement::ETYPE_PUBLIC,
+                    'Private' => Etablissement::ETYPE_PRIVATE
+                ]
+            ])
+            ->add('filter', SubmitType::class, [
+                'label' => 'Filter',
+                'attr' => ['class' => 'bg-blue-600 text-white px-4 py-2 rounded']
+            ])
+            ->getForm();
+    
+        $searchForm->handleRequest($request);
+
+        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
+            $data = $searchForm->getData();
+            
+            if (!empty($data['search'])) {
+                $establishments->andWhere('e.nom LIKE :search OR e.adresse LIKE :search')
+                    ->setParameter('search', '%'.$data['search'].'%');
+            }
+            
+            if (!empty($data['type'])) {
+                $establishments->andWhere('e.etype = :type')
+                    ->setParameter('type', $data['type']);
+            }
+           
+        }
+    
+        // Fetch establishments again after potential error
+        $establishments = $entityManager->getRepository(Etablissement::class)
+            ->findBy(['groupe' => $universite]);
+
+        $stats = $entityManager->getRepository(Etablissement::class)
+            ->getEstablishmentStats($universite);
+
+            $entityManager->flush();
+            $this->addFlash('success', 'Profile updated successfully.');
+            return $this->redirectToRoute('universite_index'); // Adjust to your dashboard route
+        }
+
+        return $this->render('Backoffice/universite/dashboard.html.twig', [
+            'universite' => $universite,
+            'searchForm' => $searchForm->createView(),
+            'establishments' => $establishments,
+            'stats' => $stats,
+        ]);
+
     }
 }
