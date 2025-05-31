@@ -83,4 +83,13 @@ class UniversiteRepository extends ServiceEntityRepository
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
+      public function findAllWithEtablissements()
+    {
+        return $this->createQueryBuilder('u')
+            ->leftJoin('u.etablissements', 'e')
+            ->addSelect('e')
+            ->orderBy('u.nom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

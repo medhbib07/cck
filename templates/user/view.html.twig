@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="modinatheme">
+    <meta name="description" content="CCK - Plateforme de gestion des universités tunisiennes">
+    <!-- ======== Page title ============ -->
+    <title>CCK - Plateforme de gestion des universités tunisiennes</title>
+    <!--<< Favicon >>-->
+    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <!--<< Bootstrap min.css >>-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--<< Font Awesome.css >>-->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <!--<< Animate.css >>-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!--<< Magnific Popup.css >>-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--<< MeanMenu.css >>-->
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <!--<< Odometer.css >>-->
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <!--<< Swiper Bundle.css >>-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!--<< Nice Select.css >>-->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!--<< Style.css >>-->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --prussian-blue: #25354A;
+            --platinum: #E8ECE9;
+            --sky-blue: #6CC1D5;
+            --tufts-blue: #498ED3;
+            --glaucous: #5C79A5;
+            --success-green: #28a745;
+            --warning-orange: #fd7e14;
+        }
+        
+        /* Hero Swiper */
+        .hero-swiper {
+            height: 600px;
+        }
+        
+        .hero-slide {
+            position: relative;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(37, 53, 74, 0.8), rgba(37, 53, 74, 0.5));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 50px;
+        }
+        
+        .hero-title {
+            color:#d4edda;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        /* Main Content Enhancements */
+        main {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+        
+        /* Search Section */
+        .search-section {
+            background: linear-gradient(135deg, var(--prussian-blue), var(--glaucous));
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .search-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .search-section::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        
+        .search-section h2 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .search-input {
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .search-btn {
+            background-color: var(--sky-blue);
+            color: white;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .search-btn:hover {
+            background-color: #5aa8c0;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .advanced-search-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .advanced-search-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Student Guides Section */
+        .guides-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .guides-section h2 {
+            color: var(--prussian-blue);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .guides-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--sky-blue), var(--tufts-blue));
+        }
+        
+        .guide-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .guide-icon {
+            font-size: 2.5rem;
+            color: var(--tufts-blue);
+            margin-bottom: 15px;
+        }
+        
+        .guide-card h3 {
+            color: var(--prussian-blue);
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+        
+        .guide-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .guide-link {
+            color: var(--sky-blue);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .guide-link:hover {
+            color: var(--tufts-blue);
+            transform: translateX(5px);
+        }
+        
+        .guide-link i {
+            margin-left: 5px;
+            transition: all 0.3s;
+        }
+        
+        /* University Cards */
+        .university-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+            background: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+        }
+        
+        .university-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .university-header {
+            padding: 30px;
+            color: white;
+            background: linear-gradient(135deg, var(--prussian-blue), var(--glaucous));
+            position: relative;
+        }
+        
+        .university-header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 40px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--prussian-blue);
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+        
+        .university-badge {
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Establishments Grid */
+        .establishments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        .establishment-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            background: white;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .establishment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .establishment-image {
+            height: 200px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .establishment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .establishment-card:hover .establishment-image img {
+            transform: scale(1.1);
+        }
+        
+        .establishment-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+        
+        /* Establishment Content */
+        .establishment-content {
+            padding: 25px;
+        }
+        
+        .establishment-type {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        
+        .type-public {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .type-private {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .establishment-title {
+            font-size: 1.25rem;
+            color: var(--prussian-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .establishment-details {
+            margin-top: 20px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .detail-item i {
+            margin-right: 12px;
+            color: var(--glaucous);
+            margin-top: 3px;
+            font-size: 16px;
+        }
+        
+        .detail-text {
+            flex: 1;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        
+        .btn-details {
+            background-color: var(--tufts-blue);
+            color: white;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-contact {
+            background-color: var(--sky-blue);
+            color: white;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-details:hover, .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-details i, .btn-contact i {
+            margin-right: 8px;
+        }
+        
+        /* No Content States */
+        .no-content {
+            padding: 60px 40px;
+            text-align: center;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .no-content i {
+            font-size: 3rem;
+            color: var(--glaucous);
+            margin-bottom: 20px;
+        }
+        
+        .no-content h4 {
+            color: var(--prussian-blue);
+            margin-bottom: 15px;
+        }
+        
+        .no-content p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--prussian-blue), var(--glaucous));
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-swiper {
+                height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .establishments-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-swiper {
+                height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-content {
+                padding: 0 30px;
+            }
+            
+            .search-section {
+                padding: 30px 20px;
+            }
+            
+            .university-header {
+                padding: 20px;
+            }
+            
+            .establishments-grid {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-swiper {
+                height: 350px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="edu-preloader-icon"> 
+                <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="Chargement CCK" style="max-width: 200px;">               
+            </div>
+            <div class="txt-loading">
+                <span data-text-preloader="C" class="letters-loading" style="color: #25354A;">
+                    C
+                </span>
+                <span data-text-preloader="C" class="letters-loading" style="color: #25354A;">
+                    C
+                </span>
+                <span data-text-preloader="K" class="letters-loading" style="color: #25354A;">
+                    K
+                </span>
+            </div>
+            <p class="text-center" style="color: #25354A; font-weight: 500; margin-top: 15px;">Chargement en cours...</p>
+        </div>
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left">
+                    <div class="bg" style="background-color: #25354A;"></div>
+                </div>
+                <div class="col-3 loader-section section-left">
+                    <div class="bg" style="background-color: #6CC1D5;"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg" style="background-color: #498ED3;"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg" style="background-color: #5C79A5;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section Start -->
+    <header class="header-section-3">
+        <div id="header-sticky" class="header-3 sticky">
+            <div class="container">
+                <div class="mega-menu-wrapper">
+                    <div class="header-main">
+                        <a href="index.html" class="header-logo">
+                            <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="Logo CCK" width="120">
+                        </a>
+                        <a href="index.html" class="header-logo-2">
+                            <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="Logo CCK" width="120">
+                        </a>
+                        <div class="header-left">
+                            <div class="mean__menu-wrapper">
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                            <li><a href="{{path('app_user_index')}}">Accueil</a></li>
+                                            <li><a href="{{path('app_view_universities')}}">Universités</a></li>
+                                            <li><a href="#">À propos</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                            <div class="header-button">
+                                <a href="#" class="theme-btn" style="background-color: #6CC1D5;">Espace Université</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Swiper Section -->
+    <section class="hero-swiper-section">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Découvrez les Universités Tunisiennes</h1>
+                        <p class="hero-subtitle">Explorez les établissements d'enseignement supérieur à travers toute la Tunisie</p>
+                        <a href="#universities" class="btn btn-lg" style="background-color: #6CC1D5; color: white;">Explorer maintenant</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="swiper-slide hero-slide" style="background-image: url('https://www.utctunisie.com/wp-content/uploads/2022/06/UTC-LSE-University-of-London-Programmes-Launch-in-Tunisia-1.jpg');">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Plateforme CCK</h1>
+                        <p class="hero-subtitle">Le portail officiel de gestion des établissements universitaires tunisiens</p>
+                        <a href="#universities" class="btn btn-lg" style="background-color: #498ED3; color: white;">Commencer la visite</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Trouvez Votre Établissement</h1>
+                        <p class="hero-subtitle">Recherchez par université, localisation ou domaine d'étude</p>
+                        <a href="#search" class="btn btn-lg" style="background-color: #5C79A5; color: white;">Rechercher</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <main class="py-5" id="universities">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section" id="search">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 class="text-center mb-4">Trouvez votre établissement idéal</h2>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-input" placeholder="Rechercher par nom, ville, spécialité ou type d'établissement...">
+                            <button class="btn search-btn" type="button">
+                                <i class="fas fa-search me-2"></i> Rechercher
+                            </button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="advanced-search-link">
+                                <i class="fas fa-sliders-h me-2"></i>Recherche avancée
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Student Guides Section -->
+            <section class="guides-section">
+                <h2>Guides pour Étudiants</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="guide-card p-4 text-center">
+                            <div class="guide-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Choisir sa Formation</h3>
+                            <p>Découvrez comment sélectionner la formation qui correspond à vos aspirations et compétences.</p>
+                            <a href="#" class="guide-link">
+                                En savoir plus <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="guide-card p-4 text-center">
+                            <div class="guide-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Procédures d'Inscription</h3>
+                            <p>Toutes les étapes pour réussir votre inscription dans l'établissement de votre choix.</p>
+                            <a href="#" class="guide-link">
+                                En savoir plus <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="guide-card p-4 text-center">
+                            <div class="guide-icon">
+                                <i class="fas fa-euro-sign"></i>
+                            </div>
+                            <h3>Bourses & Aides</h3>
+                            <p>Informations sur les différentes aides financières disponibles pour les étudiants.</p>
+                            <a href="#" class="guide-link">
+                                En savoir plus <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="24">0</div>
+                                <div class="stat-label">Universités</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="186">0</div>
+                                <div class="stat-label">Établissements</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="350">0</div>
+                                <div class="stat-label">Formations</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="250000">0</div>
+                                <div class="stat-label">Étudiants</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Universities Listing -->
+            {% for universite in universites %}
+                <div class="university-card">
+                    <div class="university-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2 class="h3 mb-0">{{ universite.nom }}</h2>
+                            <span class="university-badge">
+                                {{ universite.etablissements|length }} établissement(s)
+                            </span>
+                        </div>
+                    </div>
+                    
+                    {% if universite.etablissements|length > 0 %}
+                        <div class="establishments-grid">
+                            {% for etablissement in universite.etablissements %}
+                                <div class="establishment-card" data-bs-toggle="modal" data-bs-target="#establishmentModal" data-id="{{ etablissement.id }}">
+                                    <div class="establishment-image">
+                                        {% if etablissement.logo %}
+                                            <img src="{{ asset('uploads/establishments/' ~ etablissement.logo) }}" alt="{{ etablissement.nom }}">
+                                        {% else %}
+                                            <img src="{{ asset('img/default-establishment.jpg') }}" alt="Default establishment image">
+                                        {% endif %}
+                                        <span class="establishment-badge establishment-type type-{{ etablissement.etype == 'Publique' ? 'public' : 'private' }}">
+                                            {{ etablissement.etype }}
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="establishment-content">
+                                        <h3 class="establishment-title">{{ etablissement.nom }}</h3>
+                                        
+                                        <div class="establishment-details">
+                                            {% if etablissement.ville %}
+                                                <div class="detail-item">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    <div class="detail-text">
+                                                        {{ etablissement.ville }}
+                                                        {% if etablissement.adresse %}<br><small>{{ etablissement.adresse }}</small>{% endif %}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            
+                                            {% if etablissement.telephone %}
+                                                <div class="detail-item">
+                                                    <i class="fas fa-phone"></i>
+                                                    <div class="detail-text">
+                                                        {{ etablissement.telephone }}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            
+                                            {% if etablissement.email %}
+                                                <div class="detail-item">
+                                                    <i class="fas fa-envelope"></i>
+                                                    <div class="detail-text">
+                                                        {{ etablissement.email }}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        
+                                        <div class="action-buttons">
+                                            <button class="btn btn-details">
+                                                <i class="fas fa-eye"></i> Détails
+                                            </button>
+                                            <button class="btn btn-contact">
+                                                <i class="fas fa-envelope"></i> Contacter
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="no-content">
+                            <i class="fas fa-university"></i>
+                            <h4>Aucun établissement rattaché</h4>
+                            <p>Cette université ne contient aucun établissement pour le moment. Veuillez vérifier ultérieurement pour les mises à jour.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="no-content">
+                    <i class="fas fa-info-circle"></i>
+                    <h4>Aucune université trouvée</h4>
+                    <p>Le système ne contient aucune université pour le moment. Notre équipe travaille à mettre à jour les informations.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <!-- Establishment Modal -->
+    <div class="modal fade" id="establishmentModal" tabindex="-1" aria-labelledby="establishmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="establishmentModalLabel">Détails de l'Établissement</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="establishment-image mb-4" style="height: 250px;">
+                                <img id="modalEstablishmentImage" src="" alt="Establishment Image" class="w-100 h-100 object-fit-cover">
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-3">
+                                <span id="modalEstablishmentType" class="establishment-type"></span>
+                                <span id="modalEstablishmentDate" class="text-muted"></span>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 id="modalEstablishmentName" class="mb-3"></h4>
+                                <div id="modalEstablishmentDescription" class="text-muted"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Coordonnées</h5>
+                                    
+                                    <div class="detail-item mb-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div class="detail-text">
+                                            <strong>Adresse:</strong>
+                                            <div id="modalEstablishmentAddress"></div>
+                                            <div id="modalEstablishmentCity"></div>
+                                            <div id="modalEstablishmentPostal"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item mb-3">
+                                        <i class="fas fa-phone"></i>
+                                        <div class="detail-text">
+                                            <strong>Téléphone:</strong>
+                                            <div id="modalEstablishmentPhone"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item mb-3">
+                                        <i class="fas fa-globe"></i>
+                                        <div class="detail-text">
+                                            <strong>Site web:</strong>
+                                            <div id="modalEstablishmentWebsite"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item mb-3">
+                                        <i class="fas fa-users"></i>
+                                        <div class="detail-text">
+                                            <strong>Capacité:</strong>
+                                            <div id="modalEstablishmentCapacity"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4">
+                                        <h6>Localisation</h6>
+                                        <div id="modalEstablishmentMap" style="height: 150px; background-color: #f5f5f5; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-map-marked-alt fa-2x" style="color: #5C79A5;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" style="background-color: #6CC1D5; border: none;">
+                        <i class="fas fa-envelope me-2"></i> Contacter l'établissement
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section Start -->
+    <footer class="footer-section-3 fix">
+        <div class="container">
+            <div class="footer-widget-wrapper style-2">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <a href="index.html">
+                                    <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="CCK" width="150">
+                                </a>
+                            </div>
+                            <div class="footer-content">
+                                <p class="mt-3">
+                                    Plateforme officielle de gestion des établissements universitaires tunisiens sous la supervision du Ministère de l'Enseignement Supérieur et de la Recherche Scientifique.
+                                </p>
+                                <div class="social-icon mt-4">
+                                    <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                                    <a href="#" class="me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                                    <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-6 ps-lg-5 wow fadeInUp" data-wow-delay=".4s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Navigation</h3>
+                            </div>
+                            <ul class="list-area">
+                                <li><a href="/">Accueil</a></li>
+                                <li><a href="/view-universities">Universités</a></li>
+                                <li><a href="#">Établissements</a></li>
+                                <li><a href="#">Recherche</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Ressources</h3>
+                            </div>
+                            <ul class="list-area">
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Guides</a></li>
+                                <li><a href="#">Mentions légales</a></li>
+                                <li><a href="#">Politique de confidentialité</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".8s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Contact</h3>
+                            </div>
+                            <div class="footer-content">
+                                <ul class="contact-info">
+                                    <li class="mb-3">
+                                        <i class="fas fa-map-marker-alt me-2"></i>
+                                        Avenue Mohammed V, Tunis, Tunisie
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-phone me-2"></i>
+                                        <a href="tel:+21670000000">+216 70 000 000</a>
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-envelope me-2"></i>
+                                        <a href="mailto:contact@cck.tn">contact@cck.tn</a>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-clock me-2"></i>
+                                        Lundi - Vendredi: 8h00 - 17h00
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom style-3">
+                <div class="container">
+                    <div class="footer-bottom-wrapper">
+                        <p class="mb-0">© 2023 <strong>CCK</strong> - Tous droits réservés. Ministère de l'Enseignement Supérieur et de la Recherche Scientifique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--<< All JS Plugins >>-->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!--<< Nice Select Js >>-->
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <!--<< Odometer Js >>-->
+    <script src="assets/js/odometer.min.js"></script>
+    <!--<< Appear Js >>-->
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <!--<< Swiper Slider Js >>-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--<< Circle Progress Js >>-->
+    <script src="assets/js/circle-progress.js"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="assets/js/wow.min.js"></script>
+    <!--<< Main.js >>-->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize Hero Swiper
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+        
+        // Modal Handling
+        const establishmentModal = document.getElementById('establishmentModal');
+        if (establishmentModal) {
+            establishmentModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const card = button.closest('.establishment-card');
+                
+                // In a real app, you would fetch the full details via AJAX using the data-id
+                // For this example, we'll use the data from the card
+                
+                // Set modal content from card data
+                document.getElementById('modalEstablishmentName').textContent = card.querySelector('h3').textContent;
+                document.getElementById('modalEstablishmentType').textContent = card.querySelector('.establishment-type').textContent;
+                document.getElementById('modalEstablishmentType').className = card.querySelector('.establishment-type').className;
+                
+                // Set image
+                const imgSrc = card.querySelector('.establishment-image img').src;
+                document.getElementById('modalEstablishmentImage').src = imgSrc;
+                
+                // Set address (example data)
+                const ville = card.querySelector('.detail-text').textContent.trim();
+                const adresse = card.querySelector('.detail-text small') ? card.querySelector('.detail-text small').textContent : '';
+                document.getElementById('modalEstablishmentCity').textContent = ville;
+                document.getElementById('modalEstablishmentAddress').textContent = adresse;
+                
+                // Set phone (example data)
+                const phone = card.querySelectorAll('.detail-item')[1].querySelector('.detail-text').textContent.trim();
+                document.getElementById('modalEstablishmentPhone').textContent = phone;
+                
+                // Set other details (these would come from your backend in a real app)
+                document.getElementById('modalEstablishmentDescription').textContent = "Établissement d'enseignement supérieur offrant des formations de qualité dans divers domaines académiques et professionnels.";
+                document.getElementById('modalEstablishmentDate').textContent = "Fondé en 1990";
+                document.getElementById('modalEstablishmentCapacity').textContent = "5000 étudiants";
+                document.getElementById('modalEstablishmentWebsite').innerHTML = '<a href="#" target="_blank">www.etablissement.tn</a>';
+            });
+        }
+        
+        // Contact button handler
+ // Contact button handler
+document.querySelectorAll('.btn-contact').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = btn.closest('.establishment-card');
+        const establishmentId = card.dataset.id;
+        window.location.href = `/contact/${establishmentId}`;
+    });
+});
+        
+        // Search functionality placeholder
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-input').value;
+            if (searchTerm) {
+                alert('Recherche pour: ' + searchTerm + '\nCette fonctionnalité sera implémentée');
+            }
+        });
+    </script>
+</body>
+</html>

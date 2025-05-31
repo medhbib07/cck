@@ -1,2148 +1,436 @@
-<html lang="en"><!--<< Header Area >>--><head>
-        <!-- ========== Meta Tags ========== -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="modinatheme">
-        <meta name="description" content="Eduspace - Online Course, Education &amp; University Html Template">
-        <!-- ======== Page title ============ -->
-        <title>Eduspace - Online Course, Education &amp; University Html Template</title>
-        <!--<< Favicon >>-->
-        <link rel="shortcut icon" href="assets/img/favicon.svg">
-        <!--<< Bootstrap min.css >>-->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--<< Font Awesome.css >>-->
-        <link rel="stylesheet" href="assets/css/font-awesome.css">
-        <!--<< Animate.css >>-->
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!--<< Magnific Popup.css >>-->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--<< MeanMenu.css >>-->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!--<< Odometer.css >>-->
-        <link rel="stylesheet" href="assets/css/odometer.css">
-        <!--<< Swiper Bundle.css >>-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <!--<< Nice Select.css >>-->
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!--<< Main.css >>-->
-        <link rel="stylesheet" href="assets/css/main.css">
-        <!--<< Style.css >>-->
-        <link rel="stylesheet" href="style.css">
-    <style type="text/css" id="operaUserStyle"></style></head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="modinatheme">
+    <meta name="description" content="CCK - Plateforme de gestion des universités tunisiennes">
+    <!-- ======== Page title ============ -->
+    <title>CCK - Plateforme de gestion des universités tunisiennes</title>
+    <!--<< Favicon >>-->
+    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <!--<< Bootstrap min.css >>-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--<< Font Awesome.css >>-->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <!--<< Animate.css >>-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!--<< Magnific Popup.css >>-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--<< MeanMenu.css >>-->
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <!--<< Odometer.css >>-->
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <!--<< Swiper Bundle.css >>-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!--<< Nice Select.css >>-->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!--<< Style.css >>-->
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-
-         <!-- Preloader Start -->
-         <div id="preloader" class="preloader loaded" style="display: none;">
-            <div class="animation-preloader">
-                <div class="edu-preloader-icon"> 
-                    <img src="assets/img/preloader.gif" alt="">               
-                </div>
-                <div class="txt-loading">
-                    <span data-text-preloader="E" class="letters-loading">
-                        E
-                    </span>
-                    <span data-text-preloader="D" class="letters-loading">
-                        D
-                    </span>
-                    <span data-text-preloader="U" class="letters-loading">
-                        U
-                    </span>
-                    <span data-text-preloader="S" class="letters-loading">
-                        S
-                    </span>
-                    <span data-text-preloader="P" class="letters-loading">
-                        P
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                    <span data-text-preloader="C" class="letters-loading">
-                        C
-                    </span>
-                    <span data-text-preloader="E" class="letters-loading">
-                        E
-                    </span>
-                </div>
-                <p class="text-center">Loading</p>
+<body>
+    <!-- Preloader Start -->
+<div id="preloader" class="preloader">
+    <div class="animation-preloader">
+        <div class="edu-preloader-icon"> 
+            <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="CCK Tunisie" style="max-width: 200px;">               
+        </div>
+        <div class="txt-loading">
+            <span data-text-preloader="C" class="letters-loading" style="color: #25354A;">
+                C
+            </span>
+            <span data-text-preloader="C" class="letters-loading" style="color: #25354A;">
+                C
+            </span>
+            <span data-text-preloader="K" class="letters-loading" style="color: #25354A;">
+                K
+            </span>
+        </div>
+        <p class="text-center" style="color: #25354A; font-weight: 500; margin-top: 15px;">Chargement en cours...</p>
+    </div>
+    <div class="loader">
+        <div class="row">
+            <div class="col-3 loader-section section-left">
+                <div class="bg" style="background-color: #25354A;"></div>
             </div>
-            <div class="loader">
-                <div class="row">
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                </div>
+            <div class="col-3 loader-section section-left">
+                <div class="bg" style="background-color: #6CC1D5;"></div>
+            </div>
+            <div class="col-3 loader-section section-right">
+                <div class="bg" style="background-color: #498ED3;"></div>
+            </div>
+            <div class="col-3 loader-section section-right">
+                <div class="bg" style="background-color: #5C79A5;"></div>
             </div>
         </div>
+    </div>
+</div>
 
-        <!-- Back To Top start -->
-        <button id="back-top" class="back-to-top show">
-            <i class="fas fa-long-arrow-up"></i>
-        </button>
-
-        <!-- Offcanvas Area Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button>
-                                <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <h3 class="offcanvas-title">Hello There!</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, </p>
-                        <div class="social-icon d-flex align-items-center">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <div class="mobile-menu fix mb-3 mean-container"><div class="mean-bar"><a href="#nav" class="meanmenu-reveal" style="right: 0px; left: auto; display: inline;"><span><span><span></span></span></span></a><nav class="mean-nav">
-                                            <ul style="display: none;">
-                                                <li class="has-dropdown menu-thumb">
-                                                    <a href="index.html">
-                                                        <span class="head-icon"><i class="fas fa-home-lg"></i></span>
-                                                        Home
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu has-homemenu" style="display: none;">
-                                                        <li>
-                                                            <div class="homemenu-items">
-                                                                <div class="row">
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb">
-                                                                           <a href="index.html">
-                                                                                <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                               <a href="index.html">
-                                                                                    Education
-                                                                               </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-2.html">
-                                                                                <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-2.html">
-                                                                                    Online Course
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-3.html">
-                                                                                <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-3.html">
-                                                                                    University
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-4.html">
-                                                                                <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-4.html">
-                                                                                    Kindergarten
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-5.html">
-                                                                                <img src="assets/img/header/home-5.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-5.html">
-                                                                                    Business Coach
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Coming Soon
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Coming Soon
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Coming Soon
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
-                                                <li class="has-dropdown active d-xl-none">
-                                                    <a href="instructor.html" class="border-none">
-                                                    Home
-                                                    </a>
-                                                    <ul class="submenu" style="display: none;">
-                                                        <li><a href="index.html">Education</a></li>
-                                                        <li><a href="index-2.html">Online Course</a></li>
-                                                        <li><a href="index-3.html">University</a></li>
-                                                        <li><a href="index-4.html">Kindergarten</a></li>
-                                                        <li><a href="index-5.html">Business Coach</a></li>
-                                                    </ul>
-                                                <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
-                                                <li>
-                                                    <a href="courses-details.html">
-                                                        <span class="head-icon"><i class="fas fa-book"></i></span>
-                                                        Courses
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu" style="display: none;">
-                                                        <li><a href="courses.html">Courses</a></li>
-                                                        <li><a href="courses-grid.html">Courses Grid</a></li>
-                                                        <li><a href="courses-list.html">Courses List</a></li>
-                                                        <li><a href="courses-details.html">Courses Details 01</a></li>
-                                                        <li><a href="courses-details-2.html">Courses Details 02</a></li>
-                                                    </ul>
-                                                <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
-                                                <li>
-                                                    <a href="event-details.html">
-                                                        <span class="head-icon"><i class="fas fa-gift"></i></span>
-                                                        events
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu" style="display: none;">
-                                                        <li><a href="event.html">event</a></li>
-                                                        <li><a href="event-details.html">event Details</a></li>
-                                                    </ul>
-                                                <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
-                                                <li class="has-dropdown">
-                                                    <a href="news-details.html">
-                                                        <span class="head-icon"><i class="fas fa-file-alt"></i></span>
-                                                        Pages
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu" style="display: none;">
-                                                        <li>
-                                                            <a href="about.html">About Us</a>
-                                                        </li>
-                                                        {# <li><a href="instructor.html">Instructors</a></li>
-                                                        <li><a href="instructor-details.html">Instructor Details</a></li>
-                                                        <li><a href="program.html">program</a></li>
-                                                        <li><a href="program-details.html">program Details</a></li>
-                                                        <li class="has-dropdown">
-                                                            <a href="shop-details.html">
-                                                                Shop Page
-                                                                <i class="fas fa-angle-right"></i>
-                                                            </a>
-                                                            <ul class="submenu" style="display: none;">
-                                                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                                                <li><a href="shop-list.html">Shop List</a></li>
-                                                                <li><a href="shop-left-sidebar.html">Shop - Left Sidebar</a></li>
-                                                                <li><a href="shop-right-sidebar.html">Shop -  Right Sidebar</a></li>
-                                                                <li><a href="shop-details.html">Product Details</a></li>
-                                                                <li><a href="shop-cart.html">Shop Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
-                                                            </ul>
-                                                        <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
-                                                        <li><a href="gallery.html">Gallery</a></li>
-                                                        <li><a href="pricing.html">Pricing Plan</a></li>
-                                                        <li><a href="faq.html">Faqs</a></li> #}
-                                                        <li><a href="{{ path('app_login') }}">Sign In</a></li>
-                                                        <li><a href="{{path ('app_register')}}">register</a></li>
-                                                        {# <li><a href="404.html">404 Error</a></li> #}
-                                                    </ul>
-                                                <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
-                                                <li>
-                                                    <a href="news.html">
-                                                        <span class="head-icon"><i class="fas fa-layer-group"></i></span>
-                                                        Blog
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu" style="display: none;">
-                                                        <li><a href="news.html">Blog</a></li>
-                                                        <li><a href="news-details.html">Blog Details</a></li>
-                                                    </ul>
-                                                <a class="mean-expand" href="#" style="font-size: 18px"><i class="far fa-plus"></i></a></li>
-                                                <li class="mean-last">
-                                                    <a href="contact.html">
-                                                        <span class="head-icon"><i class="fas fa-phone-rotary"></i></span>
-                                                        Contact
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav></div></div>
-                        <div class="offcanvas__contact">
-                            <h3>Information</h3>
-                            <ul class="contact-list">
-                                <li>
-                                    <span>
-                                        Address:
-                                    </span>
-                                    7300-7398 Colonial Rd,
-                                    Brooklyn, NY 11209
-                                </li>
-                                <li>
-                                    <span>
-                                        Call Us:
-                                    </span>
-                                    <a href="tel:+00012345688">+000 123 456 88</a>
-                                </li>
-                                <li>
-                                    <span>
-                                        Email:
-                                    </span>
-                                    <a href="mailto:supportedus@gmail.com">supportedus@gmail.com</a>
-                                </li>
-                            </ul>
-                            <div class="offcanvas-button">
-                                <a href="{{ path('app_login') }}" class="theme-btn style-2"><i class="far fa-user"></i> Admin</a>
-                                <a href="register.html" class="theme-btn yellow-btn">Enroll Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
-
-        <!-- Header Section Start -->
-        <header class="header-section-3">
-            <div id="header-sticky" class="header-3 sticky">
-                <div class="container">
-                    <div class="mega-menu-wrapper">
-                        <div class="header-main">
-                            <a href="index.html" class="header-logo">
-                                <img src="assets/img/logo/white-logo-3.svg" alt="logo-img">
-                            </a>
-                            <a href="index.html" class="header-logo-2">
-                                <img src="assets/img/logo/black-logo-3.svg" alt="logo-img">
-                            </a>
-                            <div class="header-left">
-                                <div class="mean__menu-wrapper">
-                                    <div class="main-menu">
-                                        <div class="mean-push"></div><nav id="mobile-menu" style="display: none;">
-                                            <ul>
-                                                <li class="has-dropdown menu-thumb">
-                                                    <a href="index.html">
-                                                        <span class="head-icon"><i class="fas fa-home-lg"></i></span>
-                                                        Home
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu has-homemenu">
-                                                        <li>
-                                                            <div class="homemenu-items">
-                                                                <div class="row">
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb">
-                                                                           <a href="index.html">
-                                                                                <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                               <a href="index.html">
-                                                                                    Université de la Manouba
-                                                                               </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-2.html">
-                                                                                <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-2.html">
-                                                                                    Université de Tunis
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-3.html">
-                                                                                <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-3.html">
-                                                                                    Université de Carthage
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-4.html">
-                                                                                <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-4.html">
-                                                                                    Université de Sfax
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <a href="index-5.html">
-                                                                                <img src="assets/img/header/home-5.jpg" alt="img">
-                                                                           </a>
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                <a href="index-5.html">
-                                                                                    Université de Sousse 
-                                                                                </a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Université de Monastir
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Université de Tunis El Manar
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Université de Gafsa
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Université de Jendouba
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-3 homemenu">
-                                                                        <div class="homemenu-thumb mb-15">
-                                                                            <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                        </div>
-                                                                        <div class="homemenu-content text-center">
-                                                                            <h4 class="homemenu-title">
-                                                                                Université de Kairouan
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-dropdown active d-xl-none">
-                                                    <a href="instructor.html" class="border-none">
-                                                    Home
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="index.html">Education</a></li>
-                                                        <li><a href="index-2.html">Online Course</a></li>
-                                                        <li><a href="index-3.html">University</a></li>
-                                                        <li><a href="index-4.html">Kindergarten</a></li>
-                                                        <li><a href="index-5.html">Business Coach</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="courses-details.html">
-                                                        <span class="head-icon"><i class="fas fa-book"></i></span>
-                                                        Courses
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="courses.html">Courses</a></li>
-                                                        <li><a href="courses-grid.html">Courses Grid</a></li>
-                                                        <li><a href="courses-list.html">Courses List</a></li>
-                                                        <li><a href="courses-details.html">Courses Details 01</a></li>
-                                                        <li><a href="courses-details-2.html">Courses Details 02</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="event-details.html">
-                                                        <span class="head-icon"><i class="fas fa-gift"></i></span>
-                                                        events
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="event.html">event</a></li>
-                                                        <li><a href="event-details.html">event Details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-dropdown">
-                                                    <a href="news-details.html">
-                                                        <span class="head-icon"><i class="fas fa-file-alt"></i></span>
-                                                        Pages
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        {# <li>
-                                                            <a href="about.html">About Us</a>
-                                                        </li>
-                                                        <li><a href="instructor.html">Instructors</a></li>
-                                                        <li><a href="instructor-details.html">Instructor Details</a></li>
-                                                        <li><a href="program.html">program</a></li>
-                                                        <li><a href="program-details.html">program Details</a></li>
-                                                        <li class="has-dropdown">
-                                                            <a href="shop-details.html">
-                                                                Shop Page
-                                                                <i class="fas fa-angle-right"></i>
-                                                            </a>
-                                                            <ul class="submenu">
-                                                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                                                <li><a href="shop-list.html">Shop List</a></li>
-                                                                <li><a href="shop-left-sidebar.html">Shop - Left Sidebar</a></li>
-                                                                <li><a href="shop-right-sidebar.html">Shop -  Right Sidebar</a></li>
-                                                                <li><a href="shop-details.html">Product Details</a></li>
-                                                                <li><a href="shop-cart.html">Shop Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="gallery.html">Gallery</a></li>
-                                                        <li><a href="pricing.html">Pricing Plan</a></li>
-                                                        <li><a href="faq.html">Faqs</a></li> #}
-                                                        <li><a href="{{ path('app_login') }}">Sign In</a></li>
-                                                        <li><a href="{{path('app_register')}}">register</a></li>
-                                                        {# <li><a href="404.html">404 Error</a></li> #}
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="news.html">
-                                                        <span class="head-icon"><i class="fas fa-layer-group"></i></span>
-                                                        Blog
-                                                        <i class="fas fa-chevron-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="news.html">Blog</a></li>
-                                                        <li><a href="news-details.html">Blog Details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="contact.html">
-                                                        <span class="head-icon"><i class="fas fa-phone-rotary"></i></span>
-                                                        Contact
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="header-right d-flex justify-content-end align-items-center">
-                                <div class="header-search">
-                                    <button class="d-flex align-items-center search-toggle"><i class="fas fa-search"></i></button>
-                                </div>
-                                <div class="header-button">
-                                    <a href="courses-grid.html" class="theme-btn">View Courses</a>
-                                </div>
-                                <div class="header__hamburger d-xl-none my-auto">
-                                    <div class="sidebar__toggle">
-                                        <i class="fas fa-bars"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-         <!-- Search Section Start -->
-         <div class="header-search-bar d-flex align-items-center">
-            <button class="search-close">×</button>
+    <!-- Header Section Start -->
+    <header class="header-section-3">
+        <div id="header-sticky" class="header-3 sticky">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="search-bar">
-                            <div class="contact-form-box contact-search-form-box">
-                                <form action="#">
-                                    <input type="email" placeholder="Search here...">
-                                    <button type="submit"><i class="far fa-search"></i></button>
-                                </form>
-                                <p>Type above and press Enter to search. Press Close to cancel.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hero Section Start -->
-        <section class="hero-section-3 hero-3">
-            <div class="swiper hero-slider swiper-fade swiper-initialized swiper-horizontal swiper-pointer-events swiper-watch-progress swiper-backface-hidden">
-                <div class="swiper-wrapper" id="swiper-wrapper-0cf07776aed64870" aria-live="off" style="transition-duration: 3000ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="2" role="group" aria-label="3 / 3" style="width: 1073px; transition-duration: 3000ms; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-                        <div class="slider-bg bg-cover" style="background-image: url('assets/img/hero/hero-5.jpg');">
-                            <div class="overlay-bg bg-cover" style="background-image: url('assets/img/hero/ovelay-bg.png');"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row g-4 align-items-center justify-content-center">
-                                <div class="col-lg-12">
-                                    <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
-                                        <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
-                                            Unlock Your Potential
-                                            with Eduspace
-                                        </h1>
-                                        <p data-animation="fadeInUp" data-delay="1.7s" class="fadeInUp animated" style="animation-delay: 1.7s;">
-                                            Education is the cornerstone of personal and societal development, providing
-                                            individuals with the knowledge, skills, and tools needed
-                                        </p>
-                                        <div class="hero-button">
-                                            <a href="courses-details.html" data-animation="fadeInUp" data-delay="1.9s" class="theme-btn red-btn fadeInUp animated" style="animation-delay: 1.9s;">Find Your Best Courses</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 3" style="width: 1073px; transition-duration: 3000ms; opacity: 1; transform: translate3d(-1073px, 0px, 0px);">
-                        <div class="slider-bg bg-cover" style="background-image: url('assets/img/hero/hero-3.jpg');">
-                            <div class="overlay-bg bg-cover" style="background-image: url('assets/img/hero/ovelay-bg.png');"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row g-4 align-items-center justify-content-center">
-                                <div class="col-lg-12">
-                                    <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
-                                        <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
-                                            Unlock Your Potential
-                                            with Eduspace
-                                        </h1>
-                                        <p data-animation="fadeInUp" data-delay="1.7s" class="fadeInUp animated" style="animation-delay: 1.7s;">
-                                            Education is the cornerstone of personal and societal development, providing
-                                            individuals with the knowledge, skills, and tools needed
-                                        </p>
-                                        <div class="hero-button">
-                                            <a href="courses-details.html" data-animation="fadeInUp" data-delay="1.9s" class="theme-btn red-btn fadeInUp animated" style="animation-delay: 1.9s;">Find Your Best Courses</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-visible swiper-slide-active" data-swiper-slide-index="1" role="group" aria-label="2 / 3" style="width: 1073px; transition-duration: 3000ms; opacity: 1; transform: translate3d(-2146px, 0px, 0px);">
-                        <div class="slider-bg bg-cover" style="background-image: url('assets/img/hero/hero-4.jpg');">
-                            <div class="overlay-bg bg-cover" style="background-image: url('assets/img/hero/ovelay-bg.png');"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row g-4 align-items-center justify-content-center">
-                                <div class="col-lg-12">
-                                    <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
-                                        <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
-                                            Unlock Your Potential
-                                            with Eduspace
-                                        </h1>
-                                        <p data-animation="fadeInUp" data-delay="1.7s" class="fadeInUp animated" style="animation-delay: 1.7s;">
-                                            Education is the cornerstone of personal and societal development, providing
-                                            individuals with the knowledge, skills, and tools needed
-                                        </p>
-                                        <div class="hero-button">
-                                            <a href="courses-details.html" data-animation="fadeInUp" data-delay="1.9s" class="theme-btn red-btn fadeInUp animated" style="animation-delay: 1.9s;">Find Your Best Courses</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" role="group" aria-label="3 / 3" style="width: 1073px; transition-duration: 3000ms; opacity: 0; transform: translate3d(-3219px, 0px, 0px);">
-                        <div class="slider-bg bg-cover" style="background-image: url('assets/img/hero/hero-5.jpg');">
-                            <div class="overlay-bg bg-cover" style="background-image: url('assets/img/hero/ovelay-bg.png');"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row g-4 align-items-center justify-content-center">
-                                <div class="col-lg-12">
-                                    <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
-                                        <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
-                                            Unlock Your Potential
-                                            with Eduspace
-                                        </h1>
-                                        <p data-animation="fadeInUp" data-delay="1.7s" class="fadeInUp animated" style="animation-delay: 1.7s;">
-                                            Education is the cornerstone of personal and societal development, providing
-                                            individuals with the knowledge, skills, and tools needed
-                                        </p>
-                                        <div class="hero-button">
-                                            <a href="courses-details.html" data-animation="fadeInUp" data-delay="1.9s" class="theme-btn red-btn fadeInUp animated" style="animation-delay: 1.9s;">Find Your Best Courses</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 3" style="width: 1073px; transition-duration: 3000ms; opacity: 0; transform: translate3d(-4292px, 0px, 0px);">
-                        <div class="slider-bg bg-cover" style="background-image: url('assets/img/hero/hero-3.jpg');">
-                            <div class="overlay-bg bg-cover" style="background-image: url('assets/img/hero/ovelay-bg.png');"></div>
-                        </div>
-                        <div class="container">
-                            <div class="row g-4 align-items-center justify-content-center">
-                                <div class="col-lg-12">
-                                    <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp animated" style="animation-delay: 1.3s;">Welcome to CCK</h6>
-                                        <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp animated" style="animation-delay: 1.5s;">
-                                            Unlock Your Potential
-                                            with Eduspace
-                                        </h1>
-                                        <p data-animation="fadeInUp" data-delay="1.7s" class="fadeInUp animated" style="animation-delay: 1.7s;">
-                                            Education is the cornerstone of personal and societal development, providing
-                                            individuals with the knowledge, skills, and tools needed
-                                        </p>
-                                        <div class="hero-button">
-                                            <a href="courses-details.html" data-animation="fadeInUp" data-delay="1.9s" class="theme-btn red-btn fadeInUp animated" style="animation-delay: 1.9s;">Find Your Best Courses</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div>
-                <div class="array-button">
-                    <button class="array-prev" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-0cf07776aed64870"><i class="far fa-chevron-left"></i></button>
-                    <button class="array-next" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-0cf07776aed64870"><i class="far fa-chevron-right"></i></button>
-                </div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-            <div class="feature-section-3 style-margin-top section-padding pb-0">
-                <div class="container">
-                    <div class="feature-wrapper-3">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">
-                                <div class="feature-card-items">
-                                    <div class="icon">
-                                        <i class="flaticon-graduation"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h5>Scholarship Facility</h5>
-                                        <p>
-                                            Scholarship facility provides
-                                            financial assistance
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s;">
-                                <div class="feature-card-items">
-                                    <div class="icon">
-                                        <i class="flaticon-instructor"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h5>Expert Instructors</h5>
-                                        <p>
-                                            Scholarship facility provides
-                                            financial assistance
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s;">
-                                <div class="feature-card-items">
-                                    <div class="icon">
-                                        <i class="flaticon-certficate"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h5>Certificate Program</h5>
-                                        <p>
-                                            Scholarship facility provides
-                                            financial assistance
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s;">
-                                <div class="feature-card-items">
-                                    <div class="icon">
-                                        <i class="flaticon-school"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h5>Graduate Admissions</h5>
-                                        <p>
-                                            Scholarship facility provides
-                                            financial assistance
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section Start -->
-        <div class="about-section-3 section-padding">
-            <div class="container">
-                <div class="about-wrapper-2">
-                    <div class="row g-4 justify-content-between">
-                        <div class="col-xl-6 col-lg-6">
-                            <div class="about-content">
-                                <div class="section-title">
-                                    <h6 class="text-white wow fadeInUp" style="visibility: visible;">
-                                        About Eduspace
-                                    </h6>
-                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
-                                        Learner Something
-                                        about Eduspace
-                                    </h2>
-                                </div>
-                                <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s;">
-                                    A university is an institution of higher learning that provides students with opportunities for advanced education, research, and personal growth.
-                                </p>
-                                <a href="about.html" class="theme-btn red-btn wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">Learn About Us</a>
-                                <div class="about-counter-items">
-                                    <div class="counter-content wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
-                                        <h3><span class="odometer odometer-auto-theme" data-count="23"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">3</span></span></span></span></span></div></span>+</h3>
-                                        <p>Years Of Experience</p>
-                                    </div>
-                                    <div class="counter-content wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s;">
-                                        <h3><span class="odometer odometer-auto-theme" data-count="99"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">9</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">9</span></span></span></span></span></div></span>%</h3>
-                                        <p>Happy Students</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-6">
-                            <div class="about-image">
-                                <img src="assets/img/about/04.png" alt="img" class="wow img-custom-anim-left" style="visibility: visible;">
-                                <div class="bg-shape">
-                                    <img src="assets/img/about/bg-shape.png" alt="img">
-                                </div>
-                                <div class="counter-box">
-                                    <p>More then</p>
-                                    <h2><span class="odometer odometer-auto-theme" data-count="2800"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-formatting-mark">,</span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">8</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                                    <p>Quality Courses</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Marquee Section Start -->
-        <div class="marquee-section section-padding border-bottom">
-            <div class="mycustom-marque style-3">
-                <div class="scrolling-wrap">
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Popular Courses Section Start -->
-        <section class="popular-courses-section-33 fix section-padding">
-            <div class="container">
-                <div class="section-title color-red text-center">
-                    <h6 class="wow fadeInUp" style="visibility: visible;">
-                        Popular Courses
-                    </h6>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
-                        Academic Programs
-                    </h2>
-                    <p class="courses-sub-text mt-3 wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s;">Get <b>2800+ </b> Best Quality Online Courses From <b>Eduspace</b></p>
-                </div>
-                <ul class="nav mt-3 mt-md-0" role="tablist">
-                    <li class="nav-item wow fadeInUp" data-wow-delay=".2s" role="presentation" style="visibility: visible; animation-delay: 0.2s;">
-                        <a href="#Under" data-bs-toggle="tab" class="nav-link active" aria-selected="true" role="tab">
-                            Under Graduate 
+                <div class="mega-menu-wrapper">
+                    <div class="header-main">
+                        <a href="index.html" class="header-logo">
+                            <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="Logo CCK" width="100px">
                         </a>
-                    </li>
-                    <li class="nav-item wow fadeInUp" data-wow-delay=".4s" role="presentation" style="visibility: visible; animation-delay: 0.4s;">
-                        <a href="#Graduate" data-bs-toggle="tab" class="nav-link" aria-selected="false" tabindex="-1" role="tab">
-                            Graduate Program
+                        <a href="index.html" class="header-logo-2">
+                            <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="Logo CCK" width="100px">
                         </a>
-                    </li>
-                    <li class="nav-item wow fadeInUp" data-wow-delay=".6s" role="presentation" style="visibility: visible; animation-delay: 0.6s;">
-                        <a href="#Online" data-bs-toggle="tab" class="nav-link" aria-selected="false" tabindex="-1" role="tab">
-                            Online Program
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div id="Under" class="tab-pane fade show active" role="tabpanel">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                Business
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/15.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Mastering Business Strategy
-                                                From Theory to Practice
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items bg-2">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                History
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/16.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Revolution and Reform Key Turning Points in History
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items bg-3">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                Leadership
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/17.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Transformational Leadership Inspiring Organizations
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
+                        <div class="header-left">
+                            <div class="mean__menu-wrapper">
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                                                                      <li><a href="{{path('app_user_index')}}">Accueil</a></li>
+                                            <li><a href="{{path('app_view_universities')}}">Universités</a></li>
+                                            <li><a href="#">À propos</a></li>
+                                            <li><a href="#">Connexion</a></li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="Graduate" class="tab-pane fade" role="tabpanel">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                Business
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/15.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Mastering Business Strategy
-                                                From Theory to Practice
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items bg-2">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                History
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/16.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Revolution and Reform Key Turning Points in History
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items bg-3">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                Leadership
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/17.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Transformational Leadership Inspiring Organizations
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                            <div class="header-button">
+                                <a href="#" class="theme-btn" style="background-color: #6CC1D5;">Explorer les universités</a>
                             </div>
                         </div>
-                    </div>
-                    <div id="Online" class="tab-pane fade" role="tabpanel">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                Business
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/15.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Mastering Business Strategy
-                                                From Theory to Practice
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items bg-2">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                History
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/16.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Revolution and Reform Key Turning Points in History
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="popular-courses-items bg-3">
-                                    <div class="popular-thumb">
-                                        <div class="post-box">
-                                            <a href="courses-details.html" class="post-cat">
-                                                Leadership
-                                            </a>
-                                        </div>
-                                        <div class="thumb">
-                                            <img src="assets/img/courses/17.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4>
-                                            <a href="courses-details.html">
-                                                Transformational Leadership Inspiring Organizations
-                                            </a>
-                                        </h4>
-                                        <div class="star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.8/5 Reviews)</span>
-                                        </div>
-                                        <a href="courses-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Choose Us Section Start -->
-        <section class="choose-us-section-3 fix section-padding pt-0">
-           <div class="choose-us-wrapper-3">
-                <div class="row g-0">
-                    <div class="col-xxl-7 col-xl-6 col-lg-6">
-                        <div class="video-image wow img-custom-anim-left" style="visibility: visible;">
-                            <img src="assets/img/feature/video.jpg" alt="img">
-                            <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
-                                <i class="fas fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xxl-5 col-xl-6 col-lg-6">
-                        <div class="choose-content">
-                            <div class="section-title">
-                                <h6 class="text-white wow fadeInUp" style="visibility: visible;">
-                                    Why Choose Us
-                                </h6>
-                                <h2 class="text-white wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
-                                    Why Choose Our Eduspace Campus
-                                </h2>
-                            </div>
-                            <p class="mt-3 mt-md-0 text-white wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s;">
-                                We offer a diverse range of programs designed to equip students with the knowledge, skills, and real-world experience needed.
-                            </p>
-                            <div class="row">
-                                <div class="col-md-6 wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
-                                    <div class="icon-items">
-                                        <div class="icon">
-                                            <i class="flaticon-kayak"></i>
-                                        </div>
-                                        <h3>Sports &amp; Games</h3>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s;">
-                                    <div class="icon-items">
-                                        <div class="icon">
-                                            <i class="flaticon-violin"></i>
-                                        </div>
-                                        <h3>Music Arts &amp; Clubs</h3>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
-                                    <div class="icon-items">
-                                        <div class="icon">
-                                            <i class="flaticon-provision"></i>
-                                        </div>
-                                        <h3>Efficient &amp; Flexible</h3>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s;">
-                                    <div class="icon-items">
-                                        <div class="icon">
-                                            <i class="flaticon-certificate"></i>
-                                        </div>
-                                        <h3>Certified Institute</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="circle-shape">
-                                <img src="assets/img/feature/circle-shape.png" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           </div>
-        </section>
-
-        {# <!-- Event Section Start -->
-        <section class="event-section pt-0 fix section-padding">
-            <div class="container">
-                <div class="section-title color-red text-center">
-                    <h6 class="wow fadeInUp" style="visibility: visible;">
-                        Upcoming Events
-                    </h6>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s;">
-                        Webinar on Emerging Trends
-                    </h2>
-                </div>
-                <div class="event-wrapper mt-3 mt-md-0">
-                    <div class="row g-0">
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">
-                            <div class="event-card-items bg-cover" style="background-image: url('assets/img/event/02.jpg');">
-                                <div class="post-cat">
-                                    Sep 13, 2024
-                                </div>
-                                <div class="content">
-                                    <h4>
-                                        <a href="event-details.html">
-                                            Campus Innovation Day
-                                            Exploring Research
-                                        </a>
-                                    </h4>
-                                    <ul class="date-list">
-                                        <li>
-                                            <i class="far fa-map-marker-alt"></i>
-                                            New York
-                                        </li>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            09:30am
-                                        </li>
-                                    </ul>
-                                    <a href="event-details.html" class="theme-btn red-btn">View Events</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s;">
-                            <div class="event-card-items active bg-cover" style="background-image: url('assets/img/event/11.jpg');">
-                                <div class="post-cat">
-                                    Sep 13, 2024
-                                </div>
-                                <div class="content">
-                                    <h4>
-                                        <a href="event-details.html">
-                                            Leadership Summit the
-                                            Shaping Tomorrow's
-                                        </a>
-                                    </h4>
-                                    <ul class="date-list">
-                                        <li>
-                                            <i class="far fa-map-marker-alt"></i>
-                                            New York
-                                        </li>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            09:30am
-                                        </li>
-                                    </ul>
-                                    <a href="event-details.html" class="theme-btn red-btn">View Events</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s;">
-                            <div class="event-card-items bg-cover" style="background-image: url('assets/img/event/12.jpg');">
-                                <div class="post-cat">
-                                    Sep 13, 2024
-                                </div>
-                                <div class="content">
-                                    <h4>
-                                        <a href="event-details.html">
-                                            Global Education Expo Study and Programs
-                                        </a>
-                                    </h4>
-                                    <ul class="date-list">
-                                        <li>
-                                            <i class="far fa-map-marker-alt"></i>
-                                            New York
-                                        </li>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            09:30am
-                                        </li>
-                                    </ul>
-                                    <a href="event-details.html" class="theme-btn red-btn">View Events</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s;">
-                            <div class="event-card-items bg-cover" style="background-image: url('assets/img/event/13.jpg');">
-                                <div class="post-cat">
-                                    Sep 13, 2024
-                                </div>
-                                <div class="content">
-                                    <h4>
-                                        <a href="event-details.html">
-                                            Global Education Expo Study and Programs
-                                        </a>
-                                    </h4>
-                                    <ul class="date-list">
-                                        <li>
-                                            <i class="far fa-map-marker-alt"></i>
-                                            New York
-                                        </li>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            09:30am
-                                        </li>
-                                    </ul>
-                                    <a href="event-details.html" class="theme-btn red-btn">View Events</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> #}
-
-        <!-- Testimonial Section Start -->
-        <section class="testimonial-section-3 fix pt-0 section-padding bg-cover" style="background-image: url('assets/img/testimonial/bg.jpg');">
-            <div class="counter-section-2 section-padding pt-0">
-                <div class="container custom-container">
-                    <div class="counter-wrapper-2 bg-cover" style="background-image: url('assets/img/counter-bg-2.jpg');">
-                        <div class="counter-items wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">
-                            <div class="icon">
-                                <i class="flaticon-success"></i>
-                            </div>
-                            <div class="content">
-                                <h2><span class="odometer odometer-auto-theme" data-count="48.5"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">4</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">8</span></span></span></span></span><span class="odometer-formatting-mark odometer-radix-mark">.</span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span></div></span>k</h2>
-                                <p>Student Enrolled</p>
-                            </div>
-                        </div>
-                        <div class="counter-items wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s;">
-                            <div class="icon">
-                                <i class="flaticon-medal"></i>
-                            </div>
-                            <div class="content">
-                                <h2><span class="odometer odometer-auto-theme" data-count="100"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">1</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                                <p>Awards Winning</p>
-                            </div>
-                        </div>
-                        <div class="counter-items wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s;">
-                            <div class="icon">
-                                <i class="flaticon-satisfaction"></i>
-                            </div>
-                            <div class="content">
-                                <h2><span class="odometer odometer-auto-theme" data-count="99"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">9</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">9</span></span></span></span></span></div></span>%</h2>
-                                <p>Satisfaction Rate</p>
-                            </div>
-                        </div>
-                        <div class="counter-items wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s;">
-                            <div class="icon">
-                                <i class="flaticon-instructor"></i>
-                            </div>
-                            <div class="content">
-                                <h2><span class="odometer odometer-auto-theme" data-count="250"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                                <p>Instructors</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="section-title text-center">
-                    <h6 class="text-white wow fadeInUp" style="visibility: hidden; animation-name: none;">
-                        Students Reviews
-                    </h6>
-                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                        258+ Students Say About <br>
-                        Our University
-                    </h2>
-                </div>
-                <div class="swiper testimonial-slider-3 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
-                    <div class="swiper-wrapper" id="swiper-wrapper-a4808410b7d7432f7" aria-live="off" style="transition-duration: 2000ms; transform: translate3d(-1932px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" role="group" aria-label="3 / 4" data-swiper-slide-index="2" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Michael P. Comer</h3>
-                                    <span>Graphics Designer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-3.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" role="group" aria-label="4 / 4" data-swiper-slide-index="3" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Kenneth D. Warren</h3>
-                                    <span>Web Developer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-2.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" role="group" aria-label="1 / 4" data-swiper-slide-index="0" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Richard C. Andre</h3>
-                                    <span>UX/UI Designer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-1.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 4" data-swiper-slide-index="1" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Kenneth D. Warren</h3>
-                                    <span>Web Developer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-2.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 4" data-swiper-slide-index="2" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Michael P. Comer</h3>
-                                    <span>Graphics Designer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-3.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 4" data-swiper-slide-index="3" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Kenneth D. Warren</h3>
-                                    <span>Web Developer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-2.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div>
-                    <div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="1 / 4" data-swiper-slide-index="0" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Richard C. Andre</h3>
-                                    <span>UX/UI Designer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-1.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" role="group" aria-label="2 / 4" data-swiper-slide-index="1" style="width: 453px; margin-right: 30px;">
-                            <div class="testimonial-card-items">
-                                <div class="client-info">
-                                    <h3>Kenneth D. Warren</h3>
-                                    <span>Web Developer</span>
-                                </div>
-                                <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-2.png');"></div>
-                                <p>
-                                    "The course content was and easy to follow instructors were
-                                    available answer questions "
-                                </p>
-                                <div class="icon">
-                                    <i class="flaticon-double-quotes"></i>
-                                </div>
-                            </div>
-                        </div></div>
-                    <div class="swiper-dot white-color text-center mt-5">
-                        <div class="dot swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 3" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
-                    </div>
-                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-            </div>
-        </section>
-
-        <!-- Marquee Section Start -->
-        <div class="marquee-section section-padding border-bottom">
-            <div class="mycustom-marque style-3">
-                <div class="scrolling-wrap">
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> University</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Online Courses</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Learning Platforms</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
                     </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <!-- Global Partners Section Start -->
-        <section class="global-partners-section fix section-padding">
-            <div class="container">
-                <div class="global-partner-wrapper">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-lg-5">
-                            <div class="section-title color-red">
-                                <h6 class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
-                                    Global Partners
-                                </h6>
-                                <h2 class="wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                    25m+ Trusted Partners
-                                </h2>
-                                <p class="mt-3 wow fadeInUp" data-wow-delay=".5s" style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
-                                    Through one-on-one coaching sessions, they empower clients to build confidence
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="global-partner-items">
-                                <div class="row g-0">
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-6 wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                        <div class="global-logo active">
-                                            <img src="assets/img/global/01.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-6 wow fadeInUp" data-wow-delay=".5s" style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
-                                        <div class="global-logo">
-                                            <img src="assets/img/global/02.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-6 wow fadeInUp" data-wow-delay=".7s" style="visibility: hidden; animation-delay: 0.7s; animation-name: none;">
-                                        <div class="global-logo border-right-none">
-                                            <img src="assets/img/global/03.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-6 wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                        <div class="global-logo border-bottom-none">
-                                            <img src="assets/img/global/04.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-6 wow fadeInUp" data-wow-delay=".5s" style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
-                                        <div class="global-logo border-bottom-none">
-                                            <img src="assets/img/global/05.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-6 wow fadeInUp" data-wow-delay=".7s" style="visibility: hidden; animation-delay: 0.7s; animation-name: none;">
-                                        <div class="global-logo border-bottom-none border-right-none">
-                                            <img src="assets/img/global/06.png" alt="img">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Hero Section Start -->
+    <section class="hero-section-3 hero-3">
+        <div class="swiper hero-slider swiper-fade">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slider-bg bg-cover" style="background-image: url('https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/472745391_989994936493093_7037224274320717580_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=fP0xxw_KlXoQ7kNvwE893NA&_nc_oc=AdlbrjQVN76V1srI5DELHn2BDOb8olvFodMgQOU7toby2hpejXXGAse1ubSKtDADHSM&_nc_zt=23&_nc_ht=scontent.ftun10-1.fna&_nc_gid=tj8OIU1FZjwRksazAdiWYg&oh=00_AfLQf7IjxzJ6y5SXyhFQCOyBy8j4xWayPJZzUdxbnh5Ggw&oe=68401B76');">
+                        <div class="overlay-bg bg-cover" style="background-image: url('https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/472745391_989994936493093_7037224274320717580_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=fP0xxw_KlXoQ7kNvwE893NA&_nc_oc=AdlbrjQVN76V1srI5DELHn2BDOb8olvFodMgQOU7toby2hpejXXGAse1ubSKtDADHSM&_nc_zt=23&_nc_ht=scontent.ftun10-1.fna&_nc_gid=tj8OIU1FZjwRksazAdiWYg&oh=00_AfLQf7IjxzJ6y5SXyhFQCOyBy8j4xWayPJZzUdxbnh5Ggw&oe=68401B76');"></div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        {# <!-- News Section Start -->
-        <section class="news-section fix section-padding pt-0">
-            <div class="container">
-                <div class="section-title color-red text-center">
-                    <h6 class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
-                        News &amp; Blog
-                    </h6>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                        Latest News &amp; Blog
-                    </h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                        <div class="news-left-items">
-                            <div class="news-thumb">
-                                <img src="assets/img/news/08.jpg" alt="img">
-                                <a href="news-details.html" class="post-box">
-                                    History
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <ul class="post-cat">
-                                    <li>
-                                        <i class="fal fa-user"></i>
-                                        William R.
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-calendar-alt"></i>
-                                        20 Sep 2024
-                                    </li>
-                                </ul>
-                                <h3>
-                                    <a href="news-details.html">Balancing to Academics the Campus Student's Success Stories from Our Graduates</a>
-                                </h3>
-                                <a href="news-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="news-right-items">
-                            <div class="news-right-box wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                <div class="thumb">
-                                    <img src="assets/img/news/09.jpg" alt="img">
-                                    <a href="news-details.html" class="post-box">
-                                        Business
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <ul class="post-cat">
-                                        <li>
-                                            <i class="fal fa-user"></i>
-                                            Holbrook
-                                        </li>
-                                        <li>
-                                            <i class="fal fa-calendar-alt"></i>
-                                            20 Sep 2024
-                                        </li>
-                                    </ul>
-                                    <h5>
-                                        <a href="news-details.html">Power Lifelong the Learning
-                                            Education Never Stops</a>
-                                    </h5>
-                                    <a href="news-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="news-right-box wow fadeInUp" data-wow-delay=".5s" style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
-                                <div class="thumb">
-                                    <img src="assets/img/news/10.jpg" alt="img">
-                                    <a href="news-details.html" class="post-box">
-                                        Community
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <ul class="post-cat">
-                                        <li>
-                                            <i class="fal fa-user"></i>
-                                            Nathan C.
-                                        </li>
-                                        <li>
-                                            <i class="fal fa-calendar-alt"></i>
-                                            20 Sep 2024
-                                        </li>
-                                    </ul>
-                                    <h5>
-                                        <a href="news-details.html">Navigating Your to College Journey Tips for New</a>
-                                    </h5>
-                                    <a href="news-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="news-right-box wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                <div class="thumb">
-                                    <img src="assets/img/news/09.jpg" alt="img">
-                                    <a href="news-details.html" class="post-box">
-                                        Finance
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <ul class="post-cat">
-                                        <li>
-                                            <i class="fal fa-user"></i>
-                                            Ryan S.
-                                        </li>
-                                        <li>
-                                            <i class="fal fa-calendar-alt"></i>
-                                            20 Sep 2024
-                                        </li>
-                                    </ul>
-                                    <h5>
-                                        <a href="news-details.html">Balancing to Academics the
-                                            Campus Student's Guide</a>
-                                    </h5>
-                                    <a href="news-details.html" class="link-btn">Read More <i class="far fa-chevron-double-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> #}
-
-        <!-- Faq Section Start -->
-        <section class="faq-section fix section-padding pt-0">
-            <div class="container">
-                <div class="faq-wrapper style-2">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="faq-content">
-                                <div class="section-title color-red">
-                                    <h6 class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
-                                        Asked Questions
-                                    </h6>
-                                    <h2 class="wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                        Frequently Asked
-                                        Questions   
-                                    </h2>
-                                </div>
-                                <div class="faq-items mt-4 mt-md-0 mb-0">
-                                    <div class="accordion" id="accordionExample">
-                                        <div class="accordion-item wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
-                                            <h2 class="accordion-header" id="headingOne">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    What programs does the university ?
-                                                </button>
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <p>
-                                                        We offer a wide range of undergraduate, graduate, and professional programs across various fields, including, sciences, business, engineering.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item wow fadeInUp" data-wow-delay=".4s" style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
-                                            <h2 class="accordion-header" id="headingTwo">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    How do I apply for admission?
-                                                </button>
-                                            </h2>
-                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <p>
-                                                        We offer a wide range of undergraduate, graduate, and professional programs across various fields, including, sciences, business, engineering.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item wow fadeInUp" data-wow-delay=".6s" style="visibility: hidden; animation-delay: 0.6s; animation-name: none;">
-                                            <h2 class="accordion-header" id="headingthree">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree">
-                                                    What is the student-to-faculty ratio?
-                                                </button>
-                                            </h2>
-                                            <div id="collapsethree" class="accordion-collapse collapse" aria-labelledby="headingthree" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <p>
-                                                        We offer a wide range of undergraduate, graduate, and professional programs across various fields, including, sciences, business, engineering.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item mb-0 wow fadeInUp" data-wow-delay=".8s" style="visibility: hidden; animation-delay: 0.8s; animation-name: none;">
-                                            <h2 class="accordion-header" id="headingfour">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                                    What is the student-to-faculty ratio?
-                                                </button>
-                                            </h2>
-                                            <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <p>
-                                                        We offer a wide range of undergraduate, graduate, and professional programs across various fields, including, sciences, business, engineering.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                           <div class="faq-image-2">
-                                <img src="assets/img/faq/01.png" alt="img" class="wow img-custom-anim-left" style="visibility: hidden; animation-name: none;">
-                                <div class="bg-shape">
-                                    <img src="assets/img/faq/bg-shape.png" alt="img">
-                                </div>
-                                <div class="quote-shape float-bob-x">
-                                    <img src="assets/img/faq/quote-shape.png" alt="img">
-                                </div>
-                           </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {# <!-- Instagram Section Start -->
-        <div class="instagram-section fix">
-            <div class="swiper instagram-slider swiper-initialized swiper-horizontal swiper-pointer-events">
-                <div class="swiper-wrapper" id="swiper-wrapper-0c89b4596db8b7bd" aria-live="polite" style="transform: translate3d(-1073px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" role="group" aria-label="2 / 5" data-swiper-slide-index="1" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/02.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="3 / 5" data-swiper-slide-index="2" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/03.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="4 / 5" data-swiper-slide-index="3" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/04.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" role="group" aria-label="5 / 5" data-swiper-slide-index="4" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/05.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 5" data-swiper-slide-index="0" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/01.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5" data-swiper-slide-index="1" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/02.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="3 / 5" data-swiper-slide-index="2" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/03.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" role="group" aria-label="4 / 5" data-swiper-slide-index="3" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/04.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-duplicate-prev" role="group" aria-label="5 / 5" data-swiper-slide-index="4" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/05.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" role="group" aria-label="1 / 5" data-swiper-slide-index="0" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/01.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" role="group" aria-label="2 / 5" data-swiper-slide-index="1" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/02.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="3 / 5" data-swiper-slide-index="2" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/03.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="4 / 5" data-swiper-slide-index="3" style="width: 268.25px;">
-                        <div class="instagram-image">
-                            <img src="assets/img/instagram/04.jpg" alt="img">
-                            <a href="courses-details.html" class="icon"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div></div>
-            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-        </div> #}
-
-        <!-- Quality Courses Section Start -->
-        <section class="quality-coureses-section section-padding fix theme-red-bg">
-            <div class="container-fluid">
-                <div class="row g-4">
-                    <div class="col-xl-2 col-lg-6">
-                        <div class="coureses-image float-bob-x">
-                            <img src="assets/img/courses/girl.png" alt="img" class="wow img-custom-anim-left" data-wow-duration="1.5s" data-wow-delay="0.2s" style="visibility: hidden; animation-duration: 1.5s; animation-delay: 0.2s; animation-name: none;">
-                            <div class="bg-shape">
-                                <img src="assets/img/courses/bg-shape.png" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    {# <div class="col-xl-7 col-lg-6">
-                        <div class="quality-coureses-content text-center">
-                            <div class="section-title">
-                                <h6 class="text-white wow fadeInUp" style="visibility: hidden; animation-name: none;">
-                                    Quality Courses &amp; Program
-                                </h6>
-                                <h2 class="text-white wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                    Get Your Quality Skills Certificate  Through Eduspace
-                                </h2>
-                            </div>
-                            <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">We Provide 2800+ Best Quality Courses From Eduspace</p>
-                            <a href="courses-details.html" class="theme-btn wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
-                                Get Started Now
-                            </a>
-                        </div>
-                    </div> #}
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="coureses-image style-2 float-bob-y">
-                            <img src="assets/img/courses/boy.png" alt="img" class="wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.4s" style="visibility: hidden; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: none;">
-                            <div class="bg-shape">
-                                <img src="assets/img/courses/bg-shape-2.png" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Marquee Section Start -->
-        <div class="marquee-section section-padding border-bottom">
-            <div class="mycustom-marque style-3">
-                <div class="scrolling-wrap">
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                    <div class="comm">
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Manar</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Tunis</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Université Carthage</div>
-                        <div class="cmn-textslide"><i class="flaticon-mortarboard-1"></i> Live Courses</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer Section Start -->
-        <footer class="footer-section-3 fix">
-            <div class="circle-shape">
-                <img src="assets/img/footer/circle.png" alt="img">
-            </div>
-            <div class="vector-shape">
-                <img src="assets/img/footer/Vector.png" alt="img">
-            </div>
-            <div class="container">
-                <div class="footer-widget-wrapper style-2">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <a href="index.html">
-                                        <img src="assets/img/logo/black-logo-3.svg" alt="img">
-                                    </a>
-                                </div>
-                                <div class="footer-content">
-                                    <p>
-                                        Education the foundation personal and societal growth, empowering individuals with knowledge.
+                    <div class="container">
+                        <div class="row g-4 align-items-center justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="hero-content">
+                                    <h6 data-animation="fadeInUp" data-delay="1.3s" class="fadeInUp">Bienvenue sur CCK</h6>
+                                    <h1 data-animation="fadeInUp" data-delay="1.5s" class="fadeInUp" style="font-color:black;!important">
+                                        Découvrez les universités de Tunisie
+                                    </h1>
+                                    <p data-animation="fadeInUp" data-delay="1.7s" class="fadeInUp">
+                                        Explorez des établissements prestigieux comme Manar, Ghazela, Carthage et bien d'autres pour trouver votre future alma mater.
                                     </p>
-                                    <div class="social-icon">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                                        <a href="#"><i class="fab fa-behance"></i></a>
-                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <div class="hero-button">
+                                        <a href="#" data-animation="fadeInUp" data-delay="1.9s" class="theme-btn red-btn fadeInUp" style="background-color: #6CC1D5;">Explorer les universités</a>
+                                        <a href="#" data-animation="fadeInUp" data-delay="2.1s" class="theme-btn fadeInUp" style="background-color: #498ED3;">S'inscrire en tant qu'université</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 ps-lg-5 wow fadeInUp" data-wow-delay=".4s" style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                   <h3>Online Platform</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Universities Section -->
+    <section class="feature-section-3 style-margin-top section-padding pb-0">
+        <div class="container">
+            <div class="section-title text-center">
+                <h6 class="wow fadeInUp">Universités partenaires</h6>
+                <h2 class="wow fadeInUp" data-wow-delay=".3s">Découvrez les principales universités tunisiennes</h2>
+            </div>
+            <div class="feature-wrapper-3">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="feature-card-items">
+                            <div class="icon">
+                                <img src="https://utm.rnu.tn/utm/img/utm-1100.png" alt="Université Tunis El Manar" style="max-height: 60px;">
+                            </div>
+                            <div class="content">
+                                <h5>Université Tunis El Manar</h5>
+                                <p>Établissement universitaire public situé à Tunis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                        <div class="feature-card-items">
+                            <div class="icon">
+                                <img src="https://www.utctunisie.com/wp-content/uploads/2019/07/UTC-anniversaire-25-ans-1024x683.jpg" alt="Université de Carthage" style="max-height: 60px;">
+                            </div>
+                            <div class="content">
+                                <h5>Université de Carthage</h5>
+                                <p>Établissement universitaire public situé à Tunis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                        <div class="feature-card-items">
+                            <div class="icon">
+                                <img src="https://rami.tn/wp-content/uploads/2023/07/Universite-de-Sfax.webp" alt="Université de Sfax" style="max-height: 60px;">
+                            </div>
+                            <div class="content">
+                                <h5>Université de Sfax</h5>
+                                <p>Établissement universitaire public situé à Sfax</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
+                        <div class="feature-card-items">
+                            <div class="icon">
+                                <img src="https://uma.rnu.tn/userfiles/images/vlcsnap-2024-12-25-11h48m33s684(1).png" alt="Université de la Manouba" style="max-height: 60px;">
+                            </div>
+                            <div class="content">
+                                <h5>Université de la Manouba</h5>
+                                <p>Établissement universitaire public situé à Manouba</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="about-section-3 section-padding" style="background-color: #25354A;">
+        <div class="container">
+            <div class="about-wrapper-2">
+                <div class="row g-4 justify-content-between">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="about-content">
+                            <div class="section-title">
+                                <h6 class="text-white wow fadeInUp">Fonctionnalités CCK</h6>
+                                <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Découvrez notre plateforme de gestion universitaire</h2>
+                            </div>
+                            <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s" style="color: #E8ECE9;">
+                                CCK offre une solution complète pour la gestion des établissements universitaires en Tunisie, avec des outils puissants pour les administrateurs et le Ministère de l'Enseignement Supérieur.
+                            </p>
+                            <div class="about-counter-items">
+                                <div class="counter-content wow fadeInUp" data-wow-delay=".3s">
+                                    <h3><span class="odometer odometer-auto-theme" data-count="50">0</span>+</h3>
+                                    <p>Universités partenaires</p>
                                 </div>
-                                <ul class="list-area">
-                                    <li><a href="courses.html">Coursera</a></li>
-                                    <li><a href="courses.html">MasterClass</a></li>
-                                    <li><a href="courses.html">Skillshare</a></li>
-                                    <li><a href="courses.html">LinkedIn Learning</a></li>
-                                    <li><a href="courses.html">FutureLearn</a></li>
+                                <div class="counter-content wow fadeInUp" data-wow-delay=".5s">
+                                    <h3><span class="odometer odometer-auto-theme" data-count="250000">0</span>+</h3>
+                                    <p>Étudiants</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="about-image">
+                            <img src="https://wepostmag.com/wp-content/uploads/2023/11/casey-olsen-NlFyPKxXORo-unsplash-740x600.jpg" alt="Interface CCK" class="wow img-custom-anim-left">
+                            <div class="counter-box">
+                                <p>Plus de</p>
+                                <h2><span class="odometer odometer-auto-theme" data-count="1000">0</span>+</h2>
+                                <p>Programmes de formation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministry Section -->
+    <section class="choose-us-section-3 fix section-padding pt-0">
+        <div class="choose-us-wrapper-3">
+            <div class="row g-0">
+                <div class="col-xxl-7 col-xl-6 col-lg-6">
+                    <div class="video-image wow img-custom-anim-left">
+                        <img src="assets/img/feature/video.jpg" alt="Interface Ministère">
+                        <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xxl-5 col-xl-6 col-lg-6">
+                    <div class="choose-content" style="background-color: #498ED3;">
+                        <div class="section-title">
+                            <h6 class="text-white wow fadeInUp">Interface Ministère</h6>
+                            <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Supervision des établissements universitaires</h2>
+                        </div>
+                        <p class="mt-3 mt-md-0 text-white wow fadeInUp" data-wow-delay=".5s">
+                            Le Ministère de l'Enseignement Supérieur dispose d'un accès privilégié à la plateforme CCK pour superviser l'ensemble des établissements universitaires tunisiens.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="icon-items">
+                                    <div class="icon">
+                                        <i class="flaticon-kayak"></i>
+                                    </div>
+                                    <h3>Tableaux de bord</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="icon-items">
+                                    <div class="icon">
+                                        <i class="flaticon-violin"></i>
+                                    </div>
+                                    <h3>Statistiques</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="icon-items">
+                                    <div class="icon">
+                                        <i class="flaticon-provision"></i>
+                                    </div>
+                                    <h3>Rapports</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="icon-items">
+                                    <div class="icon">
+                                        <i class="flaticon-certificate"></i>
+                                    </div>
+                                    <h3>Alertes</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section-3 fix pt-0 section-padding bg-cover" style="background-image: url('https://lanouvelletribune.info/wp-content/uploads/amphi-universite.jpg');">
+        <div class="container">
+            <div class="section-title text-center">
+                <h6 class="text-white wow fadeInUp">Témoignages</h6>
+                <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">
+                    Ce que disent nos utilisateurs
+                </h2>
+            </div>
+            <div class="swiper testimonial-slider-3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card-items">
+                            <div class="client-info">
+                                <h3>Amira Ben Salah</h3>
+                                <span>Étudiante à l'Université de Tunis</span>
+                            </div>
+                            <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-1.png');"></div>
+                            <p>
+                                "Grâce à la plateforme CCK, j'ai pu trouver toutes les informations nécessaires pour choisir mon université et m'inscrire en ligne facilement."
+                            </p>
+                            <div class="icon">
+                                <i class="flaticon-double-quotes"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card-items">
+                            <div class="client-info">
+                                <h3>Mohamed Trabelsi</h3>
+                                <span>Étudiant à l'Université de Sfax</span>
+                            </div>
+                            <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-2.png');"></div>
+                            <p>
+                                "L'interface est très intuitive et m'a permis de gérer mon dossier administratif sans avoir à me déplacer à l'université."
+                            </p>
+                            <div class="icon">
+                                <i class="flaticon-double-quotes"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card-items">
+                            <div class="client-info">
+                                <h3>Fatma Karray</h3>
+                                <span>Étudiante à l'Université de Carthage</span>
+                            </div>
+                            <div class="client-img bg-cover" style="background-image: url('assets/img/testimonial/client-3.png');"></div>
+                            <p>
+                                "Je recommande cette plateforme à tous les futurs étudiants. Elle m'a beaucoup aidé dans mon orientation universitaire."
+                            </p>
+                            <div class="icon">
+                                <i class="flaticon-double-quotes"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Footer Section Start -->
+    <footer class="footer-section-3 fix">
+        <div class="container">
+            <div class="footer-widget-wrapper style-2">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <a href="index.html">
+                                    <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="CCK" width="70px">
+                                </a>
+                            </div>
+                            <div class="footer-content">
+                                <p>
+                                    Plateforme dédiée à la gestion des établissements universitaires tunisiens et à leur supervision par le Ministère de l'Enseignement Supérieur.
+                                </p>
+                                <div class="social-icon">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 ps-lg-5 wow fadeInUp" data-wow-delay=".4s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Liens rapides</h3>
+                            </div>
+                            <ul class="list-area">
+                                     <li><a href="{{path('app_user_index')}}">Accueil</a></li>
+                                 <li><a href="{{path('app_view_universities')}}">Universités</a></li>
+                                <li><a href="#">À propos</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Ressources</h3>
+                            </div>
+                            <ul class="list-area">
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Mentions légales</a></li>
+                                <li><a href="#">Politique de confidentialité</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Contact</h3>
+                            </div>
+                            <div class="footer-content">
+                                <ul class="contact-info">
+                                    <li>
+                                        Avenue Mohammed V, 
+                                        Tunis, Tunisie
+                                    </li>
+                                    <li>
+                                        <a href="mailto:contact@cck.tn" class="link">contact@cck.tn</a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:+21670000000">+216 70 000 000</a>
+                                    </li>
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s" style="visibility: hidden; animation-delay: 0.8s; animation-name: none;">
-                            <div class="single-footer-widget style-left">
-                                <div class="widget-head">
-                                   <h3>Contact Us</h3>
-                                </div>
-                                <div class="footer-content">
-                                    <ul class="contact-info">
-                                        <li>
-                                            55 Main Street, 2nd block
-                                            Malborne, Australia
-                                        </li>
-                                        <li>
-                                            <a href="mailto:info@example.com" class="link">info@example.com</a>
-                                        </li>
-                                        <li>
-                                            <a href="tel:+0001238899">+000 (123) 88 99</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp" data-wow-delay=".8s" style="visibility: hidden; animation-delay: 0.8s; animation-name: none;">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                   <h3>Newsletter</h3>
-                                </div>
-                                <div class="footer-content">
-                                    <p>Get the latest news delivered to you inbox</p>
-                                    <div class="footer-input">
-                                        <div class="icon">
-                                            <i class="far fa-envelope"></i>
-                                        </div>
-                                        <input type="email" id="email2" placeholder="Email Address">
-                                        <button class="newsletter-btn" type="submit">
-                                            Subscribe
-                                        </button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -2151,55 +439,34 @@
             <div class="footer-bottom style-3">
                 <div class="container">
                     <div class="footer-bottom-wrapper">
-                        <p>Copyright © <a href="index.html">Eduspace</a>, all rights reserved.</p>
-                        <ul class="footer-menu wow fadeInUp" data-wow-delay=".5s" style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
-                            <li>
-                                <a href="courses.html">
-                                    University 
-                                </a>
-                            </li>
-                            <li>
-                                <a href="faq.html">
-                                    FAQs 
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact.html">
-                                    Privacy Policy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="event.html">
-                                    Events
-                                </a>
-                            </li>
-                        </ul>
+                        <p>Copyright © <a href="index.html">CCK</a>, Tous droits réservés.</p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-         <!--<< All JS Plugins >>-->
-        <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <!--<< Bootstrap Js >>-->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <!--<< Nice Select Js >>-->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!--<< Odometer Js >>-->
-        <script src="assets/js/odometer.min.js"></script>
-        <!--<< Appear Js >>-->
-        <script src="assets/js/jquery.appear.min.js"></script>
-        <!--<< Swiper Slider Js >>-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <!--<< MeanMenu Js >>-->
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!--<< Magnific Popup Js >>-->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!--<< Circle Progress Js >>-->
-        <script src="assets/js/circle-progress.js"></script>
-        <!--<< Wow Animation Js >>-->
-        <script src="assets/js/wow.min.js"></script>
-        <!--<< Main.js >>-->
-        <script src="assets/js/main.js"></script>
-    
-</body></html>
+    <!--<< All JS Plugins >>-->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!--<< Nice Select Js >>-->
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <!--<< Odometer Js >>-->
+    <script src="assets/js/odometer.min.js"></script>
+    <!--<< Appear Js >>-->
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <!--<< Swiper Slider Js >>-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--<< Circle Progress Js >>-->
+    <script src="assets/js/circle-progress.js"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="assets/js/wow.min.js"></script>
+    <!--<< Main.js >>-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
