@@ -229,7 +229,7 @@ public function dashboard(Request $request): Response
             try {
                 $etudiant->setDateNaissance(new \DateTime($data['date_naissance'] ?? 'now'));
             } catch (\Exception $e) {
-                $this->addFlash('error', 'Invalid date of birth.');
+                $this->addFlash('error', 'Date de naissance non validée.');
                 return $this->redirectToRoute('etablissement_student_new');
             }
             $etudiant->setNumeroEtudiant('ETU' . time() . rand(1000, 9999));
@@ -250,12 +250,12 @@ public function dashboard(Request $request): Response
 
             $this->entityManager->persist($etudiant);
             $this->entityManager->flush();
-            $this->addFlash('success', 'Student created successfully.');
+            $this->addFlash('success', 'Etudiant créé avec succès.');
             return $this->redirectToRoute('etablissement_dashboard');
         }
 
         return $this->render('Backoffice/etablissement/student_form.html.twig', [
-            'title' => 'Add New Student',
+            'title' => 'Ajouter un Etudiant',
             'etudiant' => null,
             'action' => $this->generateUrl('etablissement_student_new'),
             'csrf_token' => $this->csrfTokenManager->getToken('student_create')->getValue(),
@@ -308,12 +308,12 @@ public function dashboard(Request $request): Response
             }
 
             $this->entityManager->flush();
-            $this->addFlash('success', 'Student updated successfully.');
+            $this->addFlash('success', 'Etudiant modifié avec succès.');
             return $this->redirectToRoute('etablissement_dashboard');
         }
 
         return $this->render('Backoffice/etablissement/student_form.html.twig', [
-            'title' => 'Edit Student',
+            'title' => 'Modifier Etudiant',
             'etudiant' => $etudiant,
             'action' => $this->generateUrl('etablissement_student_edit', ['id' => $id]),
             'csrf_token' => $this->csrfTokenManager->getToken('student_edit')->getValue(),
@@ -337,7 +337,7 @@ public function dashboard(Request $request): Response
         if ($this->csrfTokenManager->isTokenValid($token)) {
             $this->entityManager->remove($etudiant);
             $this->entityManager->flush();
-            $this->addFlash('success', 'Student deleted successfully.');
+            $this->addFlash('success', 'Etudiant supprimé avec succès.');
         } else {
             $this->addFlash('error', 'Invalid CSRF token.');
         }
@@ -447,6 +447,60 @@ public function importStudents(Request $request): Response
 
     return $this->redirectToRoute('etablissement_dashboard');
 }
+
+#[Route('/etablissement/profil', name: 'etablissement_profile')]
+#[IsGranted('ROLE_ETABLISSEMENT')]
+public function editProfile(Request $request, EntityManagerInterface $em): Response
+{
+    /** @var Etablissement $etablissement */
+    $etablissement = $this->getUser();
+
+    if (!$etablissement instanceof Etablissement) {
+        throw $this->createAccessDeniedException('Not an Etablissement account.');
+    }
+
+    if ($request->isMethod('POST')) {
+        // // Handle CSRF token
+        // if (!$this->isCsrfTokenValid('edit_profile', $request->request->get('_token'))) {
+        //     throw $this->createAccessDeniedException('Invalid CSRF token.');
+        // }
+
+        $etablissement->setNom($request->request->get('nom'));
+        $etablissement->setEmail($request->request->get('email'));
+        $etablissement->setAdresse($request->request->get('adresse'));
+        $etablissement->setVille($request->request->get('ville'));
+        $etablissement->setCodePostal($request->request->get('code_postal'));
+        $etablissement->setTelephone($request->request->get('telephone'));
+        // $etablissement->setEtype($request->request->get('etype'));
+        $etablissement->setDescription($request->request->get('description'));
+
+      // Handle file upload
+                $logoFile = $request->files->get('logo');
+                if ($logoFile) {
+                    $newFilename = uniqid().'.'.$logoFile->guessExtension();
+                    $logoFile->move(
+                        $this->getParameter('logos_directory'),
+                        $newFilename
+                    );
+                    $etablissement->setLogo($newFilename);
+                }
+
+        $em->persist($etablissement);
+        $em->flush();
+
+        $this->addFlash('success', 'Profil mis à jour avec succès.');
+
+        return $this->redirectToRoute('etablissement_profile');
+    }
+
+    return $this->render('Backoffice/etablissement/EtablissementProfile.html.twig', [
+        'etablissement' => $etablissement,
+        'action' => $this->generateUrl('etablissement_profile'),
+        'title' => 'Modifier le Profil',
+
+    ]);
+}
+
 
 
 

@@ -1,20 +1,20 @@
 {% extends 'Backoffice/base.html.twig' %}
 
-{% block title %}Ministre Dashboard{% endblock %}
+{% block title %}Tableau de bord du Ministre {% endblock %}
 
 {% block body %}
 <div class="flex h-screen bg-gray-100">
     <!-- Sidebar -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-30">
         <div class="p-6">
-            <h1 class="text-2xl font-bold text-gray-900">Ministre Dashboard</h1>
+            <h1 class="text-2xl font-bold text-gray-900">Tableau de bord du Ministre</h1>
         </div>
         <nav class="mt-6">
             <a href="{{ path('ministre_dashboard') }}" class="flex items-center px-6 py-3 text-gray-700 bg-gray-100">
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1-1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                 </svg>
-                Dashboard
+                Tableau de bord 
             </a>
             <!-- Add more navigation links as needed -->
         </nav>
@@ -31,7 +31,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
-                    <h2 class="ml-4 text-xl font-semibold text-gray-900">Overview</h2>
+                    <h2 class="ml-4 text-xl font-semibold text-gray-900">Aperçu</h2>
                 </div>
                 <div class="relative">
                     <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700">
@@ -40,8 +40,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
+                    
                     <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
-                        <a href="{{ path('app_logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onclick="openProfileModal()">Mon Profil</a>
+
+                        <a href="{{ path('app_logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Se déconnecter</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +58,7 @@
                     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-blue-500">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-medium text-gray-500">Total Universites</p>
+                                <p class="text-sm font-medium text-gray-500">Total Universités</p>
                                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalUniversites|default(0) }}</p>
                             </div>
                             <div class="p-3 bg-blue-50 rounded-lg">
@@ -68,7 +71,7 @@
                     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-green-500">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-medium text-gray-500">Total Etablissements</p>
+                                <p class="text-sm font-medium text-gray-500">Total Établissements</p>
                                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalEtablissements|default(0) }}</p>
                             </div>
                             <div class="p-3 bg-green-50 rounded-lg">
@@ -81,7 +84,7 @@
                     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-yellow-500">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-medium text-gray-500">Total Students</p>
+                                <p class="text-sm font-medium text-gray-500">Total Étudiants</p>
                                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.totalStudents|default(0) }}</p>
                             </div>
                             <div class="p-3 bg-yellow-50 rounded-lg">
@@ -94,7 +97,7 @@
                     <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-200 border-l-4 border-red-500">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-medium text-gray-500">Average Score</p>
+                                <p class="text-sm font-medium text-gray-500">Moyenne des notes</p>
                                 <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.averageScore|default(0)|round(2) }}</p>
                             </div>
                             <div class="p-3 bg-red-50 rounded-lg">
@@ -109,31 +112,31 @@
                 <!-- Charts -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                     <div class="bg-white rounded-xl shadow-sm p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Students per Universite</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Étudiants par Université</h3>
                         <div class="relative h-64">
                             <canvas id="universiteChart"></canvas>
                         </div>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Etablissement Types</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Types d'Établissement</h3>
                         <div class="relative h-64">
                             <canvas id="etypeChart"></canvas>
                         </div>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Score Distribution</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition des Scores</h3>
                         <div class="relative h-64">
                             <canvas id="scoreChart"></canvas>
                         </div>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Section Enrollment</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Élection des Sections</h3>
                         <div class="relative h-64">
                             <canvas id="sectionChart"></canvas>
                         </div>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Age Distribution</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition par Âge</h3>
                         <div class="relative h-64">
                             <canvas id="ageChart"></canvas>
                         </div>
@@ -142,15 +145,15 @@
 
                 <!-- Filters and Table -->
                 <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Etablissements</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Établissements</h3>
                     <form action="{{ path('ministre_dashboard') }}" method="get" class="mb-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div>
-                                <label for="search" class="block text-sm font-medium text-gray-700">Search</label>
-                                <input type="text" name="search" id="search" value="{{ search }}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Name or city...">
+                                <label for="search" class="block text-sm font-medium text-gray-700">Recherche</label>
+                                <input type="text" name="search" id="search" value="{{ search }}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Nom ou ville...">
                             </div>
                             <div>
-                                <label for="universite" class="block text-sm font-medium text-gray-700">Universite</label>
+                                <label for="universite" class="block text-sm font-medium text-gray-700">Université</label>
                                 <select name="universite" id="universite" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">All</option>
                                     {% for univ in universites %}
@@ -159,7 +162,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                                <label for="city" class="block text-sm font-medium text-gray-700">Ville</label>
                                 <select name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">All</option>
                                     {% for city in cities %}
@@ -178,7 +181,7 @@
                         </div>
                         <div class="mt-4 flex justify-end">
                             <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                Filter
+                                Filtrer
                             </button>
                         </div>
                     </form>
@@ -228,7 +231,7 @@
                                     </tr>
                                 {% else %}
                                     <tr>
-                                        <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">No Etablissements found.</td>
+                                        <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">Aucun Établissement trouvé.</td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
@@ -254,17 +257,17 @@
                 </div>
                 <!-- Universities Table -->
     <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Universites</h3>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Universités</h3>
         <form action="{{ path('ministre_dashboard') }}" method="get" class="mb-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
-                    <label for="search" class="block text-sm font-medium text-gray-700">Search</label>
-                    <input type="text" name="search" id="search" value="{{ search }}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Name...">
+                    <label for="search" class="block text-sm font-medium text-gray-700">Recherche</label>
+                    <input type="text" name="search" id="search" value="{{ search }}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Nom...">
                 </div>
                 <div>
-                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                    <label for="city" class="block text-sm font-medium text-gray-700">Ville</label>
                     <select name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="">All</option>
+                        <option value="">Tous</option>
                         {% for city in cities %}
                             <option value="{{ city }}" {{ city == city ? 'selected' }}>{{ city }}</option>
                         {% endfor %}
@@ -273,7 +276,7 @@
                 <div>
                     <label for="etype" class="block text-sm font-medium text-gray-700">Type</label>
                     <select name="etype" id="etype" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="">All</option>
+                        <option value="">Tous</option>
                         <option value="Publique" {{ etype == 'Publique' ? 'selected' }}>Publique</option>
                         <option value="Privée" {{ etype == 'Privée' ? 'selected' }}>Privée</option>
                     </select>
@@ -281,7 +284,7 @@
             </div>
             <div class="mt-4 flex justify-end">
                 <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Filter
+                    Filtrer
                 </button>
             </div>
         </form>
@@ -291,9 +294,9 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Etablissements</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Students</th>
-                        <th class="px დ6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Établissements</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Étudiants</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -307,7 +310,7 @@
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="4" class="px-6 py-4 text-center text-sm text-gray-500">No Universites found.</td>
+                            <td colspan="4" class="px-6 py-4 text-center text-sm text-gray-500">Aucune Université trouvée.</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -335,12 +338,57 @@
         </main>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div id="profile-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg w-full max-w-md">
+        <form method="POST" action="{{ path('ministre_update_profile') }}">
+            <h2 class="text-lg font-bold mb-4">Edit Profile</h2>
+            
+            <div class="mb-4">
+                <label class="block mb-1">Nom</label>
+                <input type="text" name="nom" value="{{ ministre.nom }}" required class="w-full border px-3 py-2 rounded">
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1">Email</label>
+                <input type="email" name="email" value="{{ ministre.email }}" required class="w-full border px-3 py-2 rounded">
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1">Nouveau mot de passe</label>
+                <input type="password" name="password" class="w-full border px-3 py-2 rounded" placeholder="Laisser vide pour conserver le mot de passe actuel">
+            </div>
+
+            <div class="flex justify-end space-x-2">
+                <button type="button" onclick="closeProfileModal()" class="px-4 py-2 bg-gray-500 text-white rounded">Annuler</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
 
 {% block javascripts %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    window.openProfileModal = function () {
+        const modal = document.getElementById('profile-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+    };
+
+    window.closeProfileModal = function () {
+        const modal = document.getElementById('profile-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    };
+});
     // Sidebar toggle for mobile
     document.getElementById('sidebar-toggle').addEventListener('click', function() {
         document.getElementById('sidebar').classList.toggle('-translate-x-full');

@@ -46,8 +46,10 @@ security:
         - { path: ^/register, roles: PUBLIC_ACCESS }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/universite, roles: ROLE_UNIVERSITE }
-        # - { path: ^/etablissement, roles: ROLE_ETABLISSEMENT }
+        - { path: ^/etablissement, roles: ROLE_ETABLISSEMENT }
+        - { path: ^/ministre, roles: ROLE_MINISTRE }
         - { path: ^/, roles: PUBLIC_ACCESS }
+        
 
 when@test:
     security:

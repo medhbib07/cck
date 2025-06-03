@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <!--<< Style.css >>-->
     <link rel="stylesheet" href="style.css">
+    <!--<< Chatbot.css >>-->
+        <link rel="stylesheet" href="assets/css/chatbot.css">
+
 </head>
 
 <body>
@@ -91,7 +94,7 @@
                                                                                       <li><a href="{{path('app_user_index')}}">Accueil</a></li>
                                             <li><a href="{{path('app_view_universities')}}">Universités</a></li>
                                             <li><a href="#">À propos</a></li>
-                                            <li><a href="#">Connexion</a></li>
+                                            <li><a href="{{path('app_login')}}">Connexion</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -362,6 +365,22 @@
     </section>
 
   
+<!-- Floating Robot Button -->
+<div id="chatbot-toggle" onclick="toggleChatbot()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+        <path d="M320 32a32 32 0 1 0-32-32 32 32 0 0 0 32 32zm0 64a64 64 0 0 0-64 64v16H128a32 32 0 0 0-32 32v80a32 32 0 0 0 32 32v128a64 64 0 0 0 64 64h256a64 64 0 0 0 64-64V320a32 32 0 0 0 32-32v-80a32 32 0 0 0-32-32H384v-16a64 64 0 0 0-64-64zm-96 192a32 32 0 1 1 32 32 32 32 0 0 1-32-32zm160 0a32 32 0 1 1 32 32 32 32 0 0 1-32-32z"/>
+    </svg>
+</div>
+
+<!-- Chatbot Modal -->
+<div id="chatbot-modal">
+    <div id="chatbot-header">🤖 Assistant CCK</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <input type="text" id="user-message" placeholder="Demandez quelque chose..." />
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+</div>
 
     <!-- Footer Section Start -->
     <footer class="footer-section-3 fix">
@@ -468,5 +487,32 @@
     <script src="assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
+    
+<script>
+    function toggleChatbot() {
+        const modal = document.getElementById('chatbot-modal');
+        modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    async function sendMessage() {
+        const input = document.getElementById('user-message');
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        const messages = document.getElementById('chatbot-messages');
+        messages.innerHTML += `<div><strong>Vous:</strong> ${msg}</div>`;
+        input.value = "";
+
+        const response = await fetch('/chatbot', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ message: msg })
+        });
+
+        const data = await response.json();
+        messages.innerHTML += `<div><strong>Assistant CCK:</strong> ${data.reply}</div>`;
+        messages.scrollTop = messages.scrollHeight;
+    }
+</script>
 </body>
 </html>

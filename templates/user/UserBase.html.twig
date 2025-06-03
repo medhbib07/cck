@@ -202,278 +202,43 @@
         </div>
         <div class="offcanvas__overlay"></div>
 
-        <!-- Header Section Start -->
-        <header id="header-sticky" class="header-1">
-            <div class="container-fluid">
+       
+    <!-- Header Section Start -->
+    <header class="header-section-3">
+        <div id="header-sticky" class="header-3 sticky">
+            <div class="container">
                 <div class="mega-menu-wrapper">
                     <div class="header-main">
+                        <a href="index.html" class="header-logo">
+                            <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="Logo CCK" width="100px">
+                        </a>
+                        <a href="index.html" class="header-logo-2">
+                            <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="Logo CCK" width="100px">
+                        </a>
                         <div class="header-left">
-                            <div class="logo">
-                                <a href="index.html" class="header-logo">
-                                    <img src="{{ asset('assets/img/logo/black-logo.svg') }}" alt="img">
-                                </a>
-                            </div>
-                            <div class="category-oneadjust">
-                               <div class="dot">
-                                    <img src="{{ asset('assets/img/logo/dot.png') }}" alt="img">
-                               </div>
-                                {# <select name="cate" class="category">
-                                   
-                                    <option value="1">
-                                        Category
-                                    </option>
-                                    <option value="1">
-                                        Web Design
-                                    </option>
-                                    <option value="1">
-                                        Web Development
-                                    </option>
-                                    <option value="1">
-                                        Graphic Design
-                                    </option>
-                                    <option value="1">
-                                        Software Eng
-                                    </option>
-                                </select> #}
-                            </div>
-                        </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
                             <div class="mean__menu-wrapper">
                                 <div class="main-menu">
                                     <nav id="mobile-menu">
                                         <ul>
-                                            <li class="has-dropdown menu-thumb">
-                                                <a href="{{ path('app_home') }}">
-                                                    <span class="head-icon"><i class="fas fa-home-lg"></i></span>
-                                                    Home
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu has-homemenu">
-                                                    <li>
-                                                        <div class="homemenu-items">
-                                                            <div class="row">
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb">
-                                                                       <a href="index.html">
-                                                                            <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                       </a>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                           <a href="index.html">
-                                                                                Education
-                                                                           </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <a href="index-2.html">
-                                                                            <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                       </a>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            <a href="index-2.html">
-                                                                                Online Course
-                                                                            </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <a href="index-3.html">
-                                                                            <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                       </a>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            <a href="index-3.html">
-                                                                                University
-                                                                            </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <a href="index-4.html">
-                                                                            <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                       </a>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            <a href="index-4.html">
-                                                                                Kindergarten
-                                                                            </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <a href="index-5.html">
-                                                                            <img src="assets/img/header/home-5.jpg" alt="img">
-                                                                       </a>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            <a href="index-5.html">
-                                                                                Business Coach
-                                                                            </a>
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Coming Soon
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Coming Soon
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-6.jpg" alt="img">
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Coming Soon
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown active d-xl-none">
-                                                <a href="instructor.html" class="border-none">
-                                                Home
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="index.html">Education</a></li>
-                                                    <li><a href="index-2.html">Online Course</a></li>
-                                                    <li><a href="index-3.html">University</a></li>
-                                                    <li><a href="index-4.html">Kindergarten</a></li>
-                                                    <li><a href="index-5.html">Business Coach</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="courses-details.html">
-                                                    <span class="head-icon"><i class="fas fa-book"></i></span>
-                                                    Courses
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="courses.html">Courses</a></li>
-                                                    <li><a href="courses-grid.html">Courses Grid</a></li>
-                                                    <li><a href="courses-list.html">Courses List</a></li>
-                                                    <li><a href="courses-details.html">Courses Details 01</a></li>
-                                                    <li><a href="courses-details-2.html">Courses Details 02</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="event-details.html">
-                                                    <span class="head-icon"><i class="fas fa-gift"></i></span>
-                                                    events
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="event.html">event</a></li>
-                                                    <li><a href="event-details.html">event Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="news-details.html">
-                                                    <span class="head-icon"><i class="fas fa-file-alt"></i></span>
-                                                    Pages
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    {# <li>
-                                                        <a href="about.html">About Us</a>
-                                                    </li>
-                                                    <li><a href="instructor.html">Instructors</a></li>
-                                                    <li><a href="instructor-details.html">Instructor Details</a></li>
-                                                    <li><a href="program.html">program</a></li>
-                                                    <li><a href="program-details.html">program Details</a></li>
-                                                    <li class="has-dropdown">
-                                                        <a href="shop-details.html">
-                                                            Shop Page
-                                                            <i class="fas fa-angle-right"></i>
-                                                        </a>
-                                                        <ul class="submenu">
-                                                            <li><a href="shop-grid.html">Shop Grid</a></li>
-                                                            <li><a href="shop-list.html">Shop List</a></li>
-                                                            <li><a href="shop-left-sidebar.html">Shop - Left Sidebar</a></li>
-                                                            <li><a href="shop-right-sidebar.html">Shop -  Right Sidebar</a></li>
-                                                            <li><a href="shop-details.html">Product Details</a></li>
-                                                            <li><a href="shop-cart.html">Shop Cart</a></li>
-                                                            <li><a href="checkout.html">Checkout</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="gallery.html">Gallery</a></li>
-                                                    <li><a href="pricing.html">Pricing Plan</a></li>
-                                                    <li><a href="faq.html">Faqs</a></li> #}
-                                                    <li><a href="{{ path('app_login') }}">Sign In</a></li>
-                                                    <li><a href="{{ path('app_register') }}">register</a></li>
-                                                    {# <li><a href="404.html">404 Error</a></li> #}
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="news.html">
-                                                    <span class="head-icon"><i class="fas fa-layer-group"></i></span>
-                                                    Blog
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="news.html">Blog</a></li>
-                                                    <li><a href="news-details.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <span class="head-icon"><i class="fas fa-phone-rotary"></i></span>
-                                                    Contact
-                                                </a>
-                                            </li>
+                                                                                      <li><a href="{{path('app_user_index')}}">Accueil</a></li>
+                                            <li><a href="{{path('app_view_universities')}}">Universités</a></li>
+                                            <li><a href="#">À propos</a></li>
+                                            <li><a href="{{path('app_login')}}">Connexion</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
-                            <div class="header-search">
-                                <button class="d-flex align-items-center search-toggle"><i class="fas fa-search"></i></button>
-                            </div>
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
                             <div class="header-button">
-                                <a href="sign-in.html" class="theme-btn style-2"><i class="far fa-user"></i> Admin</a>
-                                <a href="register.html" class="theme-btn yellow-btn">Enroll Now</a>
-                            </div>
-                            <div class="header__hamburger d-xl-none my-auto">
-                                <div class="sidebar__toggle">
-                                    <div class="header-bar">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
+                                <a href="#" class="theme-btn" style="background-color: #6CC1D5;">Explorer les universités</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
-
+        </div>
+    </header>
         <!-- Search Section Start -->
         {# <div class="header-search-bar d-flex align-items-center">
             <button class="search-close">×</button>
@@ -565,97 +330,91 @@
             </div>
         </div>
 
-        <!-- Footer Section Start -->
-        <footer class="footer-section fix footer-bg">
-            <div class="container">
-                <div class="footer-widget-wrapper">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <a href="index.html">
-                                        <img src="{{ asset('assets/img/logo/white-logo.svg') }}" alt="img">
-                                    </a>
-                                </div>
-                                <div class="footer-content">
-                                    <p>
-                                        Education the foundation personal and societal growth, empowering individuals with knowledge.
-                                    </p>
-                                    <div class="social-icon">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                                        <a href="#"><i class="fab fa-behance"></i></a>
-                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
+       
+
+    <!-- Footer Section Start -->
+    <footer class="footer-section-3 fix">
+        <div class="container">
+            <div class="footer-widget-wrapper style-2">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <a href="index.html">
+                                    <img src="https://touritage.rnu.tn/wp-content/uploads/2023/09/logo_cck-mesrs_tunisie_800-768x540-1.png" alt="CCK" width="70px">
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 ps-lg-5 wow fadeInUp" data-wow-delay=".4s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                   <h3>Online Platform</h3>
-                                </div>
-                                <ul class="list-area">
-                                    <li><a href="courses.html">Coursera</a></li>
-                                    <li><a href="courses.html">MasterClass</a></li>
-                                    <li><a href="courses.html">Skillshare</a></li>
-                                    <li><a href="courses.html">LinkedIn Learning</a></li>
-                                    <li><a href="courses.html">FutureLearn</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 ps-lg-5 wow fadeInUp" data-wow-delay=".6s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                   <h3>Quick Link</h3>
-                                </div>
-                                <ul class="list-area">
-                                    <li><a href="about.html">About Eduspace</a></li>
-                                    <li><a href="instructor.html">Instructors</a></li>
-                                    <li><a href="courses.html">Best Courses</a></li>
-                                    <li><a href="contact.html">Student Reviews</a></li>
-                                    <li><a href="faq.html">FAQs</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 ps-xl-5 wow fadeInUp" data-wow-delay=".8s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                   <h3>Contact Us</h3>
-                                </div>
-                                <div class="footer-content">
-                                    <ul class="contact-info">
-                                        <li>
-                                            55 Main Street, 2nd block
-                                            Malborne, Australia
-                                        </li>
-                                        <li>
-                                            55 Main Street, 2nd block
-                                            Malborne, Australia
-                                        </li>
-                                        <li>
-                                            <a href="mailto:info@example.com" class="link">info@example.com</a>
-                                        </li>
-                                        <li>
-                                            <a href="tel:+0001238899">+000 (123) 88 99</a>
-                                        </li>
-                                    </ul>
+                            <div class="footer-content">
+                                <p>
+                                    Plateforme dédiée à la gestion des établissements universitaires tunisiens et à leur supervision par le Ministère de l'Enseignement Supérieur.
+                                </p>
+                                <div class="social-icon">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>Copyright © <a href="index.html">Eduspace</a>, all rights reserved.</p>
+                    <div class="col-xl-3 col-lg-4 col-md-6 ps-lg-5 wow fadeInUp" data-wow-delay=".4s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Liens rapides</h3>
+                            </div>
+                            <ul class="list-area">
+                                     <li><a href="{{path('app_user_index')}}">Accueil</a></li>
+                                 <li><a href="{{path('app_view_universities')}}">Universités</a></li>
+                                <li><a href="#">À propos</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Ressources</h3>
+                            </div>
+                            <ul class="list-area">
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Mentions légales</a></li>
+                                <li><a href="#">Politique de confidentialité</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                               <h3>Contact</h3>
+                            </div>
+                            <div class="footer-content">
+                                <ul class="contact-info">
+                                    <li>
+                                        Avenue Mohammed V, 
+                                        Tunis, Tunisie
+                                    </li>
+                                    <li>
+                                        <a href="mailto:contact@cck.tn" class="link">contact@cck.tn</a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:+21670000000">+216 70 000 000</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-name">
-                <h2>
-                    Eduspace
-                </h2>
+            <div class="footer-bottom style-3">
+                <div class="container">
+                    <div class="footer-bottom-wrapper">
+                        <p>Copyright © <a href="index.html">CCK</a>, Tous droits réservés.</p>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
+    </footer>
+
 
          <!--<< All JS Plugins >>-->
         <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>

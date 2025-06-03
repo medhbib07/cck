@@ -63,6 +63,9 @@ public function authenticate(Request $request): Passport
         } elseif (in_array('ROLE_ETABLISSEMENT', $user->getRoles(), true)) {
             return new RedirectResponse($this->urlGenerator->generate('etablissement_dashboard'));
         }
+        elseif (in_array('ROLE_MINISTRE', $user->getRoles(), true)) {
+            return new RedirectResponse($this->urlGenerator->generate('ministre_dashboard'));
+        }
 
         // Default redirect for other users
         return new RedirectResponse($this->urlGenerator->generate('user_profile'));
