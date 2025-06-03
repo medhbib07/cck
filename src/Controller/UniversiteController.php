@@ -77,11 +77,63 @@ class UniversiteController extends AbstractController
         // Get statistics
         $stats = $em->getRepository(Etablissement::class)
             ->getEstablishmentStats($universite);
+
+             if ($request->query->get('export') === 'csv') {
+        $filename = 'etablissements_' . date('Ymd_His') . '.csv';
+
+        $response = new Response();
+        $response->headers->set('Content-Type', 'text/csv');
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . $filename . '"');
+
+        $handle = fopen('php://output', 'w+');
+
+        // Add UTF-8 BOM to fix Excel encoding issues
+        fprintf($handle, chr(0xEF).chr(0xBB).chr(0xBF));
+
+        // CSV header
+        fputcsv($handle, ['Name', 'Type', 'Location', 'Website', 'Email']);
+
+        // CSV content
+        foreach ($establishments as $etablissement) {
+            fputcsv($handle, [
+                $etablissement->getNom(),
+                $etablissement->getEtype(),
+                $etablissement->getVille(),
+                $etablissement->getAdresse(),
+                $etablissement->getCodePostal(),
+                $etablissement->getSiteweb() ?? 'N/A',
+                $etablissement->getEmail()
+            ]);
+        }
+
+        fclose($handle);
+        $response->send();
+        exit; // stop further rendering
+    }
     
-        // // Handle PDF export
-        // if ($request->query->get('export') === 'pdf') {
-        //     return $this->exportToPdf($establishments, $universite);
-        // }
+       // Check if export requested
+        if ($request->query->get('export') === 'pdf') {
+            // Configure Dompdf
+            $options = new Options();
+            $options->set('defaultFont', 'Arial');
+            $dompdf = new Dompdf($options);
+
+            // Render HTML from Twig
+            $html = $this->renderView('Backoffice/universite/pdf_export.html.twig', [
+                'universite' => $universite,
+                'establishments' => $establishments,
+                'date' => new \DateTime(),
+            ]);
+
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+
+            // Stream PDF to browser
+            return new Response($dompdf->stream('etablissements.pdf', [
+                'Attachment' => true, // set to false to show in browser
+            ]));
+        }
     
         return $this->render('Backoffice/universite/dashboard.html.twig', [
             'establishments' => $establishments,
@@ -350,6 +402,8 @@ class UniversiteController extends AbstractController
             // Re-render the dashboard with errors
             $establishments = $em->getRepository(Etablissement::class)->findBy(['groupe' => $universite]);
             $stats = $em->getRepository(Etablissement::class)->getEstablishmentStats($universite);
+            $em->flush();
+            $this->addFlash('success', 'Établissement mis à jour avec succès.');
 
             return $this->render('Backoffice/universite/dashboard.html.twig', [
                 'establishments' => $establishments,
@@ -379,8 +433,6 @@ class UniversiteController extends AbstractController
             ]);
         
 
-        $em->flush();
-        $this->addFlash('success', 'Établissement mis à jour avec succès.');
         return $this->redirectToRoute('universite_index');
     }
 

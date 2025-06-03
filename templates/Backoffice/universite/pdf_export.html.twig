@@ -13,16 +13,17 @@ x<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <h1>Establishments List - {{ universite.nom }}</h1>
-    <p>Generated on: {{ date|date('Y-m-d H:i') }}</p>
-    
+    <h1>Liste d'établissements - {{ universite.nom }}</h1>
+    <p>Généré à : {{ date|date('Y-m-d H:i') }}</p>
+
     <table>
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Type</th>
-                <th>Location</th>
-                <th>Website</th>
+                <th>Localisation</th>
+                <th>Adresse</th>
+                <th>Site Web</th>
                 <th>Email</th>
             </tr>
         </thead>
@@ -31,7 +32,8 @@ x<!DOCTYPE html>
             <tr>
                 <td>{{ etablissement.nom }}</td>
                 <td>{{ etablissement.etype }}</td>
-                <td>{{ etablissement.localisation }}</td>
+                <td>{{ etablissement.ville }}</td>
+                <td>{{ etablissement.adresse }}</td>
                 <td>{{ etablissement.siteweb ?? 'N/A' }}</td>
                 <td>{{ etablissement.email }}</td>
             </tr>

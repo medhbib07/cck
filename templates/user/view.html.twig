@@ -641,6 +641,8 @@
                                             <li><a href="{{path('app_view_universities')}}">Universités</a></li>
                                             <li><a href="#">À propos</a></li>
                                             <li><a href="#">Contact</a></li>
+                                            <li><a href="{{ path('app_login') }}">Connexion</a></li>
+
                                         </ul>
                                     </nav>
                                 </div>
@@ -768,25 +770,25 @@
                     <div class="row">
                         <div class="col-md-3 col-6">
                             <div class="stat-item">
-                                <div class="stat-number" data-count="24">0</div>
+                                <div class="stat-number" data-count="24">{{ totalUniversites}}</div>
                                 <div class="stat-label">Universités</div>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="stat-item">
-                                <div class="stat-number" data-count="186">0</div>
+                                <div class="stat-number" data-count="186">{{ totalEtablissements }}</div>
                                 <div class="stat-label">Établissements</div>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="stat-item">
-                                <div class="stat-number" data-count="350">0</div>
+                                <div class="stat-number" data-count="350">160</div>
                                 <div class="stat-label">Formations</div>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="stat-item">
-                                <div class="stat-number" data-count="250000">0</div>
+                                <div class="stat-number">{{ totalEtudiants }}</div>
                                 <div class="stat-label">Étudiants</div>
                             </div>
                         </div>
@@ -812,7 +814,7 @@
                                 <div class="establishment-card" data-bs-toggle="modal" data-bs-target="#establishmentModal" data-id="{{ etablissement.id }}">
                                     <div class="establishment-image">
                                         {% if etablissement.logo %}
-                                            <img src="{{ asset('uploads/establishments/' ~ etablissement.logo) }}" alt="{{ etablissement.nom }}">
+                                            <img src="{{ asset('uploads/logos/' ~ etablissement.logo) }}" alt="{{ etablissement.nom }}">
                                         {% else %}
                                             <img src="{{ asset('img/default-establishment.jpg') }}" alt="Default establishment image">
                                         {% endif %}

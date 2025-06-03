@@ -18,6 +18,7 @@ use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Knp\Snappy\Pdf;
 use League\Csv\Writer;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 #[Route('/etablissement')]
 class EtablissementController extends AbstractController
@@ -446,6 +447,151 @@ public function importStudents(Request $request): Response
     }
 
     return $this->redirectToRoute('etablissement_dashboard');
+}
+
+ #[Route('/import-students_csv', name: 'etablissement_import_students_csv', methods: ['POST'])]
+     public function importCsv(Request $request): RedirectResponse
+    {
+        $token = new CsrfToken('import_students_csv', $request->request->get('_token'));
+        if (!$this->csrfTokenManager->isTokenValid($token)) {
+            $this->addFlash('error', 'Jeton CSRF invalide.');
+            return $this->redirectToRoute('etablissement_dashboard');
+        }
+
+        $csvFile = $request->files->get('csv_file');
+        if (!$csvFile || $csvFile->getClientOriginalExtension() !== 'csv') {
+            $this->addFlash('error', 'Fichier CSV invalide.');
+            return $this->redirectToRoute('etablissement_dashboard');
+        }
+
+        $handle = fopen($csvFile->getRealPath(), 'r');
+        if ($handle === false) {
+            $this->addFlash('error', 'Impossible de lire le fichier.');
+            return $this->redirectToRoute('etablissement_dashboard');
+        }
+
+        // Assuming the CSV header exactly matches these columns in order:
+        // nom, prenom, email, dateNaissance (Y-m-d), numeroEtudiant, numCin, section, score, niveau, localisation, etablissement_id
+        $header = fgetcsv($handle, 1000, ',');
+        $countInserted = 0;
+        $countSkipped = 0;
+
+        while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+            // Check for duplicates by email or numeroEtudiant or numCin
+            $existing = $this->entityManager->getRepository(Etudiant::class)->findOneBy([
+                'email' => $data[2],
+            ]);
+            if ($existing) {
+                $countSkipped++;
+                continue; // skip duplicates by email
+            }
+            $existing = $this->entityManager->getRepository(Etudiant::class)->findOneBy([
+                'numeroEtudiant' => $data[4],
+            ]);
+            if ($existing) {
+                $countSkipped++;
+                continue;
+            }
+            $existing = $this->entityManager->getRepository(Etudiant::class)->findOneBy([
+                'numCin' => $data[5],
+            ]);
+            if ($existing) {
+                $countSkipped++;
+                continue;
+            }
+
+            $student = new Etudiant();
+            $student->setNom($data[0]);
+            $student->setPrenom($data[1]);
+            $student->setEmail($data[2]);
+
+            try {
+                $dateNaissance = new \DateTime($data[3]);
+                $student->setDateNaissance($dateNaissance);
+            } catch (\Exception $e) {
+                $countSkipped++;
+                continue; // skip if invalid date format
+            }
+
+            $student->setNumeroEtudiant($data[4]);
+            $student->setNumCin($data[5]);
+            $student->setSection($data[6]);
+
+            // score can be empty
+            $score = is_numeric($data[7]) ? (float)$data[7] : null;
+            $student->setScore($score);
+
+            $student->setNiveau($data[8]);
+            $student->setLocalisation($data[9]);
+
+            // Find Etablissement entity by ID or any identifier you have
+            $etablissementId = $data[10];
+            $etablissement = $this->etablissementRepository->find($etablissementId);
+            if (!$etablissement) {
+                $countSkipped++;
+                continue; // skip if etablissement not found
+            }
+            $student->setEtablissement($etablissement);
+
+            $this->entityManager->persist($student);
+            $countInserted++;
+        }
+
+        fclose($handle);
+        $this->entityManager->flush();
+
+        $this->addFlash('success', sprintf('Import terminé : %d ajoutés, %d ignorés.', $countInserted, $countSkipped));
+
+        return $this->redirectToRoute('etablissement_dashboard');
+    }
+
+    #[Route('/etablissement/{id}/export-students_csv', name: 'etablissement_export_students_csv')]
+public function exportCsv(
+    int $id,
+    EtablissementRepository $etablissementRepository,
+    EtudiantRepository $etudiantRepository
+): Response {
+    $etablissement = $etablissementRepository->find($id);
+    if (!$etablissement) {
+        throw $this->createNotFoundException('Etablissement not found.');
+    }
+
+    $etudiants = $etudiantRepository->findBy(['etablissement' => $etablissement]);
+
+    $response = new StreamedResponse(function () use ($etudiants) {
+        $handle = fopen('php://output', 'w');
+
+        // CSV headers
+        fputcsv($handle, [
+            'Nom', 'Prénom', 'Email', 'Date de naissance', 'Num Etudiant',
+            'CIN', 'Section', 'Score', 'Niveau', 'Localisation'
+        ]);
+
+        // Data rows
+        foreach ($etudiants as $etudiant) {
+            fputcsv($handle, [
+                $etudiant->getNom(),
+                $etudiant->getPrenom(),
+                $etudiant->getEmail(),
+                $etudiant->getDateNaissance()?->format('Y-m-d'),
+                $etudiant->getNumeroEtudiant(),
+                $etudiant->getNumCin(),
+                $etudiant->getSection(),
+                $etudiant->getScore(),
+                $etudiant->getNiveau(),
+                $etudiant->getLocalisation(),
+            ]);
+        }
+
+        fclose($handle);
+    });
+
+    $filename = 'etudiants_etablissement_' . $etablissement->getId() . '.csv';
+
+    $response->headers->set('Content-Type', 'text/csv');
+    $response->headers->set('Content-Disposition', 'attachment; filename="' . $filename . '"');
+
+    return $response;
 }
 
 #[Route('/etablissement/profil', name: 'etablissement_profile')]

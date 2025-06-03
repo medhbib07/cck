@@ -191,6 +191,13 @@
             </svg>
             Exporter En PDF
         </a>
+        <a href="{{ path('universite_index', {'export': 'csv'}) }}" 
+           class="w-full md:w-auto flex items-center justify-center gap-2 text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+            </svg>
+            Exporter En CSV
+        </a>
             <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" type="button" class="w-full sm:w-auto flex items-center justify-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
@@ -331,12 +338,12 @@
         </div>
     </div>
 
-    <!-- Student Type Distribution Chart -->
+    {# <!-- Student Type Distribution Chart -->
     <div class="bg-white p-4 rounded-lg shadow">
     <h3 class="text-lg font-semibold mb-4">Répartition des étudiants par type d'établissement</h3>
     <div class="chart-container" style="position: relative; height: 300px;">
         <canvas id="studentTypeChart"></canvas>
-    </div>
+    </div> #}
 </div>
 
 </div>
@@ -547,7 +554,13 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
 
+    document.querySelector('#password + button').addEventListener('click', function () {
+        const input = document.getElementById('password');
+        input.type = input.type === 'password' ? 'text' : 'password';
+    });
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const map = L.map('map').setView([36.8065, 10.1815], 7); 
@@ -723,7 +736,7 @@ const studentsCtx = document.getElementById('studentsChart');
     const establishmentForm = document.getElementById('establishment-form');
     const establishmentIdInput = document.getElementById('establishment-id');
 
-    window.openModal = function(button = null) {
+    window.openModal = function(button) {
         if (!modal) return;
 
         const isEdit = button && button.dataset.id;
